@@ -6,20 +6,25 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/07 13:44:20 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/07 20:07:28 by dcoat       ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/09 15:14:27 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = ft_printf
 
-SRC =
+SRC = main.c \
+	  ft_printf.c \
+	  determ_data.c \
+	  add_conversion.c \
+	  conversion_type.c \
+	  free.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -g3 -Wall -Werror -Wextra
 
 LIBFT = ./libftprintf/
 
@@ -29,7 +34,7 @@ all : libs $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT.A)
 		@$(CC) -o $(NAME) $(OBJ) $(LIBFT.A)
-		@echo "\033[1;32mFDF				OK\033[0m"
+		@echo "\033[1;32mFT_PRINTF				OK\033[0m"
 
 libs:
 		@(cd $(LIBFT) && $(MAKE))
@@ -41,12 +46,12 @@ clean:
 		@rm -f $(OBJ)
 		@rm -f *.gch
 		@(cd $(LIBFT) && $(MAKE) $@)
-		@echo "\033[1;31mCLEAN FDF			OK\033[0m"
+		@echo "\033[1;31mCLEAN FT_PRINTF			OK\033[0m"
 
 fclean: clean
 		@rm -f $(NAME)
 		@(cd $(LIBFT) && $(MAKE) $@)
-		@echo "\033[1;31mFCLEAN FDF			OK\033[0m"
+		@echo "\033[1;31mFCLEAN FT_PRINTF			OK\033[0m"
 
 re: fclean all
 
