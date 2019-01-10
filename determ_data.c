@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 11:22:05 by dcoat       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 12:59:13 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,11 +45,13 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 
 	data->conv_type = -1;
 	conv_types = "cspfdiouxXCSDU";
+//	printf("format :[%c]\n",format[i]), fflush(stdout);
 	while (conv_types[++data->conv_type] && conv_types[data->conv_type] != format[i])
 	{
-		if (format[i] == conv_types[++data->conv_type])
+		if (format[i] == conv_types[data->conv_type])
 			conv = conv_types[data->conv_type];
 	}
+	printf("conv : %d \n", data->conv_type), fflush(stdout);
 	return (conv);
 }
 

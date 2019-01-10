@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 11:23:33 by dcoat       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 12:52:58 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,9 +35,11 @@ char		*s_conv(va_list va)
 
 	i = 0;
 	len = ft_strlen((char*)va);
+	printf("len : %d \n", len), fflush(stdout);
 	if (!(string = (char*)malloc(sizeof(char) * len + 1)))
 		exit (-1);
 	string = (char*)va;
+	printf("str : /%s/", string), fflush(stdout);
 	return (string);
 }
 
