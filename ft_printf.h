@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/09 15:25:12 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/09 15:53:36 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,13 +56,26 @@ char				*add_char_end_string(char *flag, char *format, int i);
 */
 
 char				*add_conversion_output(t_data data, char *output, va_list va);
-char				*conversion_type(int conv_type, char *output, va_list va);
+char				*conversion_type(int conv_type, va_list va);
 
 /*
 **		CONVERSION_TYPE.C
 */
 
-char				*c_conv(char *output, va_list va);
+char				*c_conv(va_list va);
+char				*s_conv(va_list va);
+char				*p_conv(char *output, va_list va);
+char				*f_conv(char *output, va_list va);
+char				*d_conv(char *output, va_list va);
+char				*i_conv(char *output, va_list va);
+char				*o_conv(char *output, va_list va);
+char				*u_conv(char *output, va_list va);
+char				*x_conv(char *output, va_list va);
+char				*X_conv(char *output, va_list va);
+char				*C_conv(char *output, va_list va);
+char				*S_conv(char *output, va_list va);
+char				*D_conv(char *output, va_list va);
+char				*U_conv(char *output, va_list va);
 
 /*
 **		FREE.C
