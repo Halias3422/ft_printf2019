@@ -6,12 +6,12 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/08 13:02:19 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2018/10/24 12:43:03 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/07 20:17:27 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

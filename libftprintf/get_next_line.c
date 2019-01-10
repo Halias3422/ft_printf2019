@@ -6,12 +6,12 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/26 13:29:35 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/02 12:31:04 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/09 10:48:01 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "includes/get_next_line.h"
+#include "get_next_line.h"
 
 static int			ft_fill_line(char **line, t_gnlist *list, char *str)
 {
