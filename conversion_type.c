@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 15:47:56 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:25:20 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,9 +17,9 @@
 **	GETTING CHAR CONV
 */
 
-char		*c_conv(va_list va)
+char				*c_conv(va_list va)
 {
-	char	*letter;
+	char			*letter;
 
 	letter = ft_strnew(1);
 	letter[0] = va_arg(va, int);
@@ -27,18 +27,18 @@ char		*c_conv(va_list va)
 	return (letter);
 }
 
-char		*s_conv(va_list va)
+char				*s_conv(va_list va)
 {
-	char	*string;
+	char			*string;
 
 	string = va_arg(va, char*);
 	printf("str : /%s/\n", string), fflush(stdout);
 	return (string);
 }
 
-char		*p_conv(va_list va)
+char				*p_conv(va_list va)
 {
-	void	*address;
+	void			*address;
 
 	address = va_arg(va, char*);
 	address = ft_itoh((long long)address);
@@ -46,15 +46,23 @@ char		*p_conv(va_list va)
 	printf("address = %s\n", address), fflush(stdout);
 	return(address);
 }
-/*
-char		*f_conv(char *output, va_list va)
-{
 
-	return(output);
+char				*u_conv(va_list va)
+{
+	unsigned int	nb;
+	char			*num;
+
+	nb = va_arg(va, unsigned int);
+	num = ft_itoa(nb);
+	return(num);
 }
 
-char		*d_conv(char *output, va_list va)
+char		*d_conv(va_list va)
 {
+	int		nb;
+	char	*num;
 
-	return(output);
-}*/
+	nb = va_arg(va, int);
+	num = ft_itoa(nb);
+	return(num);
+}

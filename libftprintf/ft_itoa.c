@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/05 15:29:35 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2018/10/10 12:11:38 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:32:01 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ static int	ft_count_length(int n)
 	return (a);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long long n)
 {
 	char	*dest;
 	int		a;

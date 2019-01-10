@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 13:18:24 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:23:00 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,10 +66,10 @@ char				*c_conv(va_list va);
 char				*s_conv(va_list va);
 char				*p_conv(va_list va);
 char				*f_conv(char *output, va_list va);
-char				*d_conv(char *output, va_list va);
-char				*i_conv(char *output, va_list va);
+char				*d_conv(va_list va);
+char				*i_conv(va_list va);
 char				*o_conv(char *output, va_list va);
-char				*u_conv(char *output, va_list va);
+char				*u_conv(va_list va);
 char				*x_conv(char *output, va_list va);
 char				*X_conv(char *output, va_list va);
 char				*C_conv(char *output, va_list va);

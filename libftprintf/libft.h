@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/03 17:33:24 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 14:19:18 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:32:13 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -86,7 +86,7 @@ void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
 char				**ft_strsplit(char const *s, char c);
 void				ft_strdel(char **as);
-char				*ft_itoa(int n);
+char				*ft_itoa(long long n);
 
 /*
 ** BONUS PROTOTYPES

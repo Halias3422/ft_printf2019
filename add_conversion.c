@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 13:23:47 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:30:30 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,16 +26,12 @@ char		*conversion_type(int conv_type, va_list va)
 	conv_pt[1] = &(s_conv);
 	conv_pt[2] = &(p_conv);
 //	conv_pt[3] = &(f_conv);
-//	conv_pt[4] = &(d_conv);
-//	conv_pt[5] = &(i_conv);
+	conv_pt[4] = &(d_conv);
+	conv_pt[5] = &(d_conv);
 //	conv_pt[6] = &(o_conv);
-//	conv_pt[7] = &(u_conv);
+	conv_pt[7] = &(u_conv);
 //	conv_pt[8] = &(x_conv);
 //	conv_pt[9] = &(X_conv);
-//	conv_pt[10] = &(C_conv);
-//	conv_pt[11] = &(S_conv);
-//	conv_pt[12] = &(D_conv);
-//	conv_pt[13] = &(U_conv);
 	arg = (*conv_pt[conv_type])(va);
 	return (arg);
 }

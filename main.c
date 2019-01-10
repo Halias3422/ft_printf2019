@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 13:16:40 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:35:40 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ int			main(void)
 	char	*pt;
 
 	pt = "bibou";
-	printf("Coucou mon cochon %p\n%d\n", pt, 36);
-	ft_printf("Coucou mon cochon %p\n\n\n\n", pt, 36);
+	printf("Coucou mon cochon %o\n", 53789421);
+	ft_printf("Coucou mon cochon %u\n\n\n\n", 53, 36);
 	return (0);
 }
