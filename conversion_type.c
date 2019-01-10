@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 12:52:58 by dcoat       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 13:28:58 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,25 +30,23 @@ char		*c_conv(va_list va)
 char		*s_conv(va_list va)
 {
 	char	*string;
-	int		len;
-	int		i;
 
-	i = 0;
-	len = ft_strlen((char*)va);
-	printf("len : %d \n", len), fflush(stdout);
-	if (!(string = (char*)malloc(sizeof(char) * len + 1)))
-		exit (-1);
-	string = (char*)va;
-	printf("str : /%s/", string), fflush(stdout);
+	string = va_arg(va, char*);
+	printf("str : /%s/\n", string), fflush(stdout);
 	return (string);
 }
 
-/*char		*p_conv(char *output, va_list va)
+char		*p_conv(va_list va)
 {
+	void	*address;
+	long long p;
 
-	return(output);
+	address = va_arg(va, char*);
+	p = (long long)address;
+	printf("address = %lld\n", p), fflush(stdout);
+	return(address);
 }
-
+/*
 char		*f_conv(char *output, va_list va)
 {
 

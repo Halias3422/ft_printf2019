@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/09 15:53:36 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 13:18:24 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,7 +64,7 @@ char				*conversion_type(int conv_type, va_list va);
 
 char				*c_conv(va_list va);
 char				*s_conv(va_list va);
-char				*p_conv(char *output, va_list va);
+char				*p_conv(va_list va);
 char				*f_conv(char *output, va_list va);
 char				*d_conv(char *output, va_list va);
 char				*i_conv(char *output, va_list va);
