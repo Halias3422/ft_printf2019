@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/09 15:27:16 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 11:22:05 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,11 +69,12 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 		data.flag = add_char_end_string(data.flag, format, i++);
 	while (format[i] >= '0' && format[i] <= '9')
 		data.tmp_width = add_char_end_string(data.tmp_width, format, i++);
-	data.width = ft_atoi(data.tmp_width);
-	if (format[i++] == '.')
+	if (ft_strlen(data.tmp_width) >= 1)
+		data.width = ft_atoi(data.tmp_width);
+	if (format[i] == '.')
 	{
-		while (format[i] >= '0' && format[i] <= '9')
-			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i++);
+		while (format[++i] >= '0' && format[i] <= '9')
+			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i);
 		data.prec = ft_atoi(data.tmp_prec);
 	}
 	while (format[i] == 'h' || format[i] == 'l' || format[i] == 'L' || format[i] == 'j' || format[i] == 't' || format[i] == 'z')

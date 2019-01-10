@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/09 15:59:41 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 11:23:33 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ char		*c_conv(va_list va)
 	return (letter);
 }
 
-/*char		*s_conv(va_list va)
+char		*s_conv(va_list va)
 {
 	char	*string;
 	int		len;
@@ -39,7 +39,7 @@ char		*c_conv(va_list va)
 		exit (-1);
 	string = (char*)va;
 	return (string);
-}*/
+}
 
 /*char		*p_conv(char *output, va_list va)
 {

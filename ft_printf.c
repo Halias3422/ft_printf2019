@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/09 15:52:45 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 10:50:30 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,7 +56,7 @@ int				ft_printf(const char * restrict format, ...)
 		ft_putnbr(nb);
 		i += 2;*/
 	va_end(va);
-//	ft_putstr(output);
+	ft_putstr(output);
 	free(output);
 	return (0);
 }
