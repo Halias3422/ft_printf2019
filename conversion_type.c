@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 16:25:20 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 16:53:59 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,22 +47,22 @@ char				*p_conv(va_list va)
 	return(address);
 }
 
-char				*u_conv(va_list va)
-{
-	unsigned int	nb;
-	char			*num;
-
-	nb = va_arg(va, unsigned int);
-	num = ft_itoa(nb);
-	return(num);
-}
-
 char		*d_conv(va_list va)
 {
 	int		nb;
 	char	*num;
 
 	nb = va_arg(va, int);
+	num = ft_itoa(nb);
+	return(num);
+}
+
+char				*u_conv(va_list va)
+{
+	unsigned int	nb;
+	char			*num;
+
+	nb = va_arg(va, unsigned int);
 	num = ft_itoa(nb);
 	return(num);
 }
