@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 13:52:42 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 15:47:56 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,11 +39,11 @@ char		*s_conv(va_list va)
 char		*p_conv(va_list va)
 {
 	void	*address;
-	long long p;
 
 	address = va_arg(va, char*);
-	p = (long long)address;
-	printf("address = %s\n", ft_itoh(p)), fflush(stdout);
+	address = ft_itoh((long long)address);
+	address = ft_strjoin("0x", address);
+	printf("address = %s\n", address), fflush(stdout);
 	return(address);
 }
 /*
