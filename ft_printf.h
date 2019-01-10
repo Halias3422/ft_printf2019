@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 16:23:00 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 17:14:59 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,7 +49,8 @@ char				*init_output(char *format, char *output);
 
 char				*determ_data(char *format, char *output, va_list va, int i);
 char				determ_conv(t_data *data, char conv, char *format, int i);
-char				*add_char_end_string(char *flag, char *format, int i);
+char				*add_char_end_string(char *dest, char *lett, int i);
+char				*add_char_begin_string(char *dest, char *lett);
 
 /*
 **		ADD_CONVERSION.C
@@ -57,6 +58,7 @@ char				*add_char_end_string(char *flag, char *format, int i);
 
 char				*add_conversion_output(t_data data, char *output, va_list va);
 char				*conversion_type(int conv_type, va_list va);
+char				*add_flag_to_conv(t_data data, char *arg);
 
 /*
 **		CONVERSION_TYPE.C

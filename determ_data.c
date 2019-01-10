@@ -6,33 +6,51 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 12:59:13 by dcoat       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 17:19:12 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+char		*add_char_begin_string(char *dest, char *lett)
+{
+	char	*tmp;
+	size_t	j;
+	int		i;
+
+	j = 0;
+	i = 0;
+	if (!(tmp = (char*)malloc(sizeof(char) * ft_strlen(dest) + 2)))
+		exit (-1);
+	tmp[j] = lett[0];
+	while (j < ft_strlen(dest) + 1)
+		tmp[++j] = dest[i++];
+	tmp[j] = '\0';
+	dest = ft_strcpy(dest, tmp);
+	return (dest);
+}
+
 /*
 **	FT ALLOWS TO ADD CHAR AT THE END OF STRING
 */
 
-char		*add_char_end_string(char *flag, char *format, int i)
+char		*add_char_end_string(char *dest, char *lett, int i)
 {
 	char	*tmp;
 	int		j;
 
 	j = -1;
-	if (!(tmp = (char*)malloc(sizeof(char) * ft_strlen(flag) + 2)))
+	if (!(tmp = (char*)malloc(sizeof(char) * ft_strlen(dest) + 2)))
 		exit (-1);
-	while (flag[++j])
-		tmp[j] = flag[j];
-	tmp[j] = format[i];
+	while (dest[++j])
+		tmp[j] = dest[j];
+	tmp[j] = lett[i];
 	j++;
 	tmp[j] = '\0';
-	flag = ft_strcpy(flag, tmp);
+	dest = ft_strcpy(dest, tmp);
 	free (tmp);
-	return (flag);
+	return (dest);
 }
 
 /*
