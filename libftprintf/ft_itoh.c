@@ -47,5 +47,5 @@ char			*ft_itoh(long long n)
 		n /= 16;
 	}
 	hex[++i] = '\0';
-	return (hex);
+	return (ft_strrev(hex));
 }
