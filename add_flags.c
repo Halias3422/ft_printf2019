@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 16:56:07 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 17:13:22 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,7 @@ char				*flag_minus(t_data data, char *arg)
 
 	i = -1;
 	right_width = ft_strnew(data.width);
-	while (++i <= (data.width - ft_strlen(arg)))
+	while (++i < (data.width - ft_strlen(arg)))
 		right_width[i] = ' ';
 	arg = ft_strjoin(arg, right_width);
 	free (right_width);
