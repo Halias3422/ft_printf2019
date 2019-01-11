@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 17:01:56 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 17:51:43 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ char				*fill_string_output(char *format, char *output, int i)
 	int				k;
 	int				initial_i;
 	char			*tmp;
+	char			*tmp2;
 
 	j = -1;
 	initial_i = i;
@@ -33,7 +34,9 @@ char				*fill_string_output(char *format, char *output, int i)
 	while (++j < i - initial_i)
 		tmp[j] = format[k++];
 	tmp[j] = '\0';
+	tmp2 = output;
 	output = ft_strjoin(output, tmp);
+	free(tmp2);
 	free (tmp);
 	return (output);
 }
