@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/07 13:44:20 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/11 10:52:04 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/11 14:05:12 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -19,6 +19,7 @@ SRC = main.c \
 	  add_conversion.c \
 	  conversion_type.c \
 	  conversion_type2.c \
+	  add_flags.c \
 	  free.c
 
 OBJ = $(SRC:.c=.o)

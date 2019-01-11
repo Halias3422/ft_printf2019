@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 12:48:49 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 16:59:09 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,7 @@ char		*add_char_begin_string(char *dest, char *lett)
 		tmp[++j] = dest[i++];
 	tmp[j] = '\0';
 	dest = ft_strcpy(dest, tmp);
+	free (tmp);
 	return (dest);
 }
 
@@ -63,13 +64,11 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 
 	data->conv_type = -1;
 	conv_types = "cspfdiouxXCSDU";
-//	printf("format :[%c]\n",format[i]), fflush(stdout);
 	while (conv_types[++data->conv_type] && conv_types[data->conv_type] != format[i])
 	{
 		if (format[i] == conv_types[data->conv_type])
 			conv = conv_types[data->conv_type];
 	}
-	printf("conv : %d \n", data->conv_type), fflush(stdout);
 	return (conv);
 }
 
@@ -96,7 +95,6 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 		while (format[++i] >= '0' && format[i] <= '9')
 			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i);
 		data.prec = ft_atoi(data.tmp_prec);
-		printf("tmp_prec = %s\n", data.tmp_prec);
 	}
 	while (format[i] == 'h' || format[i] == 'l' || format[i] == 'L' || format[i] == 'j' || format[i] == 't' || format[i] == 'z')
 		data.length = add_char_end_string(data.length, format, i++);

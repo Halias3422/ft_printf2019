@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 11:10:33 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 17:01:12 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,14 +34,22 @@ typedef struct		s_data
 	char			*length;
 }					t_data;
 
-
+typedef struct		s_length
+{
+	char			*flags;
+	char			*nb;
+	char			*length;
+	char			*conv;
+}					t_length;
 
 /*
 **		FT_PRINTF.C
 */
 
-int					ft_printf(const char * restrict format, ...);
-char				*init_output(char *format, char *output);
+int					ft_printf(const char *restrict format, ...);
+char				*fill_string_output(char *format, char *output, int i);
+int					is_contained_in(char *format, char *compare, int i);
+int					count_all_datas(char *format, int i);
 
 /*
 **		DETERM_DATA.C
@@ -58,10 +66,9 @@ char				*add_char_begin_string(char *dest, char *lett);
 
 char				*add_conversion_output(t_data data, char *output, va_list va);
 char				*conversion_type(int conv_type, va_list va);
-char				*add_flag_to_conv(t_data data, char *arg);
 
 /*
-**		CONVERSION_TYPE.C
+**		CONVERSION_TYPE.C 1 && 2
 */
 
 char				*c_conv(va_list va);
@@ -69,11 +76,18 @@ char				*s_conv(va_list va);
 char				*p_conv(va_list va);
 char				*f_conv(va_list va);
 char				*d_conv(va_list va);
-char				*i_conv(va_list va);
 char				*o_conv(va_list va);
 char				*u_conv(va_list va);
 char				*x_conv(va_list va);
 char				*X_conv(va_list va);
+
+
+/*
+**		ADD_FLAGS.C
+*/
+char				*add_flag_to_conv(t_data data, char *arg);
+char				*flag_diez(t_data data, char *arg);
+char				*flag_minus(t_data data, char *arg);
 
 /*
 **		FREE.C

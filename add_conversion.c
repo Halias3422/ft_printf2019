@@ -6,44 +6,12 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 12:50:40 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 17:07:10 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char		*add_flag_to_conv(t_data data, char *arg)
-{
-	int		i;
-
-	i = -1;
-	while (data.flag[++i])
-	{
-		//if (data.flag[i] == '0')
-
-		if (data.flag[i] == '+')
-		{
-			if (arg[0] != '-')
-			{
-				add_char_begin_string(arg, "+");
-			}
-		}
-		//else if (data.flag[i] == '-')
-
-		else if (data.flag[i] == '#')
-		{
-				if (data.conv_type == 6 && ft_strlen(data.tmp_prec) == 0)
-					arg = ft_strjoin("0", arg);
-				if (data.conv_type == 8)
-					arg = ft_strjoin("0x", arg);
-				if (data.conv_type == 9)
-					arg = ft_strjoin("0X", arg);
-		}
-
-	}
-	return (arg);
-}
 
 /*
 **	INIT OF ARRAY OF POINTER ON FT AND SELECTING ACCORDING FT
@@ -71,9 +39,15 @@ char		*conversion_type(int conv_type, va_list va)
 char		*add_conversion_output(t_data data, char *output, va_list va)
 {
 	char	*arg;
+//	char	*tmp;
 
+//	tmp = ft_strnew(0);
 	arg = conversion_type(data.conv_type, va);
 	arg = add_flag_to_conv(data, arg);
+//	tmp = ft_strjoin(output, arg);
 	output = ft_strjoin(output, arg);
+//	output = ft_strcpy(output, tmp);
+	free (arg);
+//	free (tmp);
 	return (output);
 }
