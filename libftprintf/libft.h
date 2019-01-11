@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/03 17:33:24 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 16:32:13 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 10:50:37 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -111,7 +111,7 @@ int					ft_islower(int c);
 t_list				*ft_list_last(t_list *lst);
 int					*ft_range(int min, int max);
 char				*ft_strrev(char *str);
-
+char				*ft_itooct(long long nb);
 char				*ft_itoh(long long n);
 
 #endif

@@ -1,22 +1,48 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   conversion_type2.c                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 12:51:10 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
+/*   Updated: 2019/01/11 11:13:43 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			main(void)
+char			*o_conv(va_list va)
 {
+	long long	nb;
+	char		*num;
 
-	printf("Coucou mon cochon /%#o/\n", 5);
-	ft_printf("Coucou mon cochon /%#o/\n\n\n\n", 5);
-	return (0);
+	num = ft_itooct(nb = va_arg(va, long long));
+	return (num);
+}
+
+char			*x_conv(va_list va)
+{
+	long long	nb;
+	char		*num;
+
+	num = ft_itoh(nb = va_arg(va, long long));
+	return (num);
+}
+
+char			*X_conv(va_list va)
+{
+	long long	nb;
+	char		*num;
+	int			i;
+
+	i = -1;
+	num = ft_itoh(nb = va_arg(va, long long));
+	while (num[++i])
+	{
+		if (num[i] >= 'a' && num[i] <= 'f')
+			num[i] = num[i] - 32;
+	}
+	return (num);
 }

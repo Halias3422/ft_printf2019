@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 13:13:00 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 11:10:09 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,9 +52,6 @@ int				ft_printf(const char * restrict format, ...)
 		i++;
 	if (format[i] != '\0')
 		output = determ_data((char*)format, output, va, ++i);
-		/*nb = va_arg(va, int);
-		ft_putnbr(nb);
-		i += 2;*/
 	va_end(va);
 	ft_putstr(output);
 	free(output);

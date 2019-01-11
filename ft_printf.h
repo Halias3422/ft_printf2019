@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 17:14:59 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 11:10:33 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,17 +67,13 @@ char				*add_flag_to_conv(t_data data, char *arg);
 char				*c_conv(va_list va);
 char				*s_conv(va_list va);
 char				*p_conv(va_list va);
-char				*f_conv(char *output, va_list va);
+char				*f_conv(va_list va);
 char				*d_conv(va_list va);
 char				*i_conv(va_list va);
-char				*o_conv(char *output, va_list va);
+char				*o_conv(va_list va);
 char				*u_conv(va_list va);
-char				*x_conv(char *output, va_list va);
-char				*X_conv(char *output, va_list va);
-char				*C_conv(char *output, va_list va);
-char				*S_conv(char *output, va_list va);
-char				*D_conv(char *output, va_list va);
-char				*U_conv(char *output, va_list va);
+char				*x_conv(va_list va);
+char				*X_conv(va_list va);
 
 /*
 **		FREE.C

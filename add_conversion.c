@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 17:17:15 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/11 12:50:40 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,9 +29,17 @@ char		*add_flag_to_conv(t_data data, char *arg)
 				add_char_begin_string(arg, "+");
 			}
 		}
-		/*else if (data.flag[i] == '-')
+		//else if (data.flag[i] == '-')
 
-		else if (data.flag[i] == '#')*/
+		else if (data.flag[i] == '#')
+		{
+				if (data.conv_type == 6 && ft_strlen(data.tmp_prec) == 0)
+					arg = ft_strjoin("0", arg);
+				if (data.conv_type == 8)
+					arg = ft_strjoin("0x", arg);
+				if (data.conv_type == 9)
+					arg = ft_strjoin("0X", arg);
+		}
 
 	}
 	return (arg);
@@ -52,10 +60,10 @@ char		*conversion_type(int conv_type, va_list va)
 //	conv_pt[3] = &(f_conv);
 	conv_pt[4] = &(d_conv);
 	conv_pt[5] = &(d_conv);
-//	conv_pt[6] = &(o_conv);
+	conv_pt[6] = &(o_conv);
 	conv_pt[7] = &(u_conv);
-//	conv_pt[8] = &(x_conv);
-//	conv_pt[9] = &(X_conv);
+	conv_pt[8] = &(x_conv);
+	conv_pt[9] = &(X_conv);
 	arg = (*conv_pt[conv_type])(va);
 	return (arg);
 }

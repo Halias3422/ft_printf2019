@@ -32,12 +32,11 @@ char			*ft_itoh(long long n)
 	hbase = ft_strdup("0123456789abcdef");
 	hex = malloc(sizeof(char) * hexlen(n));
 	if (!n)
-		while (i < 2)
+		while (i < 1)
 			hex[i++] = '0';
 	if (n <= 15 && n != 0)
 	{
 		hex[i] = hbase[n % 16];
-		hex[++i] = '0';
 		i++;
 		n /= 16;
 	}
@@ -46,6 +45,6 @@ char			*ft_itoh(long long n)
 		hex = itoh_putbase(n, i++, hex, hbase);
 		n /= 16;
 	}
-	hex[++i] = '\0';
+	hex[i] = '\0';
 	return (ft_strrev(hex));
 }
