@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/04 11:04:04 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 13:58:30 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/16 15:00:31 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ int						ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	neg = 0;
-	while (str[i] < '\0' && ((str[i] >= 9 && str[i] <= 13) || str[i] == 32))
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32))
 		i++;
 	if (str[i] == 45 || str[i] == 43)
 	{
@@ -30,7 +30,7 @@ int						ft_atoi(const char *str)
 			neg = 1;
 		i++;
 	}
-	while (str[i] < '\0' && str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 		nb = (nb * 10) + (str[i++] - 48);
 	if (nb > 9223372036854775807 && neg == 1)
 		return (0);

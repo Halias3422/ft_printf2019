@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 14:03:08 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/16 16:21:15 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,25 +16,32 @@
 char				*flag_minus(t_data data, char *arg)
 {
 	char			*right_width;
-	unsigned long	i;
+	int				i;
+	char			*tmp;
 
 	i = -1;
 	right_width = ft_strnew(data.width);
-	while (++i < (data.width - ft_strlen(arg)))
+	while (++i < (data.width - (int)ft_strlen(arg)))
 		right_width[i] = ' ';
+	tmp = arg;
 	arg = ft_strjoin(arg, right_width);
+	free(tmp);
 	free (right_width);
 	return (arg);
 }
 
 char			*flag_diez(t_data data, char *arg)
 {
+	char		*tmp;
+
+	tmp = arg;
 	if (data.conv_type == 6 && ft_strlen(data.tmp_prec) == 0)
 		arg = ft_strjoin("0", arg);
 	if (data.conv_type == 8)
 		arg = ft_strjoin("0x", arg);
 	if (data.conv_type == 9)
 		arg = ft_strjoin("0X", arg);
+	free (tmp);
 	return (arg);
 }
 
@@ -46,7 +53,6 @@ char			*add_flag_to_conv(t_data data, char *arg)
 	while (data.flag[++i])
 	{
 		//if (data.flag[i] == '0')
-
 		if (data.flag[i] == '+')
 		{
 			if (arg[0] != '-')

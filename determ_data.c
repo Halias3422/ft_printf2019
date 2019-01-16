@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 17:59:14 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/16 16:21:37 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,6 +39,7 @@ char		*add_char_begin_string(char *dest, char *lett)
 char		*add_char_end_string(char *dest, char *lett, int i)
 {
 	char	*tmp;
+//	char	*tmp_dest;
 	int		j;
 
 	j = -1;
@@ -49,6 +50,10 @@ char		*add_char_end_string(char *dest, char *lett, int i)
 	tmp[j] = lett[i];
 	j++;
 	tmp[j] = '\0';
+	free(dest);
+	dest = ft_strnew(ft_strlen(tmp));
+//	tmp_dest = ft_strnew(ft_strlen(tmp));
+//	tmp_dest = ft_strcpy(dest, tmp);
 	dest = ft_strcpy(dest, tmp);
 	free (tmp);
 	return (dest);
