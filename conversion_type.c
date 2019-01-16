@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 16:21:35 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/16 17:31:03 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,18 +30,27 @@ char				*c_conv(va_list va)
 char				*s_conv(va_list va)
 {
 	char			*string;
+	char			*join;
+	char			*tmp;
 
+	join = ft_strnew(0);
+	tmp = join;
 	string = va_arg(va, char*);
-	return (string);
+	join = ft_strjoin(join, string);
+	free (tmp);
+	return (join);
 }
 
 char				*p_conv(va_list va)
 {
 	void			*address;
+	char			*tmp;
 
 	address = va_arg(va, char*);
 	address = ft_itoh((long long)address);
+	tmp = address;
 	address = ft_strjoin("0x", address);
+	free(tmp);
 	return (address);
 }
 

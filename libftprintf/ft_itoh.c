@@ -22,6 +22,8 @@ static char		*itoh_putbase(long long nb, long long i, char *ret, char *base)
 	return (ret);
 }
 
+#include <stdio.h>
+
 char			*ft_itoh(long long n)
 {
 	long long		i;
@@ -46,5 +48,6 @@ char			*ft_itoh(long long n)
 		n /= 16;
 	}
 	hex[i] = '\0';
+	free(hbase);
 	return (ft_strrev(hex));
 }

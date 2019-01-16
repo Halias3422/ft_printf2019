@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/10 14:14:46 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 14:26:35 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/16 17:23:24 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,7 @@ char		*ft_strrev(char *str)
 	j = 0;
 	if (!(dest = (char*)malloc(sizeof(char) * i)))
 		return (NULL);
-	while (j <= ft_strlen(str))
+	while (j < ft_strlen(str))
 		dest[j++] = str[i--];
 	dest[j] = '\0';
 	return (dest);
