@@ -6,12 +6,22 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 17:30:53 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 19:12:01 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void		init_data(t_data *data)
+{
+	data->flag = ft_strnew(0);
+	data->tmp_width = ft_strnew(0);
+	data->width = 0;
+	data->prec_dot = 0;
+	data->tmp_prec = ft_strnew(0);
+	data->length = ft_strnew(0);
+}
 
 char		*add_char_begin_string(char *dest, char *lett)
 {
@@ -85,11 +95,7 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 {
 	t_data	data;
 
-	data.flag = ft_strnew(0);
-	data.tmp_width = ft_strnew(0);
-	data.tmp_prec = ft_strnew(0);
-	data.length = ft_strnew(0);
-	data.prec_dot = 0;
+	init_data(&data);
 	while (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#')
 		data.flag = add_char_end_string(data.flag, format, i++);
 	while (format[i] >= '0' && format[i] <= '9')

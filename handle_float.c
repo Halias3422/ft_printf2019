@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/18 11:13:53 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 18:02:10 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 18:47:41 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,7 +43,7 @@ char			*join_num(char *join1, char *join2)
 	char		*str;
 
 	str = ft_strjoin(join1, join2);
-	if (ft_strcmp(join1, "-") != 0)
+	if (ft_strcmp(join1, "-") != 0 && ft_strcmp(join1, "0") != 0)
 		free(join1);
 	if (ft_strcmp(join2, ".") != 0 && ft_strcmp(join2, "0") != 0)
 		free(join2);
