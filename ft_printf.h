@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 17:01:12 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 13:22:36 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,6 +41,15 @@ typedef struct		s_length
 	char			*length;
 	char			*conv;
 }					t_length;
+
+typedef struct		s_float
+{
+	int				nb_int;
+	char			*num;
+//	char			*tmp;
+	double			nb_float;
+	size_t			left_length;
+}					t_float;
 
 /*
 **		FT_PRINTF.C
@@ -80,14 +89,22 @@ char				*o_conv(va_list va);
 char				*u_conv(va_list va);
 char				*x_conv(va_list va);
 char				*X_conv(va_list va);
-
+char				*f_conv(va_list va);
 
 /*
 **		ADD_FLAGS.C
 */
+
 char				*add_flag_to_conv(t_data data, char *arg);
 char				*flag_diez(t_data data, char *arg);
 char				*flag_minus(t_data data, char *arg);
+
+/*
+**		HANDLE_FLOAT.C
+*/
+
+char				*handle_float(double nb);
+size_t				check_left_num_length(int nb);
 
 /*
 **		FREE.C

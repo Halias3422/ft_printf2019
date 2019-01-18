@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 17:31:03 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 10:31:05 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,8 +64,8 @@ char		*d_conv(va_list va)
 
 char				*u_conv(va_list va)
 {
-	unsigned int	nb;
+	long long	nb;
 
-	nb = va_arg(va, unsigned int);
+	nb = va_arg(va, long long);
 	return (ft_itoa(nb));
 }

@@ -6,14 +6,14 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/05 15:29:35 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 16:21:36 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 10:08:01 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_length(int n)
+static int	ft_count_length(long long n)
 {
 	int		a;
 
