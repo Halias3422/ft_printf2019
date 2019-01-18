@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 16:38:59 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 18:14:59 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,15 +33,27 @@ char				*flag_minus(t_data data, char *arg)
 char			*flag_diez(t_data data, char *arg)
 {
 	char		*tmp;
+	int			i;
 
-	tmp = arg;
-	if (data.conv_type == 6 && ft_strlen(data.tmp_prec) == 0)
-		arg = ft_strjoin("0", arg);
-	if (data.conv_type == 8)
-		arg = ft_strjoin("0x", arg);
-	if (data.conv_type == 9)
-		arg = ft_strjoin("0X", arg);
-	free (tmp);
+	if (data.conv_type == 3)
+	{
+		while (arg[i] && arg[i] != '.')
+			i++;
+		if (arg[i] == '\0')
+			arg = join_num(arg, ".");
+	}
+	else if ((data.conv_type == 6 && ft_strlen(data.tmp_prec) == 0) ||
+			data.conv_type == 8 || data.conv_type == 9)
+	{
+		tmp = arg;
+		if (data.conv_type == 6)
+			arg = ft_strjoin("0", arg);
+		if (data.conv_type == 8)
+			arg = ft_strjoin("0x", arg);
+		if (data.conv_type == 9)
+			arg = ft_strjoin("0X", arg);
+		free (tmp);
+	}
 	return (arg);
 }
 

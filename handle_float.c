@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/18 11:13:53 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 16:54:22 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 18:02:10 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,10 @@
 
 int				determ_prec(t_data data)
 {
-	if (ft_strlen(data.tmp_prec) == 0)
+	if (ft_strlen(data.tmp_prec) == 0 && data.prec_dot == 0)
 		return (6);
+	else if ((ft_strlen(data.tmp_prec) == 0 && data.prec_dot == 1) || data.prec == 0)
+		return (-1);
 	else
 		return (data.prec);
 }
@@ -31,6 +33,8 @@ size_t			check_left_num_length(int nb)
 		nb = nb / 10;
 		length++;
 	}
+	if (length == 0)
+		return (1);
 	return (length);
 }
 

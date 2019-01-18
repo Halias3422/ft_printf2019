@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 16:54:15 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 18:13:07 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ int			main(void)
 	p3 = "Testitude3";
 
 	// D TESTS
-
+/*
 	printf("		TEST OF d\n\n"), F;
 	printf("expected =  Testd /%d/ /%d/ /%d/\n", 15, -50, 123456), F;
 	ft_printf("ft_printf = Testd /%d/ /%d/ /%d/\n\n\n", 15, -50, 123456);
@@ -86,7 +86,7 @@ int			main(void)
 
 	//	MINUS TESTS
 
-/*	printf("		TEST OF -\n\n"), F;
+	printf("		TEST OF -\n\n"), F;
 	printf("expected =  Test-c /%-10c/ /%-3c/ /%--5c/\n", 'a', 'B', 'c'), F;
 	ft_printf("ft_printf = Test-c /%-10c/ /%-3c/ /%--5c/\n\n\n", 'a', 'B', 'c'), F;
 	
@@ -95,10 +95,10 @@ int			main(void)
 	
 	printf("expected =  Test-p /%-15p/ /%-12p/ /%-p/\n", p1, p2, p3), F;
 	ft_printf("ft_printf = Test-p /%-15p/ /%-12p/ /%-p/\n\n\n", p1, p2, p3);
-	
+
 	printf("expected =  Test-f /%-12f/ /%-0f/ /%-7f/\n", 78.50140, 0.1240002, 41782.1), F;
 	ft_printf("ft_printf = Test-f /%-12f/ /%-0f/ /%-7f/\n\n\n", 78.50140, 0.1240002, 41782.1);
-	
+
 	printf("expected =  Test-d /%-d/ /%-15d/ /%-0d/\n", 3, 50412, -2145), F;
 	ft_printf("ft_printf = Test-d /%-d/ /%-15d/ /%-0d/\n\n\n", 3, 50412, -2145);
 
@@ -152,9 +152,23 @@ int			main(void)
 
 	//	# TESTS
 
-	printf("expected =  Test#o avec # /%#o/ sans # /%o/\n", 78945, 78945), F;
-	printf("expected =  Test#x avec # /%#x/ sans # /%x/\n", -7854, -7854), F;
-	printf("expected =  Test#X avec # /%#X/ sans # /%X/\n", 64215, 64215), F;
-	printf("expected =  Test#f avec # /%#.0f/ sans # /%.0f/\n", 78.056, 78.056), F;
+	printf("expected =  Test#o /%#o/\n", 78945), F;
+	ft_printf("ft_printf = Test#o /%#o/\n\n\n", 78945);
+
+	printf("expected =  Test#x /%#x/\n", -7854), F;
+	ft_printf("ft_printf = Test#x /%#x/\n\n\n", -7854);
+
+	printf("expected =  Test#X /%#X/\n", 64215), F;
+	ft_printf("ft_printf = Test#X /%#X/\n\n\n", 64215);
+
+	printf("expected =  Test#f /%#f/ /%#.f/ /%#.0f/ /%#.5f/\n", 78945.25, 78945.25, 78945.25, 78945.25), F;
+	ft_printf("ft_printf = Test#f /%#f/ /%#.f/ /%#.0f/ /%#.5f/\n\n\n", 78945.25, 78945.25, 78945.25, 78945.25);
+
+	printf("expected = Test#c /%#c/\n", 'a'), F;
+	ft_printf("expected = Test#c /%#c/\n\n\n", 'a');
+
+	//	PREC TESTS
+/*	printf("expected =  Test#f avec rien /%f/ avec #.0 /%.0f/ avec .0 /%.0f/ avec . /%.f/ avec.5 /%.5f/\n", 778.056, 778.056, 778.056, 778.056, 778.056), F;
+	ft_printf("ft_printf = Test#f avec rien /%f/ avec #.0 /%.0f/ avec .0 /%.0f/ avec . /%.f/ avec.5 /%.5f/\n", 778.056, 778.056, 778.056, 778.056, 778.056);*/
 	return (0);
 }

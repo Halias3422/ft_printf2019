@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 16:09:14 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 17:45:40 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,7 @@ typedef struct		s_data
 	int				conv_type;
 	char			*tmp_width;
 	int				width;
+	int				prec_dot;
 	char			*tmp_prec;
 	int				prec;
 	char			*length;
