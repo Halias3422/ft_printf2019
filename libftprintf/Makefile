@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/03 17:34:31 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/11 10:50:00 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/18 16:52:03 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -79,6 +79,7 @@ SRC = ft_memset.c \
 	  ft_range.c \
 	  ft_strrev.c \
 	  ft_itooct.c \
+	  ft_swap_let_string.c \
 	  ft_itoh.c
 
 OBJ = $(SRC:.c=.o)

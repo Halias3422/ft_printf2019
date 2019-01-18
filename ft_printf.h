@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 13:22:36 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 16:09:14 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,13 +83,12 @@ char				*conversion_type(int conv_type, va_list va);
 char				*c_conv(va_list va);
 char				*s_conv(va_list va);
 char				*p_conv(va_list va);
-char				*f_conv(va_list va);
+char				*f_conv(va_list va, t_data data);
 char				*d_conv(va_list va);
 char				*o_conv(va_list va);
 char				*u_conv(va_list va);
 char				*x_conv(va_list va);
 char				*X_conv(va_list va);
-char				*f_conv(va_list va);
 
 /*
 **		ADD_FLAGS.C
@@ -103,8 +102,10 @@ char				*flag_minus(t_data data, char *arg);
 **		HANDLE_FLOAT.C
 */
 
-char				*handle_float(double nb);
+char				*handle_float(double nb, t_data data);
 size_t				check_left_num_length(int nb);
+char				*join_num(char *join1, char *join2);
+int					determ_prec(t_data data);
 
 /*
 **		FREE.C

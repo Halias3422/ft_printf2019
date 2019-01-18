@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 11:13:42 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 16:37:01 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,6 @@ char		*conversion_type(int conv_type, va_list va)
 	conv_pt[0] = &(c_conv);
 	conv_pt[1] = &(s_conv);
 	conv_pt[2] = &(p_conv);
-	conv_pt[3] = &(f_conv);
 	conv_pt[4] = &(d_conv);
 	conv_pt[5] = &(d_conv);
 	conv_pt[6] = &(o_conv);
@@ -41,7 +40,10 @@ char		*add_conversion_output(t_data data, char *output, va_list va)
 	char	*arg;
 	char	*tmp;
 
-	arg = conversion_type(data.conv_type, va);
+	if (data.conv_type == 3)
+		arg = f_conv(va, data);
+	else
+		arg = conversion_type(data.conv_type, va);
 	arg = add_flag_to_conv(data, arg);
 	tmp = output;
 	output = ft_strjoin(output, arg);

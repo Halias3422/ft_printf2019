@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 16:21:15 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 16:38:59 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,17 +48,17 @@ char			*flag_diez(t_data data, char *arg)
 char			*add_flag_to_conv(t_data data, char *arg)
 {
 	int			i;
+	int			plus;
 
+	plus = 0;
 	i = -1;
 	while (data.flag[++i])
 	{
 		//if (data.flag[i] == '0')
-		if (data.flag[i] == '+')
+		if (data.flag[i] == '+' && plus++ == 0)
 		{
-			if (arg[0] != '-')
-			{
+			if (arg[0] != '-' && data.conv_type >= 3 && data.conv_type <= 5)
 				add_char_begin_string(arg, "+");
-			}
 		}
 		else if (data.flag[i] == '-' && ft_strlen(data.tmp_width) != 0)
 			arg = flag_minus(data, arg);
