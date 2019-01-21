@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 18:53:26 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 15:33:11 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -105,10 +105,19 @@ char				*flag_zero(t_data data, char *arg);
 **		HANDLE_FLOAT.C
 */
 
+void				fill_num(t_float *flt);
+int					change_round_num(t_float *flt, int i);
+char				*round_num(t_float flt);
 char				*handle_float(double nb, t_data data);
-size_t				check_left_num_length(int nb);
-char				*join_num(char *join1, char *join2);
 int					determ_prec(t_data data);
+
+/*
+**		HANDLE_PREC_AND_WIDTH
+*/
+
+char				*add_prec_to_string(t_data data, char *arg);
+char				*add_prec_to_pointer(t_data data, char *arg);
+char				*handle_prec_and_width(t_data data, char *arg);
 
 /*
 **		FREE.C

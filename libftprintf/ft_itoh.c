@@ -32,7 +32,7 @@ char			*ft_itoh(long long n)
 
 	i = 0;
 	hbase = ft_strdup("0123456789abcdef");
-	hex = malloc(sizeof(char) * hexlen(n));
+	hex = (char*)malloc(sizeof(char) * hexlen(n) + 1);
 	if (!n)
 		while (i < 1)
 			hex[i++] = '0';

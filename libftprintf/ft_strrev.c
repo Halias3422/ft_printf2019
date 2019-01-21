@@ -6,12 +6,13 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/10 14:14:46 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 17:23:24 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 13:15:43 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char		*ft_strrev(char *str)
 {
@@ -21,10 +22,11 @@ char		*ft_strrev(char *str)
 
 	i = ft_strlen(str) - 1;
 	j = 0;
-	if (!(dest = (char*)malloc(sizeof(char) * i)))
+	if (!(dest = (char*)malloc(sizeof(char) * i + 2)))
 		return (NULL);
-	while (j < ft_strlen(str))
+	while (i >= 0)
 		dest[j++] = str[i--];
 	dest[j] = '\0';
+	free(str);
 	return (dest);
 }

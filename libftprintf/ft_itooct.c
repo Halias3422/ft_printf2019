@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:36:34 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/11 10:59:07 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 14:32:06 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,7 +44,7 @@ char			*ft_itooct(long long nb)
 
 	i = 0;
 	octbase = ft_strdup("01234567");
-	if (!(oct = (char*)malloc(sizeof(char) * octlen(nb) + 1)))
+	if (!(oct = (char*)malloc(sizeof(char) * octlen(nb) + 2)))
 		return (NULL);
 	if (!nb)
 		while (i < 1)
@@ -61,5 +61,6 @@ char			*ft_itooct(long long nb)
 		nb = nb / 8;
 	}
 	oct[i] = '\0';
+	free(octbase);
 	return (ft_strrev(oct));
 }

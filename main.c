@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 19:12:02 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 16:23:04 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,9 +24,9 @@ int			main(void)
 	p1 = "Testitude1";
 	p2 = "Testitude2";
 	p3 = "Testitude3";
-
-	// D TESTS
 /*
+	// D TESTS
+
 	printf("		TEST OF d\n\n"), F;
 	printf("expected =  Testd /%d/ /%d/ /%d/\n", 15, -50, 123456), F;
 	ft_printf("ft_printf = Testd /%d/ /%d/ /%d/\n\n\n", 15, -50, 123456);
@@ -83,6 +83,8 @@ int			main(void)
 	printf("		TEST OF f\n\n"), F;
 	printf("expected =  Testf /%f/ /%f/ /%f/\n", 128.000001, 53.8975, -7.95), F;
 	ft_printf("ft_printf = Testf /%f/ /%f/ /%f/\n\n\n", 128.000001, 53.8975, -7.95);
+	printf("test arrondi float /%.0f/ /%.f/ /%.2f/ /%.12f/\n", 55.5994578, 55.5994578, 55.5994578, 55.5994578), F;
+	ft_printf("test arrondi float /%.0f/ /%.f/ /%.2f/ /%.12f/\n\n\n", 55.5994578, 55.5994578, 55.5994578, 55.5994578);
 
 	//	MINUS TESTS
 
@@ -115,10 +117,10 @@ int			main(void)
 	ft_printf("ft_printf = Test-x /%-x/ /%-0x/ /%-25x/\n\n\n", 789456, -45721, 0);
 
 	printf("expected =  Test-X /%-X/ /%-0X/ /%-25X/\n", 789456, -45721, 0);
-	ft_printf("ft_printf = Test-X /%-X/ /%-0X/ /%-25X/\n\n\n", 789456, -45721, 0);*/
+	ft_printf("ft_printf = Test-X /%-X/ /%-0X/ /%-25X/\n\n\n", 789456, -45721, 0);
 
 	//	PLUS TESTS
-/*
+
 	printf("		TEST OF +\n\n"), F;
 	printf("expected =  Test+c /%+c/ /%+c/ /%++c/\n", 'a', 'B', 'c'), F;
 	ft_printf("ft_printf = Test+c /%+c/ /%+c/ /%++c/\n\n\n", 'a', 'B', 'c'), F;
@@ -128,10 +130,10 @@ int			main(void)
 	
 	printf("expected =  Test+p /%+p/ /%+p/ /%++p/\n", p1, p2, p3), F;
 	ft_printf("ft_printf = Test+p /%+p/ /%+p/ /%++p/\n\n\n", p1, p2, p3);
-	
+
 	printf("expected =  Test+f /%+f/ /%+f/ /%++f/\n", 78.50140, 0.1240002, 41782.1), F;
 	ft_printf("ft_printf = Test+f /%+f/ /%+f/ /%++f/\n\n\n", 78.50140, 0.1240002, 41782.1);
-	
+
 	printf("expected =  Test+d /%+d/ /%+d/ /%++d/\n", 3, 50412, -2145), F;
 	ft_printf("ft_printf = Test+d /%+d/ /%+d/ /%++d/\n\n\n", 3, 50412, -2145);
 
@@ -148,10 +150,10 @@ int			main(void)
 	ft_printf("ft_printf = Test+x /%+x/ /%+x/ /%++x/\n\n\n", 789456, -45721, 0);
 
 	printf("expected =  Test+X /%+X/ /%+X/ /%++X/\n", 789456, -45721, 0);
-	ft_printf("ft_printf = Test+X /%+X/ /%+X/ /%++X/\n\n\n", 789456, -45721, 0);*/
+	ft_printf("ft_printf = Test+X /%+X/ /%+X/ /%++X/\n\n\n", 789456, -45721, 0);
 
 	//	# TESTS
-/*
+
 	printf("expected =  Test#o /%#o/\n", 78945), F;
 	ft_printf("ft_printf = Test#o /%#o/\n\n\n", 78945);
 
@@ -166,7 +168,7 @@ int			main(void)
 
 	printf("expected = Test#c /%#c/\n", 'a'), F;
 	ft_printf("expected = Test#c /%#c/\n\n\n", 'a');
-*/
+
 
 	//	ZERO TESTS
 
@@ -187,15 +189,73 @@ int			main(void)
 
 	printf("expected =  Test0o /%0o/ /%010o/ /%-05o/ /%08.5o/\n", 487, 487, 487, 487), F;
 	ft_printf("ft_printf = Test0o /%0o/ /%010o/ /%-05o/ /%08.5o/\n", 487, 487, 487, 487);
-
-
 	
-/*
 	printf("expected =  Test0f /%0f/ /%010f/ /%-05f/\n", 458.36, 458.36, 458.36), F;
 	ft_printf("ft_printf = Test0f /%0f/ /%010f/ /%-05f/\n", 458.36, 458.36, 458.36);
-*/
+
 	//	PREC TESTS
-/*	printf("expected =  Test#f avec rien /%f/ avec #.10 /%.10f/ avec .0 /%.0f/ avec . /%.f/ avec.5 /%.5f/\n", 778.056, 778.056, 778.056, 778.056, 778.056), F;
-	ft_printf("ft_printf = Test#f avec rien /%f/ avec #.10 /%.10f/ avec .0 /%.0f/ avec . /%.f/ avec.5 /%.5f/\n", 778.056, 778.056, 778.056, 778.056, 778.056);*/
+
+	printf("expected =  Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n", 'a', 'v', '7', '^'), F;
+	ft_printf("ft_printf = Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n\n\n", 'a', 'v', '7', '^');
+
+	printf("expected =  Test.s /%.s/ /%.10s/ /%.0s/ /%5.18s/\n", "hello", "hello", "hello", "hello"), F;
+	ft_printf("ft_printf = Test.s /%.s/ /%.18s/ /%.0s/ /%5.18s/\n\n\n", "hello", "hello", "hello", "hello");
+
+	printf("expected =  Test.p /%.p/ /%.3p/ /%.0p/ /%.18p/\n", p1, p2, p3, p1), F;
+	ft_printf("ft_printf = Test.p /%.p/ /%.10p/ /%.0p/ /%.18p/\n\n\n", p1, p2, p3, p1);
+
+	printf("expected =  Test.d /%.d/ /%.10d/ /%.0d/ /%5.18d/\n", 7895, 789, -785424, 15547856), F;
+	ft_printf("ft_printf = Test.d /%.d/ /%.10d/ /%.0d/ /%5.18d/\n\n\n", 7895, 789, -785424, 15547856);
+
+	printf("expected =  Test.i /%.i/ /%.10i/ /%.0i/ /%5.18i/\n", 7895, 789, -785424, 15547856), F;
+	ft_printf("ft_printf = Test.i /%.i/ /%.10i/ /%.0i/ /%5.18i/\n\n\n", 7895, 789, -785424, 15547856);
+
+	printf("expected =  Test.o /%.o/ /%.10o/ /%.0o/ /%5.18o/\n", 7895, 789, -789521, 15547856), F;
+	ft_printf("ft_printf = Test.o /%.o/ /%.10o/ /%.0o/ /%5.18o/\n\n\n", 7895, 789, -789521, 15547856);
+
+	printf("expected =  Test.u /%.u/ /%.10u/ /%.0u/ /%5.18u/\n", 7895, 789, -789521, 15547856), F;
+	ft_printf("ft_printf = Test.u /%.u/ /%.10u/ /%.0u/ /%5.18u/\n\n\n", 7895, 789, -789521, 15547856);
+
+	printf("expected =  Test.x /%.x/ /%.10x/ /%.0x/ /%5.18x/\n", 7895, 789, -789521, 15547856), F;
+	ft_printf("ft_printf = Test.x /%.x/ /%.10x/ /%.0x/ /%5.18x/\n\n\n", 7895, 789, -789521, 15547856);
+
+	printf("expected =  Test.X /%.X/ /%.10X/ /%.0X/ /%5.18X/\n", 7895, 789, -789521, 15547856), F;
+	ft_printf("ft_printf = Test.X /%.X/ /%.10X/ /%.0X/ /%5.18X/\n\n\n", 7895, 789, -789521, 15547856);
+	printf("FIN\n"), F;
+*/
+//		WIDTH TESTS
+/*
+//	printf("		TEST OF WIDTH\n\n"), F;
+	printf("expected =  Testc /%0c/ /%5c/ /%-5c/\n", 'a', 'B', 'c'), F;
+	ft_printf("ft_printf = Testc /%0c/ /%5c/ /%-5c/\n\n\n", 'a', 'B', 'c');
+	
+	printf("expected =  Tests /%0s/ /%12s/ /%-5s/\n", "hello", "bouuuh", ""), F;
+	ft_printf("ft_printf = Tests /%0s/ /%12s/ /%-5s/\n\n\n", "hello", "bouuuh", "");
+	
+	printf("expected =  Testp /%0p/ /%15p/ /%-15p/\n", p1, p2, p3), F;
+	ft_printf("ft_printf = Testp /%0p/ /%15p/ /%-15p/\n\n\n", p1, p2, p3);
+
+	printf("expected =  Testf /%0f/ /%+15f/ /%-15f/\n", 78.50140, 0.1240002, 41782.1), F;
+	ft_printf("ft_printf = Testf /%0f/ /%+15f/ /%-15f/\n\n\n", 78.50140, 0.1240002, 41782.1);
+
+	printf("expected =  Testd /%15d/ /%+15d/ /%-15d/\n", 3, 50412, -2145), F;
+	ft_printf("ft_printf = Testd /%15d/ /%+15d/ /%-15d/\n\n\n", 3, 50412, -2145);
+
+	printf("expected =  Testi /%15i/ /%+15i/ /%-15i/\n", 78, 364578, 0), F;
+	ft_printf("ft_printf = Testi /%15i/ /%+15i/ /%-15i/\n\n\n", 78, 364578, 0);
+
+	printf("expected =  Testo /%15o/ /%+15o/ /%-15o/\n", 0, 48, -78954), F;
+	ft_printf("ft_printf = Testo /%15o/ /%+15o/ /%-15o/\n\n\n", 0, 48, -78954);
+*/
+//	printf("expected =  Testu /%15u/ /%+15u/ /%-15u/\n", 4215, -7584, 0), F;
+	ft_printf("ft_printf = Testu /%15u/ /%+15u/ /%-15u/\n\n\n", 4215, -7584, 0);
+
+//	printf("expected =  Testx /%15x/ /%+15x/ /%-15x/\n", 789456, -45721, 0);
+	ft_printf("ft_printf = Testx /%15x/ /%+15x/ /%-15x/\n\n\n", 789456, -45721, 0);
+
+//	printf("expected =  TestX /%15X/ /%+15X/ /%-15X/\n", 789456, -45721, 0);
+	ft_printf("ft_printf = TestX /%15X/ /%+15X/ /%-15X/\n\n\n", 789456, -45721, 0);
+
+
 	return (0);
 }

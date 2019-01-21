@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 19:12:01 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 16:13:36 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,21 +25,11 @@ void		init_data(t_data *data)
 
 char		*add_char_begin_string(char *dest, char *lett)
 {
-	char	*tmp;
-	size_t	j;
-	int		i;
+	char	*str;
 
-	j = 0;
-	i = 0;
-	if (!(tmp = (char*)malloc(sizeof(char) * ft_strlen(dest) + 2)))
-		exit (-1);
-	tmp[j] = lett[0];
-	while (j < ft_strlen(dest) + 1)
-		tmp[++j] = dest[i++];
-	tmp[j] = '\0';
-	dest = ft_strcpy(dest, tmp);
-	free (tmp);
-	return (dest);
+	str = ft_strjoin(lett, dest);
+	free(dest);
+	return (str);
 }
 
 /*
@@ -49,7 +39,6 @@ char		*add_char_begin_string(char *dest, char *lett)
 char		*add_char_end_string(char *dest, char *lett, int i)
 {
 	char	*tmp;
-//	char	*tmp_dest;
 	int		j;
 
 	j = -1;
@@ -62,8 +51,6 @@ char		*add_char_end_string(char *dest, char *lett, int i)
 	tmp[j] = '\0';
 	free(dest);
 	dest = ft_strnew(ft_strlen(tmp));
-//	tmp_dest = ft_strnew(ft_strlen(tmp));
-//	tmp_dest = ft_strcpy(dest, tmp);
 	dest = ft_strcpy(dest, tmp);
 	free (tmp);
 	return (dest);
@@ -96,11 +83,11 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 	t_data	data;
 
 	init_data(&data);
-	while (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#')
+	while (format[i] && (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#'))
 		data.flag = add_char_end_string(data.flag, format, i++);
-	while (format[i] >= '0' && format[i] <= '9')
+	while (format[i] && format[i] >= '0' && format[i] <= '9')
 		data.tmp_width = add_char_end_string(data.tmp_width, format, i++);
-	if (ft_strlen(data.tmp_width) >= 1)
+	if (data.tmp_width[0] != '\0')
 		data.width = ft_atoi(data.tmp_width);
 	if (format[i] == '.')
 	{
@@ -109,7 +96,7 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i);
 		data.prec = ft_atoi(data.tmp_prec);
 	}
-	while (format[i] == 'h' || format[i] == 'l' || format[i] == 'L' || format[i] == 'j' || format[i] == 't' || format[i] == 'z')
+	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L' || format[i] == 'j' || format[i] == 't' || format[i] == 'z'))
 		data.length = add_char_end_string(data.length, format, i++);
 	data.conv = determ_conv(&data, data.conv, format, i);
 	output = add_conversion_output(data, output, va);

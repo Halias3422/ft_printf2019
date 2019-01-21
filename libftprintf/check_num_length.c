@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strjoin.c                                     .::    .:/ .      .::   */
+/*   check_num_length.c                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/10/04 15:28:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 14:20:00 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/01/21 10:29:54 by vde-sain     #+#   ##    ##    #+#       */
+/*   Updated: 2019/01/21 10:30:48 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t			check_num_length(int nb)
 {
-	char	*dest;
-	int		a;
-	int		b;
+	size_t		length;
 
-	if (s1 && s2)
+	length = 0;
+	while (nb >= 1 || nb <= -1)
 	{
-		a = ft_strlen(s1) + ft_strlen(s2);
-		b = 0;
-		if (!(dest = (char*)malloc(sizeof(char) * (a + 1))))
-			return (NULL);
-		a = 0;
-		while (s1[a])
-		{
-			dest[a] = s1[a];
-			a++;
-		}
-		while (s2[b])
-			dest[a++] = s2[b++];
-		dest[a] = '\0';
-		return (dest);
+		nb = nb / 10;
+		length++;
 	}
-	return (0);
+	if (length == 0)
+		return (1);
+	return (length);
 }

@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/07 13:44:20 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/18 17:45:45 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/21 14:42:31 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,13 +21,14 @@ SRC = main.c \
 	  conversion_type2.c \
 	  add_flags.c \
 	  handle_float.c \
+	  handle_prec_and_width.c \
 	  free.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-FLAGS = -g3 -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 
 LIBFT = ./libftprintf/
 

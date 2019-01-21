@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/18 16:37:01 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 13:53:34 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,6 +45,7 @@ char		*add_conversion_output(t_data data, char *output, va_list va)
 	else
 		arg = conversion_type(data.conv_type, va);
 	arg = add_flag_to_conv(data, arg);
+
 	tmp = output;
 	output = ft_strjoin(output, arg);
 	free(tmp);
