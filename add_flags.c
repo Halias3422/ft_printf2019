@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 16:09:59 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/21 16:48:38 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -61,12 +61,14 @@ char			*flag_diez(t_data data, char *arg)
 		if (arg[i] == '\0')
 			arg = add_char_end_string(arg, ".", 0);
 	}
-	else if ((data.conv_type == 6 && data.tmp_prec == '\0') ||
+	else if ((data.conv_type == 6 && data.tmp_prec[0] == '\0') ||
 			data.conv_type == 8 || data.conv_type == 9)
 	{
 		tmp = arg;
 		if (data.conv_type == 6)
+		{
 			arg = ft_strjoin("0", arg);
+		}
 		if (data.conv_type == 8)
 			arg = ft_strjoin("0x", arg);
 		if (data.conv_type == 9)
