@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 15:50:19 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 10:22:51 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ char				*fill_string_output(char *format, char *output, int i)
 	j = -1;
 	initial_i = i;
 	k = i;
-	while (format[i] != '%')
+	while (format[i] && format[i] != '%')
 		i++;
 	tmp = ft_strnew(i - k);
 	while (++j < i - initial_i)
@@ -87,6 +87,30 @@ int					count_all_datas(char *format, int i)
 }
 
 /*
+**		ADD '%' IN OUTPUT IN CASE THERE IS %%
+*/
+
+int				crossing_pourcent(char *format, char **output, int i, va_list va)
+{
+	char			*tmp;
+
+	if (format[i + 1] == '%')
+	{
+		i++;
+		tmp = *output;
+		*output = ft_strjoin(*output, "%");
+		free(tmp);
+		i++;
+	}
+	else
+	{
+		*output = determ_data((char*)format, *output, va, ++i);
+		i = count_all_datas((char*)format, i);
+	}
+	return (i);
+}
+
+/*
 **		FILL OUTPUT STRING BIT BY BIT AND DISPLAY IT
 */
 
@@ -102,13 +126,10 @@ int					ft_printf(const char * restrict format, ...)
 	while (format[i])
 	{
 		output = fill_string_output((char*)format, output, i);
-		while (format [i] && format[i] != '%')
+		while (format[i] && format[i] != '%')
 			i++;
 		if (format[i] == '%')
-		{
-			output = determ_data((char*)format, output, va, ++i);
-			i = count_all_datas((char*)format, i);
-		}
+			i = crossing_pourcent((char*)format, &output, i, va);
 	}
 	va_end(va);
 	ft_putstr(output);

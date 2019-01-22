@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 09:21:35 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 10:31:07 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -255,7 +255,7 @@ int			main(void)
 
 	printf("expected =  TestX /%15X/ /%0X/ /%-15X/\n", 789456, -45721, 0);
 	ft_printf("ft_printf = TestX /%15X/ /%0X/ /%-15X/\n\n\n", 789456, -45721, 0);
-*/
+
 
 //		SPACE TESTS
 
@@ -289,7 +289,11 @@ int			main(void)
 
 	printf("expected =  TestX /% X/ /%   X/ /% +X/\n", 789456, -45721, 0);
 	ft_printf("ft_printf = TestX /% X/ /%   X/ /% +X/\n\n\n", 789456, -45721, 0);
+*/
 
+//		TESTS %%
 
+//	printf("printf =  Test du %%%d %d %s\n", 10, "hello"), F;
+	ft_printf("ft_printf = Test du %%%+d %d %s\n\n\n", 10, "hello");
 	return (0);
 }

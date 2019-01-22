@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 08:41:00 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 10:05:43 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,6 +57,7 @@ typedef struct		s_float
 */
 
 int					ft_printf(const char * restrict format, ...);
+int					crossing_pourcent(char *format, char **output, int i, va_list va);
 char				*fill_string_output(char *format, char *output, int i);
 int					is_contained_in(char *format, char *compare, int i);
 int					count_all_datas(char *format, int i);
