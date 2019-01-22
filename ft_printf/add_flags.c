@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 16:48:38 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 09:18:16 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,12 +78,31 @@ char			*flag_diez(t_data data, char *arg)
 	return (arg);
 }
 
+char			*flag_space(t_data data, char *arg)
+{
+	char		*tmp;
+	int			i;
+
+	i = -1;
+	while (data.flag[++i])
+	{
+		if (data.flag[i] == '+')
+			return (arg);
+	}
+	tmp = arg;
+	arg = ft_strjoin(" ", arg);
+	free(tmp);
+	return (arg);
+}
+
 char			*add_flag_to_conv(t_data data, char *arg)
 {
 	int			i;
 	int			plus;
+	int			space;
 
 	plus = 0;
+	space = 0;
 	i = -1;
 	while (data.flag[++i])
 	{
@@ -98,6 +117,9 @@ char			*add_flag_to_conv(t_data data, char *arg)
 			arg = flag_minus(data, arg);
 		else if (data.flag[i] == '#')
 			arg = flag_diez(data, arg);
+		if (data.flag[i] == ' '  && data.conv_type >= 3 && data.conv_type <= 5
+				&& space++ == 0)
+			arg = flag_space(data, arg);
 	}
 	arg = handle_prec_and_width(data, arg);
 	return (arg);
