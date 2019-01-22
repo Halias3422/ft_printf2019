@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 15:55:15 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 20:36:38 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,10 @@ char			*o_conv(va_list va, t_data data)
 	else if (ft_strcmp(data.length, "h") == 0)
 		num = ft_itooct(nb = (unsigned short)va_arg(va, long long));
 	else if (ft_strcmp(data.length, "l") == 0)
+	{
 		num = ft_itooct(nb = va_arg(va, unsigned long));
+		printf("nb = %llo\nnum = %lo\n", nb, num);
+	}
 	else if (ft_strcmp(data.length, "ll") == 0)
 		num = ft_itooct(nb = va_arg(va, unsigned long long));
 	return (num);

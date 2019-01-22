@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/07 13:44:20 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/22 11:50:17 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/22 18:33:22 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -81,6 +81,7 @@ LIBFT_SRC = libft/ft_memset.c \
 	  libft/ft_itooct.c \
 	  libft/ft_swap_let_string.c \
 	  libft/check_num_length.c \
+	  libft/ft_copy_part_str.c \
 	  libft/ft_itoh.c
 
 PRINTF_SRC = ft_printf/add_conversion.c \

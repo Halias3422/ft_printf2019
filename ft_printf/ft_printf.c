@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 13:15:06 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 20:20:37 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -121,6 +121,7 @@ int					ft_printf(const char * restrict format, ...)
 	va_list			va;
 	char			*output;
 	int				i;
+	int				output_len;
 
 	i = 0;
 	output = ft_strnew(0);
@@ -135,6 +136,7 @@ int					ft_printf(const char * restrict format, ...)
 	}
 	va_end(va);
 	ft_putstr(output);
+	output_len = ft_strlen(output);
 	free(output);
-	return (0);
+	return (output_len);
 }

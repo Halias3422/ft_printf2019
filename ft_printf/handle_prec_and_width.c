@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/21 11:35:24 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 16:17:31 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 20:48:45 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,7 +57,7 @@ char			*add_prec_to_string(t_data data, char *arg)
 	return (arg);
 }
 
-char			*add_width_to_string(t_data data, char *arg)
+char			*handle_width(t_data data, char *arg)
 {
 	int			i;
 
@@ -72,7 +72,7 @@ char			*add_width_to_string(t_data data, char *arg)
 	return (arg);
 }
 
-char			*handle_prec_and_width(t_data data, char *arg)
+char			*handle_prec(t_data data, char *arg)
 {
 	if (data.prec_dot == 1 && (data.conv_type >= 4 && data.conv_type <= 9))
 	{
@@ -83,7 +83,5 @@ char			*handle_prec_and_width(t_data data, char *arg)
 		arg = add_prec_to_pointer(data, arg);
 	if (data.prec_dot == 1 && data.conv_type == 1)
 		arg = add_prec_to_string(data, arg);
-	if (data.width != 0)
-		arg = add_width_to_string(data, arg);
 	return (arg);
 }

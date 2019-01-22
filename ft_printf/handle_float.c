@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/18 11:13:53 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 15:15:59 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 18:42:06 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,6 +40,8 @@ void		fill_num(t_float *flt)
 		tmp = flt->num;
 		tmp2 = ft_itoa(flt->nb_int);
 		flt->num = ft_strjoin(flt->num, tmp2);
+		if (flt->num[0] == '-')
+			flt->num = ft_copy_part_str(flt->num, 1, 1);
 		free(tmp);
 		free(tmp2);
 }
@@ -75,17 +77,23 @@ char			*round_num(t_float flt)
 char			*handle_float(long double nb, t_data data)
 {
 	t_float		flt;
-	int			prec;
 
-	flt.left_length = check_num_length((long long)nb);
-	prec = determ_prec(data);
 	flt.num = ft_strnew(0);
+/*	if ((long long)nb == -9223372036854775808)
+	{
+		flt.tmp = flt.num;
+		flt.num = ft_strjoin(flt.num, "-9223372036854775808.000000");
+		free(flt.tmp);
+		return (flt.num);
+	}
+*/	flt.left_length = check_num_length((long long)nb);
+	flt.prec = determ_prec(data);
 	flt.nb_int = 0;
 	if (nb < 0)
 		flt.nb_float = -nb;
 	else
 		flt.nb_float = nb;
-	while (ft_strlen(flt.num) <= (prec + flt.left_length + 1))
+	while (ft_strlen(flt.num) <= (flt.prec + flt.left_length + 1))
 		fill_num(&flt);
 	flt.num = round_num(flt);
 	if (flt.num[0] == '.')

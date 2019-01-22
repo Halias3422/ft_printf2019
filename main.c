@@ -10,8 +10,8 @@ int		main(void)
 {
 
 	int	active_test = 0;
-	int	active_42_test = 0;
-	int	active_perso_test = 1;
+	int	active_42_test = 1;
+	int	active_perso_test = 0;
 	int	bonus_test = 0;
 
 	if (active_test == 1 || bonus_test == 1)
@@ -60,7 +60,7 @@ int		main(void)
 	if (active_test == 1 || active_42_test == 1)
 	{
 		char *string = NULL;
-		printf("v- /%5%/\n");
+/*		printf("v- /%5%/\n");
 		ft_printf("f- /%5%/\n");
 		printf("v- /%-5%/\n");
 		ft_printf("f- /%-5%/\n");
@@ -68,13 +68,13 @@ int		main(void)
 		ft_printf("f- /%.0%/\n");
 		printf("v- /%   %/\n", "test");
 		ft_printf("f- /%   %/\n", "test/\n");
-		printf("v- /%#x/\n", 0);
-		ft_printf("f- /%#x/\n", 0);
+		printf("v- /%#x/ /%#x/\n", 0, 5);
+		ft_printf("f- /%#x/ /%#x/\n", 0, 5);
 		printf("v- /%#04x/\n", 42);
 		ft_printf("f- /%#04x/\n", 42);
 		printf("v- /%#-08x/\n", 42);
 		ft_printf("f- /%#-08x/\n", 42);
-		printf("v- /@moulitest: /%#.x/ /%#.0x//\n", 0, 0);
+*/		printf("v- /@moulitest: /%#.x/ /%#.0x//\n", 0, 0);
 		ft_printf("f- /@moulitest: /%#.x/ /%#.0x//\n", 0, 0);
 		printf("v- /@moulitest: /%.x/ /%.0x//\n", 0, 0);
 		ft_printf("f- /@moulitest: /%.x/ /%.0x//\n", 0, 0);
@@ -211,7 +211,7 @@ int		main(void)
 		long long	longlong_min = -9223372036854775807;
 
 		// test des limites 
-/*
+
 		printf("-v UCHAR_MAX = %d\n", UCHAR_MAX);
 		ft_printf("-f UCHAR_MAX = %d\n", UCHAR_MAX);
 
@@ -286,11 +286,11 @@ int		main(void)
 //		ft_printf("zerolong = %lo // long1 = %lo // long2 = %lo // long_max = %lo // long_min = %lo\n", zerolong, long1, long2, long_max, long_min);
 //		ft_printf("zerolong = %lo\n", zerolong);
 //		ft_printf("long1 = %lo\n", long1);
-//		printf("v - long2 = %lo\n", (long)-35);
-//		ft_printf("f - long2 = %lo\n", (long)-35);
+		printf("v - long2 = %lo\n", (long)-35);
+		ft_printf("f - long2 = %lo\n", (long)-35);
 //		ft_printf("long_max = %lo\n", long_max);
 //		ft_printf("long_min = %lo\n", long_min);
-
+/*
 		printf("\nTEST VALEUR LONG LONG SUR CONVERSION o\n");
 		printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
 		ft_printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
@@ -346,7 +346,7 @@ int		main(void)
 		printf("valeur ==>[%d] -- \n", printf("/%-+10F/", crash_float2));
 		printf("valeur ==>[%d] -- \n", ft_printf("/%-+10F/", crash_float2));
 		// sur les %f	
-*/
+
 		double t_f1 = 0.0;
 		float  t_f2 = 1.6;
 		double t_f3 = -1.6;
@@ -366,9 +366,10 @@ int		main(void)
 
 		long t_bit = 2147483647;
 		long double t_f8  = 0.000001;
-		ft_printf("/%x/ -- /%#x/ \n", t_bit, t_bit);
-		ft_printf("/%#.Lf/\n", t_f8);
-		printf("/%#.Lf/\n", t_f8);
+		printf("v - /%x/ -- /%#x/ \n", t_bit, t_bit);
+		ft_printf("f - /%x/ -- /%#x/ \n", t_bit, t_bit);
+		ft_printf("f - /%#.Lf/\n", t_f8);
+		printf("v - /%#.Lf/\n", t_f8);
 
 
 		// TEST DES HH
@@ -408,10 +409,11 @@ int		main(void)
 		ft_printf("f- seul /%-o/\n", t_o);
 		printf("v- avec size /%-10o/\n", t_o);
 		ft_printf("f- avec size /%-10o/\n", t_o);
-		printf("v- size > accu /%-10.5o/\n", t_o);
-		ft_printf("f- size > accu /%-10.5o/\n", t_o);
-		printf("v- size < accu /%-5.10o/\n", t_o);
-		ft_printf("f- size < accu /%-5.10o/\n", t_o);
+		printf("v- size > accu /%o/ /%-o/ /%-10o/ /%-10.o/ /%-10.5o/\n", t_o, t_o, t_o, t_o, t_o);
+		ft_printf("f- size > accu /%o/ /%-o/ /%-10o/ /%-10.o/ /%-10.5o/\n", t_o, t_o, t_o, t_o, t_o);
+		printf("v- size < accu /%o/ /%-o/ /%-5o/ /%-5.o/ /%-5.10o/\n", t_o, t_o, t_o, t_o, t_o);
+		ft_printf("f- size < accu /%o/ /%-o/ /%-5o/ /%-5.o/ /%-5.10o/\n", t_o, t_o, t_o, t_o, t_o);
+
 
 		printf("\n\n TESTS FLAG MINUS AND HASH\n");
 		printf("v- rien /%#-o/\n", t_o);
@@ -717,7 +719,7 @@ int		main(void)
 		ft_printf("check des hexa sur 4 octets : %x /-/ %x /-/ %x\n", 1024, -1024, 2147483647);
 		printf("check des hexa sur 4 octets : %x /-/ %x /-/ %x\n", 1024, -1024, 2147483647);
 		ft_printf("check des hexa plus dur : %x /-/ %x /-/ %lx /-/ %x\n", 2147483647, -2147483647, 2147483656, -1);
-		printf("check des hexa plus dur : %x /-/ %x /-/ %lx /-/ %x\n", 2147483647, -2147483647, 2147483656, -1);
+		printf("check des hexa plus dur : %x /-/ %x /-/ %lx /-/ %x\n", 2147483647, -2147483647, 2147483656, -1);*/
 	}
 	else
 		ft_printf("aucun test\n");

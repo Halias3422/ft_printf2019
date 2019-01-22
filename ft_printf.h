@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 15:16:06 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 20:11:42 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,9 @@
 typedef struct		s_data
 {
 	char			*flag;
+	int				plus;
+	int				space;
+	int				zero;
 	char			conv;
 	int				conv_type;
 	char			*tmp_width;
@@ -45,9 +48,10 @@ typedef struct		s_length
 
 typedef struct		s_float
 {
-	long long		nb_int;
+	unsigned long long		nb_int;
+	int				prec;
 	char			*num;
-//	char			*tmp;
+	char			*tmp;
 	long double		nb_float;
 	size_t			left_length;
 }					t_float;
@@ -118,7 +122,8 @@ int					determ_prec(t_data data);
 
 char				*add_prec_to_string(t_data data, char *arg);
 char				*add_prec_to_pointer(t_data data, char *arg);
-char				*handle_prec_and_width(t_data data, char *arg);
+char				*handle_prec(t_data data, char *arg);
+char				*handle_width(t_data data, char *arg);
 
 /*
 **		FREE.C

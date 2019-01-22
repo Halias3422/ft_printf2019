@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/03 17:33:24 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 15:54:52 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 18:34:27 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -115,5 +115,6 @@ char				*ft_itooct(long long nb);
 char				*ft_itoh(long long n);
 char				*ft_swap_let_string(char *str, int let1, int let2);
 size_t				check_num_length(long long nb);
+char				*ft_copy_part_str(char *str, int i, int usage);
 
 #endif

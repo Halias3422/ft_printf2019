@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 15:22:37 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 18:48:47 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -194,14 +194,14 @@ int			main(void)
 	ft_printf("ft_printf = Test0f /%0f/ /%010f/ /%-05f/\n", 458.36, 458.36, 458.36);
 
 	//	PREC TESTS
-
-//	printf("expected =  Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n", 'a', 'v', '7', '^'), F;
+*/
+	printf("expected =  Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n", 'a', 'v', '7', '^'), F;
 	ft_printf("ft_printf = Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n\n\n", 'a', 'v', '7', '^');
 
 	printf("expected =  Test.s /%.s/ /%.10s/ /%.0s/ /%5.18s/\n", "hello", "hello", "hello", "hello"), F;
 	ft_printf("ft_printf = Test.s /%.s/ /%.18s/ /%.0s/ /%5.18s/\n\n\n", "hello", "hello", "hello", "hello");
 
-//	printf("expected =  Test.p /%.p/ /%.3p/ /%.0p/ /%.18p/\n", p1, p2, p3, p1), F;
+	printf("expected =  Test.p /%.p/ /%.3p/ /%.0p/ /%.18p/\n", p1, p2, p3, p1), F;
 	ft_printf("ft_printf = Test.p /%.p/ /%.10p/ /%.0p/ /%.18p/\n\n\n", p1, p2, p3, p1);
 
 	printf("expected =  Test.d /%.d/ /%.10d/ /%.0d/ /%5.18d/\n", 7895, 789, -785424, 15547856), F;
@@ -222,7 +222,7 @@ int			main(void)
 	printf("expected =  Test.X /%.X/ /%.10X/ /%.0X/ /%5.18X/\n", 7895, 789, -789521, 15547856), F;
 	ft_printf("ft_printf = Test.X /%.X/ /%.10X/ /%.0X/ /%5.18X/\n\n\n", 7895, 789, -789521, 15547856);
 	printf("FIN\n"), F;
-
+/*
 //		WIDTH TESTS
 
 //	printf("		TEST OF WIDTH\n\n"), F;
