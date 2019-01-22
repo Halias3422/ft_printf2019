@@ -6,39 +6,66 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 13:53:30 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 14:14:48 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char			*o_conv(va_list va)
+char			*o_conv(va_list va, t_data data)
 {
-	long long	nb;
+	unsigned long long	nb;
 	char		*num;
 
-	num = ft_itooct(nb = va_arg(va, long long));
+	if (data.length[0] == '\0')
+		num = ft_itooct(nb = va_arg(va, unsigned int));
+	else if (ft_strcmp(data.length, "hh") == 0)
+		num = ft_itooct(nb = (unsigned char)va_arg(va, long long));
+	else if (ft_strcmp(data.length, "h") == 0)
+		num = ft_itooct(nb = (unsigned short)va_arg(va, long long));
+	else if (ft_strcmp(data.length, "l") == 0)
+		num = ft_itooct(nb = va_arg(va, unsigned long));
+	else if (ft_strcmp(data.length, "ll") == 0)
+		num = ft_itooct(nb = va_arg(va, unsigned long long));
 	return (num);
 }
 
-char			*x_conv(va_list va)
+char			*x_conv(va_list va, t_data data)
 {
-	long long	nb;
+	unsigned long long		nb;
 	char		*num;
 
-	num = ft_itoh(nb = va_arg(va, long long));
+	if (data.length[0] == '\0')
+		num = ft_itoh(nb = va_arg(va, unsigned int));
+	else if (ft_strcmp(data.length, "hh") == 0)
+		num = ft_itoh(nb = (unsigned char)va_arg(va, long));
+	else if (ft_strcmp(data.length, "h") == 0)
+		num = ft_itoh(nb = (unsigned short)va_arg(va, long));
+	else if (ft_strcmp(data.length, "l") == 0)
+		num = ft_itoh(nb = va_arg(va, unsigned long));
+	else if (ft_strcmp(data.length, "ll") == 0)
+		num = ft_itoh(nb = va_arg(va, unsigned long long));
 	return (num);
 }
 
-char			*X_conv(va_list va)
+char			*X_conv(va_list va, t_data data)
 {
-	long long	nb;
+	unsigned long long	nb;
 	char		*num;
 	int			i;
 
 	i = -1;
-	num = ft_itoh(nb = va_arg(va, long long));
+	if (data.length[0] == '\0')
+		num = ft_itoh(nb = va_arg(va, unsigned int));
+	else if (ft_strcmp(data.length, "hh") == 0)
+		num = ft_itoh(nb = (unsigned char)va_arg(va, long));
+	else if (ft_strcmp(data.length, "h") == 0)
+		num = ft_itoh(nb = (unsigned short)va_arg(va, long));
+	else if (ft_strcmp(data.length, "l") == 0)
+		num = ft_itoh(nb = va_arg(va, unsigned long));
+	else if (ft_strcmp(data.length, "ll") == 0)
+		num = ft_itoh(nb = va_arg(va, unsigned long long));
 	while (num[++i])
 	{
 		if (num[i] >= 'a' && num[i] <= 'f')
@@ -49,10 +76,13 @@ char			*X_conv(va_list va)
 
 char			*f_conv(va_list va, t_data data)
 {
-	double	nb;
+	long double	nb;
 	char		*num;
 
-	nb = va_arg(va, double);
+	if (data.length[0] == '\0' || ft_strcmp(data.length, "l") == 0)
+		nb = va_arg(va, double);
+	else if (ft_strcmp(data.length, "L") == 0)
+		nb = va_arg(va, long double);
 	num = handle_float(nb, data);
 
 	return (num);

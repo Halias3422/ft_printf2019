@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 10:08:05 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 13:15:07 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -96,7 +96,7 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i);
 		data.prec = ft_atoi(data.tmp_prec);
 	}
-	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L' || format[i] == 'j' || format[i] == 't' || format[i] == 'z'))
+	while (/*ft_strlen(data.length) <= 1 &&*/ format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'/* || format[i] == 'j' || format[i] == 't' || format[i] == 'z'*/))
 		data.length = add_char_end_string(data.length, format, i++);
 	data.conv = determ_conv(&data, data.conv, format, i);
 	output = add_conversion_output(data, output, va);

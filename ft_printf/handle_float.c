@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/18 11:13:53 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 16:16:50 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 14:14:37 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ void		fill_num(t_float *flt)
 	char	*tmp;
 	char	*tmp2;
 
-		flt->nb_int = flt->nb_float;
+		flt->nb_int = (long long)flt->nb_float;
 		flt->nb_float = flt->nb_float - flt->nb_int;
 		flt->nb_float = flt->nb_float * 10;
 		if (ft_strlen(flt->num) == flt->left_length)
@@ -72,12 +72,12 @@ char			*round_num(t_float flt)
 	return (flt.num);
 }
 
-char			*handle_float(double nb, t_data data)
+char			*handle_float(long double nb, t_data data)
 {
 	t_float		flt;
 	int			prec;
 
-	flt.left_length = check_num_length((int)nb);
+	flt.left_length = check_num_length((long long)nb);
 	prec = determ_prec(data);
 	flt.num = ft_strnew(0);
 	flt.nb_int = 0;

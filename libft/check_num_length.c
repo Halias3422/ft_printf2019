@@ -6,14 +6,14 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/21 10:29:54 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/21 10:30:48 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 14:00:51 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			check_num_length(int nb)
+size_t			check_num_length(long long nb)
 {
 	size_t		length;
 

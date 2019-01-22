@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 10:31:07 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 14:15:36 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -289,11 +289,80 @@ int			main(void)
 
 	printf("expected =  TestX /% X/ /%   X/ /% +X/\n", 789456, -45721, 0);
 	ft_printf("ft_printf = TestX /% X/ /%   X/ /% +X/\n\n\n", 789456, -45721, 0);
-*/
 
 //		TESTS %%
 
-//	printf("printf =  Test du %%%d %d %s\n", 10, "hello"), F;
+	printf("printf =  Test du %%%d %d %s\n", 10, "hello"), F;
 	ft_printf("ft_printf = Test du %%%+d %d %s\n\n\n", 10, "hello");
+*/
+
+//		TESTS hh
+/*
+	printf("printf =    Test avec (hd) %hd test sans %d\n",457845, 457845);
+	ft_printf("ft_printf = Test avec (hd) %hd test sans %d\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (hhd) %hhd test sans %d\n", 457845, 457845);
+	ft_printf("ft_printf = Test avec (hhd) %hhd test sans %d\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (ld) %ld test sans %d\n",  4578453259999999999, 4578453259);
+	ft_printf("ft_printf = Test avec (ld) %ld test sans %d\n\n\n",  4578453259999999999, 4578453259);
+
+	printf("printf =    Test avec (lld) %lld test sans %d\n",  4578453259999999999, 4578453259);
+	ft_printf("ft_printf = Test avec (lld) %lld test sans %d\n\n\n",  4578453259999999999, 4578453259);
+
+	printf("printf =    Test avec (ho) %ho test sans %o\n",457845, 457845);
+	ft_printf("ft_printf = Test avec (hd) %ho test sans %o\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (hhd) %hho test sans %o\n", 457845, 457845);
+	ft_printf("ft_printf = Test avec (hhd) %hho test sans %o\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (ld) %lo test sans %o\n",  4578453259999999999, 4578453255);
+	ft_printf("ft_printf = Test avec (ld) %lo test sans %o\n\n\n",  4578453259999999999, 4578453255);
+
+	printf("printf =    Test avec (lld) %llo test sans %o\n",  4578453259999999999, 4578453259);
+	ft_printf("ft_printf = Test avec (lld) %llo test sans %o\n\n\n",  4578453259999999999, 4578453259);
+
+	printf("printf =    Test avec (hu) %hu test sans %u\n",457845, 457845);
+	ft_printf("ft_printf = Test avec (hu) %hu test sans %u\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (hhu) %hhu test sans %u\n", 457845, 457845);
+	ft_printf("ft_printf = Test avec (hhu) %hhu test sans %u\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (lu) %lu test sans %u\n",  4578453259999999999, 4578453255);
+	ft_printf("ft_printf = Test avec (lu) %lu test sans %u\n\n\n",  4578453259999999999, 4578453255);
+
+	printf("printf =    Test avec (llu) %llu test sans %u\n",  4578453259999999999, 4578453259);
+	ft_printf("ft_printf = Test avec (llu) %llu test sans %u\n\n\n",  4578453259999999999, 4578453259);
+
+	printf("printf =    Test avec (hx) %hx test sans %x\n",457845, 457845);
+	ft_printf("ft_printf = Test avec (hx) %hx test sans %x\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (hhx) %hhx test sans %x\n", 457845, 457845);
+	ft_printf("ft_printf = Test avec (hhx) %hhx test sans %x\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (lx) %lx test sans %x\n",  4578453259999999999, 4578453255);
+	ft_printf("ft_printf = Test avec (lx) %lx test sans %x\n\n\n",  4578453259999999999, 4578453255);
+
+	printf("printf =    Test avec (llx) %llx test sans %x\n",  4578453259999999999, 4578453259);
+	ft_printf("ft_printf = Test avec (llx) %llx test sans %x\n\n\n",  4578453259999999999, 4578453259);
+
+	printf("printf =    Test avec (hX) %hX test sans %X\n",457845, 457845);
+	ft_printf("ft_printf = Test avec (hX) %hX test sans %X\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (hhX) %hhX test sans %X\n", 457845, 457845);
+	ft_printf("ft_printf = Test avec (hhX) %hhX test sans %X\n\n\n", 457845, 457845);
+
+	printf("printf =    Test avec (lX) %lX test sans %X\n",  4578453259999999999, 4578453255);
+	ft_printf("ft_printf = Test avec (lX) %lX test sans %X\n\n\n",  4578453259999999999, 4578453255);
+
+	printf("printf =    Test avec (llX) %llX test sans %X\n",  4578453259999999999, 4578453259);
+	ft_printf("ft_printf = Test avec (llX) %llX test sans %X\n\n\n",  4578453259999999999, 4578453259);
+
+	printf("printf =    Test avec (lf) %lf test sans %f\n",  4578453259999999999.45421, 4578453255.45421);
+	ft_printf("ft_printf = Test avec (lf) %lf test sans %f\n\n\n",  4578453259999999999.45421, 4578453255.45421);
+
+	printf("printf =    Test avec (llf) %Lf test sans %f\n",  4578453259999999999.45421, 4578453259.45421);
+	ft_printf("ft_printf = Test avec (llf) %Lf test sans %f\n\n\n",  4578453259999999999.45421, 4578453259.45421);
+*/
 	return (0);
 }

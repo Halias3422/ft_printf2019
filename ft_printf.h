@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 10:05:43 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 14:13:39 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,10 +45,10 @@ typedef struct		s_length
 
 typedef struct		s_float
 {
-	int				nb_int;
+	long long		nb_int;
 	char			*num;
 //	char			*tmp;
-	double			nb_float;
+	long double		nb_float;
 	size_t			left_length;
 }					t_float;
 
@@ -77,21 +77,21 @@ void				init_data(t_data *data);
 */
 
 char				*add_conversion_output(t_data data, char *output, va_list va);
-char				*conversion_type(int conv_type, va_list va);
+char				*conversion_type(t_data data, va_list va);
 
 /*
 **		CONVERSION_TYPE.C 1 && 2
 */
 
-char				*c_conv(va_list va);
-char				*s_conv(va_list va);
-char				*p_conv(va_list va);
+char				*c_conv(va_list va, t_data data);
+char				*s_conv(va_list va, t_data data);
+char				*p_conv(va_list va, t_data data);
 char				*f_conv(va_list va, t_data data);
-char				*d_conv(va_list va);
-char				*o_conv(va_list va);
-char				*u_conv(va_list va);
-char				*x_conv(va_list va);
-char				*X_conv(va_list va);
+char				*d_conv(va_list va, t_data data);
+char				*o_conv(va_list va, t_data data);
+char				*u_conv(va_list va, t_data data);
+char				*x_conv(va_list va, t_data data);
+char				*X_conv(va_list va, t_data data);
 
 /*
 **		ADD_FLAGS.C
@@ -109,7 +109,7 @@ char				*flag_zero(t_data data, char *arg);
 void				fill_num(t_float *flt);
 int					change_round_num(t_float *flt, int i);
 char				*round_num(t_float flt);
-char				*handle_float(double nb, t_data data);
+char				*handle_float(long double nb, t_data data);
 int					determ_prec(t_data data);
 
 /*
