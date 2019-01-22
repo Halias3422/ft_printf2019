@@ -6,12 +6,12 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/03 17:34:31 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/21 10:31:24 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/22 07:30:22 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = libft.a
 
 SRC = ft_memset.c \
 	  ft_strlen.c \

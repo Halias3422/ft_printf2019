@@ -1,0 +1,5 @@
+echo "\nFICHIERS .c DE LIBFT\n"
+du -a . | grep libft | grep ".c" | cut -b 5- | xargs
+echo "\n\n"
+echo "FICHIERS .c DE FT_PRINTF\n"
+du -a . | grep ft_printf | grep ".c" | cut -b 5- | xargs
