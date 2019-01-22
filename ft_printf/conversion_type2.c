@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 14:14:48 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/22 15:55:15 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -84,6 +84,5 @@ char			*f_conv(va_list va, t_data data)
 	else if (ft_strcmp(data.length, "L") == 0)
 		nb = va_arg(va, long double);
 	num = handle_float(nb, data);
-
 	return (num);
 }
