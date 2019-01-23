@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 09:10:19 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 13:09:52 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -104,11 +104,13 @@ int				crossing_pourcent(char *format, char **output, int i, va_list va)
 		free(tmp);
 		i++;
 	}
-	else
+	else if (format[i + 1] != '\0')
 	{
 		*output = determ_data((char*)format, *output, va, ++i);
 		i = count_all_datas((char*)format, i);
 	}
+	else
+		i++;
 	return (i);
 }
 

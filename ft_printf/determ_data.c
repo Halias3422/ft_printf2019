@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 10:58:53 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 13:24:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,7 @@ void		init_data(t_data *data)
 	data->prec_dot = 0;
 	data->flag_minus = 0;
 	data->minus = 0;
+	data->backslash = 0;
 	data->tmp_prec = ft_strnew(0);
 	data->length = ft_strnew(0);
 }
@@ -102,7 +103,7 @@ char		*determ_data(char *format, char *output, va_list va, int i)
 			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i);
 		data.prec = ft_atoi(data.tmp_prec);
 	}
-	while (/*ft_strlen(data.length) <= 1 &&*/ format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'/* || format[i] == 'j' || format[i] == 't' || format[i] == 'z'*/))
+	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'))
 		data.length = add_char_end_string(data.length, format, i++);
 	data.conv = determ_conv(&data, data.conv, format, i);
 	output = add_conversion_output(&data, output, va);

@@ -6,6 +6,9 @@
  */
 #include <math.h>
 #include <limits.h>
+
+#define F fflush(stdout)
+
 int		main(void)
 {
 
@@ -130,7 +133,7 @@ int		main(void)
 		ft_printf("f- /%03.2d/\n", -1);
 		printf("v- /@moulitest: %.10d/\n", -42);
 		ft_printf("f- /@moulitest: %.10d/\n", -42);
-*/		printf("v- /@moulitest: /%.d/ /%.0d/\n", 0, 0);
+		printf("v- /@moulitest: /%.d/ /%.0d/\n", 0, 0);
 		ft_printf("f- /@moulitest: /%.d/ /%.0d/\n", 0, 0);
 		printf("v- /@moulitest: /%5.d/ /%5.0d/\n", 0, 0);
 		ft_printf("f- /@moulitest: /%5.d/ /%5.0d/\n", 0, 0);
@@ -145,18 +148,18 @@ int		main(void)
 		printf("-->");
 		printf(" ==> [%d] ", ft_printf("%"));
 		printf("<--\n");
-
-		printf(" --> [%d]\n", printf("{%c}", 0));
+*/
+		printf(" --> [%d]\n", printf("{%c}", 0)), F;
 		ft_printf(" --> [%d]\n", ft_printf("{%c}", 0));
-		printf(" --> [%d]\n", printf("v- {%3c}", 0));
+		printf(" --> [%d]\n", printf("v- {%3c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("f- {%3c}", 0));
-		printf(" --> [%d]\n", printf("v- {%03c}", 0));
+		printf(" --> [%d]\n", printf("v- {%03c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("f- {%03c}", 0));
-		printf(" --> [%d]\n", printf("v- {%+c}", 0));
+		printf(" --> [%d]\n", printf("v- {%+c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("f- {%+c}", 0));
-		printf(" --> [%d]\n", printf("v- {% c}", 0));
+		printf(" --> [%d]\n", printf("v- {% c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
-		printf(" --> [%d]\n", printf("{%05.c}", 0));
+		printf(" --> [%d]\n", printf("{%05.c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("{%05.c}", 0));
 /*
 		printf("v- %o, %ho, %hho\n", -42, -42, -42);

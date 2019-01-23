@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 11:40:46 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 13:08:53 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,6 +26,8 @@ char				*c_conv(va_list va, t_data *data)
 	letter[1] = '\0';
 	if (ft_strlen(letter) == 0 && data->width >= 1)
 		data->width -= 1;
+	if (ft_strlen(letter) == 0)
+		data->backslash++;
 	return (letter);
 }
 
@@ -76,7 +78,10 @@ char		*d_conv(va_list va, t_data *data)
 		nb = va_arg(va, long long);
 	num = ft_itoa((unsigned long long)nb);
 	if (nb == 0 && data->prec_dot == 1 && data->prec == 0)
+	{
 		num[0] = '\0';
+		data->backslash++;
+	}
 	return (num);
 }
 
