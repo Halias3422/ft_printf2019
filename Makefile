@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/07 13:44:20 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/23 11:00:13 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/23 15:02:14 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -93,7 +93,8 @@ PRINTF_SRC = ft_printf/add_conversion.c \
 	  ft_printf/ft_printf.c \
 	  ft_printf/handle_float.c \
 	  ft_printf/handle_prec_and_width.c \
-	  ft_printf/handle_flags_order.c
+	  ft_printf/handle_flags_order.c \
+	  ft_printf/print_printf.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 PRINTF_OBJ = $(PRINTF_SRC:.c=.o)

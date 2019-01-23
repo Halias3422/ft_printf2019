@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 13:24:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 15:01:47 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,32 +81,31 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 **	INIT DATA STRUCT ELEMENTS & FILLING THEM
 */
 
-char		*determ_data(char *format, char *output, va_list va, int i)
+char		*determ_data(char *format, t_data *data, va_list va, int i)
 {
-	t_data	data;
 
-	init_data(&data);
+	init_data(data);
 	while (format[i] && (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#'))
 	{
 		if(format[i] == '-')
-			data.flag_minus++;
-		data.flag = add_char_end_string(data.flag, format, i++);
+			data->flag_minus++;
+		data->flag = add_char_end_string(data->flag, format, i++);
 	}
 	while (format[i] && format[i] >= '0' && format[i] <= '9')
-		data.tmp_width = add_char_end_string(data.tmp_width, format, i++);
-	if (data.tmp_width[0] != '\0')
-		data.width = ft_atoi(data.tmp_width);
+		data->tmp_width = add_char_end_string(data->tmp_width, format, i++);
+	if (data->tmp_width[0] != '\0')
+		data->width = ft_atoi(data->tmp_width);
 	if (format[i] == '.')
 	{
-		data.prec_dot = 1;
+		data->prec_dot = 1;
 		while (format[++i] >= '0' && format[i] <= '9')
-			data.tmp_prec = add_char_end_string(data.tmp_prec, format, i);
-		data.prec = ft_atoi(data.tmp_prec);
+			data->tmp_prec = add_char_end_string(data->tmp_prec, format, i);
+		data->prec = ft_atoi(data->tmp_prec);
 	}
 	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'))
-		data.length = add_char_end_string(data.length, format, i++);
-	data.conv = determ_conv(&data, data.conv, format, i);
-	output = add_conversion_output(&data, output, va);
-	free_data(data);
-	return (output);
+		data->length = add_char_end_string(data->length, format, i++);
+	data->conv = determ_conv(data, data->conv, format, i);
+	data->output = add_conversion_output(data, data->output, va);
+	free_data(*data);
+	return (data->output);
 }

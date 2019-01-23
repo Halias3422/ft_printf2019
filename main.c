@@ -148,9 +148,25 @@ int		main(void)
 		printf("-->");
 		printf(" ==> [%d] ", ft_printf("%"));
 		printf("<--\n");
+
+		printf("v - {%c}\n", 0), F;
+		ft_printf("f - {%c}\n", 0);
+		printf("v- {%3c}\n", 0), F;
+		ft_printf("f- {%3c}\n", 0);
+		printf("v- {%03c}\n", 0), F;
+		ft_printf("f- {%03c}\n", 0);
+		printf("v- {%+c}\n", 0), F;
+		ft_printf("f- {%+c}\n", 0);
+		printf("v- {% c}\n", 0), F;
+		ft_printf("f- {% c}\n", 0);
+		printf("v - {%05.c}\n", 0), F;
+		ft_printf("f - {%05.c}\n", 0);
 */
-		printf(" --> [%d]\n", printf("{%c}", 0)), F;
-		ft_printf(" --> [%d]\n", ft_printf("{%c}", 0));
+	printf("v - bonjour /%c/ ca va /%c/ ?\n", 0, 0), F;
+	ft_printf("f - bonjour /%c/ ca va /%c/ ?\n", 0, 0);
+/*
+		printf(" --> [%d]\n", printf("v - {%c}", 0)), F;
+		printf(" --> [%d]\n", ft_printf("f - {%c}", 0));
 		printf(" --> [%d]\n", printf("v- {%3c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("f- {%3c}", 0));
 		printf(" --> [%d]\n", printf("v- {%03c}", 0)), F;
@@ -159,9 +175,9 @@ int		main(void)
 		printf(" --> [%d]\n", ft_printf("f- {%+c}", 0));
 		printf(" --> [%d]\n", printf("v- {% c}", 0)), F;
 		printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
-		printf(" --> [%d]\n", printf("{%05.c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("{%05.c}", 0));
-/*
+		printf(" --> [%d]\n", printf("v - {%05.c}", 0)), F;
+		printf(" --> [%d]\n", ft_printf("f - {%05.c}", 0));
+
 		printf("v- %o, %ho, %hho\n", -42, -42, -42);
 		ft_printf("f- %o, %ho, %hho\n", -42, -42, -42);
 

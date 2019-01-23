@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 13:09:52 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 17:09:34 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -92,21 +92,21 @@ int					count_all_datas(char *format, int i)
 **		ADD '%' IN OUTPUT IN CASE THERE IS %%
 */
 
-int				crossing_pourcent(char *format, char **output, int i, va_list va)
+int				crossing_pourcent(char *format, t_data *data, int i, va_list va)
 {
 	char			*tmp;
 
 	if (format[i + 1] == '%')
 	{
 		i++;
-		tmp = *output;
-		*output = ft_strjoin(*output, "%");
+		tmp = data->output;
+		data->output = ft_strjoin(data->output, "%");
 		free(tmp);
 		i++;
 	}
 	else if (format[i + 1] != '\0')
 	{
-		*output = determ_data((char*)format, *output, va, ++i);
+		data->output = determ_data((char*)format, data, va, ++i);
 		i = count_all_datas((char*)format, i);
 	}
 	else
@@ -121,24 +121,26 @@ int				crossing_pourcent(char *format, char **output, int i, va_list va)
 int					ft_printf(const char * restrict format, ...)
 {
 	va_list			va;
-	char			*output;
 	int				i;
 	int				output_len;
+	t_data			data;
 
 	i = 0;
-	output = ft_strnew(0);
+	data.output = ft_strnew(0);
 	va_start(va, format);
 	while (format[i])
 	{
-		output = fill_string_output((char*)format, output, i);
+		data.output = fill_string_output((char*)format, data.output, i);
 		while (format[i] && format[i] != '%')
 			i++;
 		if (format[i] == '%')
-			i = crossing_pourcent((char*)format, &output, i, va);
+			i = crossing_pourcent((char*)format, &data, i, va);
 	}
 	va_end(va);
-	ft_putstr(output);
-	output_len = ft_strlen(output);
-	free(output);
-	return (output_len);
+	printf("backslash total = %d\n", data.backslash);
+//	ft_putstr(data.output);
+//	output_len = ft_strlen(data.output);
+//	free(data.output);
+//	printf("\n\n");
+	return (print_printf(&data));
 }

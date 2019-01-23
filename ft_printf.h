@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 13:24:57 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 16:57:18 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,6 +24,7 @@
 
 typedef struct		s_data
 {
+	char			*output;
 	char			*flag;
 	int				plus;
 	int				flag_minus;
@@ -64,7 +65,7 @@ typedef struct		s_float
 */
 
 int					ft_printf(const char * restrict format, ...);
-int					crossing_pourcent(char *format, char **output, int i, va_list va);
+int					crossing_pourcent(char *format, t_data *data, int i, va_list va);
 char				*fill_string_output(char *format, char *output, int i);
 int					is_contained_in(char *format, char *compare, int i);
 int					count_all_datas(char *format, int i);
@@ -73,7 +74,7 @@ int					count_all_datas(char *format, int i);
 **		DETERM_DATA.C
 */
 
-char				*determ_data(char *format, char *output, va_list va, int i);
+char				*determ_data(char *format, t_data *data, va_list va, int i);
 char				determ_conv(t_data *data, char conv, char *format, int i);
 char				*add_char_end_string(char *dest, char *lett, int i);
 char				*add_char_begin_string(char *dest, char *lett);
@@ -85,6 +86,7 @@ void				init_data(t_data *data);
 
 char				*add_conversion_output(t_data *data, char *output, va_list va);
 char				*conversion_type(t_data *data, va_list va);
+char				*backslash_strjoin(char *s1, char *s2, t_data data);
 
 /*
 **		CONVERSION_TYPE.C 1 && 2
@@ -133,6 +135,12 @@ char				*handle_width(t_data data, char *arg);
 */
 
 char				*handle_plus_minus_with_zero(t_data data, char *arg);
+
+/*
+**		PRINT_PRINTF
+*/
+
+int					print_printf(t_data *data);
 
 /*
 **		FREE.C

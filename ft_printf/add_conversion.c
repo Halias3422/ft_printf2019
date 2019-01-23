@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 13:24:56 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 17:15:43 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,32 @@ char		*conversion_type(t_data *data, va_list va)
 	return (arg);
 }
 
+char		*backslash_strjoin(char *s1, char *s2, t_data data)
+{
+	char	*dest;
+	size_t	i;
+	int		j;
+
+	i = ft_strlen(s1) + ft_strlen(s2) + data.backslash;
+	j = 0;
+	if (!(dest = (char*)malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	i = 0;
+	while (data.backslash > 0)
+	{
+		dest[i] = s1[i];
+		i++;
+		if (s1[i] == '\0')
+			data.backslash--;
+	}
+	while (s2[j])
+		dest[i++] = s2[j++];
+	dest[i++] = '\0';
+	dest[i] = '\0';
+	printf("dest = /%s/\n", dest);
+	return (dest);
+}
+
 char		*add_conversion_output(t_data *data, char *output, va_list va)
 {
 	char	*arg;
@@ -48,7 +74,10 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 		data->minus++;
 	arg = add_flag_to_conv(*data, arg);
 	tmp = output;
-	output = ft_strjoin(output, arg);
+	if (data->backslash > 0)
+//		output = backslash_strjoin(output, arg, *data);
+//	else
+		output = ft_strjoin(output, arg);
 	free(tmp);
 	free(arg);
 	return (output);
