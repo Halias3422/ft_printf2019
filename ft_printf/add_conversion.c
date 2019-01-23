@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 20:51:46 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 10:58:32 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,9 +17,9 @@
 **	INIT OF ARRAY OF POINTER ON FT AND SELECTING ACCORDING FT
 */
 
-char		*conversion_type(t_data data, va_list va)
+char		*conversion_type(t_data *data, va_list va)
 {
-	char	*(*conv_pt[14])(va_list, t_data);
+	char	*(*conv_pt[14])(va_list, t_data *);
 	char	*arg;
 
 	conv_pt[0] = &(c_conv);
@@ -31,20 +31,22 @@ char		*conversion_type(t_data data, va_list va)
 	conv_pt[7] = &(u_conv);
 	conv_pt[8] = &(x_conv);
 	conv_pt[9] = &(X_conv);
-	arg = (*conv_pt[data.conv_type])(va, data);
+	arg = (*conv_pt[data->conv_type])(va, data);
 	return (arg);
 }
 
-char		*add_conversion_output(t_data data, char *output, va_list va)
+char		*add_conversion_output(t_data *data, char *output, va_list va)
 {
 	char	*arg;
 	char	*tmp;
 
-	if (data.conv_type == 3)
-		arg = f_conv(va, data);
+	if (data->conv_type == 3)
+		arg = f_conv(va, *data);
 	else
 		arg = conversion_type(data, va);
-	arg = add_flag_to_conv(data, arg);
+	if (arg[0] == '-')
+		data->minus++;
+	arg = add_flag_to_conv(*data, arg);
 	tmp = output;
 	output = ft_strjoin(output, arg);
 	free(tmp);

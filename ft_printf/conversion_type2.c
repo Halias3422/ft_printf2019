@@ -6,68 +6,74 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 20:36:38 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 11:40:46 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char			*o_conv(va_list va, t_data data)
+char			*o_conv(va_list va, t_data *data)
 {
 	unsigned long long	nb;
 	char		*num;
+	int			i;
 
-	if (data.length[0] == '\0')
+i = 0;
+	if (data->length[0] == '\0')
 		num = ft_itooct(nb = va_arg(va, unsigned int));
-	else if (ft_strcmp(data.length, "hh") == 0)
+	else if (ft_strcmp(data->length, "hh") == 0)
 		num = ft_itooct(nb = (unsigned char)va_arg(va, long long));
-	else if (ft_strcmp(data.length, "h") == 0)
+	else if (ft_strcmp(data->length, "h") == 0)
 		num = ft_itooct(nb = (unsigned short)va_arg(va, long long));
-	else if (ft_strcmp(data.length, "l") == 0)
-	{
+	else if (ft_strcmp(data->length, "l") == 0)
 		num = ft_itooct(nb = va_arg(va, unsigned long));
-		printf("nb = %llo\nnum = %lo\n", nb, num);
-	}
-	else if (ft_strcmp(data.length, "ll") == 0)
+	else if (ft_strcmp(data->length, "ll") == 0)
 		num = ft_itooct(nb = va_arg(va, unsigned long long));
+	while (data->flag[i] && data->flag[i] != '#')
+		i++;
+	if (data->flag[i] == '\0' && nb == 0 && data->prec_dot == 1
+			&& data->prec == 0)
+		num[0] = '\0';
 	return (num);
 }
 
-char			*x_conv(va_list va, t_data data)
+char			*x_conv(va_list va, t_data *data)
 {
 	unsigned long long		nb;
 	char		*num;
 
-	if (data.length[0] == '\0')
+	if (data->length[0] == '\0')
 		num = ft_itoh(nb = va_arg(va, unsigned int));
-	else if (ft_strcmp(data.length, "hh") == 0)
+	else if (ft_strcmp(data->length, "hh") == 0)
 		num = ft_itoh(nb = (unsigned char)va_arg(va, long));
-	else if (ft_strcmp(data.length, "h") == 0)
+	else if (ft_strcmp(data->length, "h") == 0)
 		num = ft_itoh(nb = (unsigned short)va_arg(va, long));
-	else if (ft_strcmp(data.length, "l") == 0)
+	else if (ft_strcmp(data->length, "l") == 0)
 		num = ft_itoh(nb = va_arg(va, unsigned long));
-	else if (ft_strcmp(data.length, "ll") == 0)
+	else if (ft_strcmp(data->length, "ll") == 0)
 		num = ft_itoh(nb = va_arg(va, unsigned long long));
+	if (nb == 0 && data->prec_dot == 1 && data->prec == 0)
+		num[0] = '\0';
 	return (num);
 }
 
-char			*X_conv(va_list va, t_data data)
+char			*X_conv(va_list va, t_data *data)
 {
 	unsigned long long	nb;
 	char		*num;
 	int			i;
 
 	i = -1;
-	if (data.length[0] == '\0')
+	if (data->length[0] == '\0')
 		num = ft_itoh(nb = va_arg(va, unsigned int));
-	else if (ft_strcmp(data.length, "hh") == 0)
+	else if (ft_strcmp(data->length, "hh") == 0)
 		num = ft_itoh(nb = (unsigned char)va_arg(va, long));
-	else if (ft_strcmp(data.length, "h") == 0)
+	else if (ft_strcmp(data->length, "h") == 0)
 		num = ft_itoh(nb = (unsigned short)va_arg(va, long));
-	else if (ft_strcmp(data.length, "l") == 0)
+	else if (ft_strcmp(data->length, "l") == 0)
 		num = ft_itoh(nb = va_arg(va, unsigned long));
-	else if (ft_strcmp(data.length, "ll") == 0)
+	else if (ft_strcmp(data->length, "ll") == 0)
 		num = ft_itoh(nb = va_arg(va, unsigned long long));
 	while (num[++i])
 	{

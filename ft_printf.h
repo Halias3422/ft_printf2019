@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 20:11:42 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 10:59:53 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,6 +26,8 @@ typedef struct		s_data
 {
 	char			*flag;
 	int				plus;
+	int				flag_minus;
+	int				minus;
 	int				space;
 	int				zero;
 	char			conv;
@@ -80,22 +82,22 @@ void				init_data(t_data *data);
 **		ADD_CONVERSION.C
 */
 
-char				*add_conversion_output(t_data data, char *output, va_list va);
-char				*conversion_type(t_data data, va_list va);
+char				*add_conversion_output(t_data *data, char *output, va_list va);
+char				*conversion_type(t_data *data, va_list va);
 
 /*
 **		CONVERSION_TYPE.C 1 && 2
 */
 
-char				*c_conv(va_list va, t_data data);
-char				*s_conv(va_list va, t_data data);
-char				*p_conv(va_list va, t_data data);
+char				*c_conv(va_list va, t_data *data);
+char				*s_conv(va_list va, t_data *data);
+char				*p_conv(va_list va, t_data *data);
 char				*f_conv(va_list va, t_data data);
-char				*d_conv(va_list va, t_data data);
-char				*o_conv(va_list va, t_data data);
-char				*u_conv(va_list va, t_data data);
-char				*x_conv(va_list va, t_data data);
-char				*X_conv(va_list va, t_data data);
+char				*d_conv(va_list va, t_data *data);
+char				*o_conv(va_list va, t_data *data);
+char				*u_conv(va_list va, t_data *data);
+char				*x_conv(va_list va, t_data *data);
+char				*X_conv(va_list va, t_data *data);
 
 /*
 **		ADD_FLAGS.C
@@ -124,6 +126,12 @@ char				*add_prec_to_string(t_data data, char *arg);
 char				*add_prec_to_pointer(t_data data, char *arg);
 char				*handle_prec(t_data data, char *arg);
 char				*handle_width(t_data data, char *arg);
+
+/*
+**		HANDLE_FLAGS_ORDER
+*/
+
+char				*handle_plus_minus_with_zero(t_data data, char *arg);
 
 /*
 **		FREE.C

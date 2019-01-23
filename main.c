@@ -74,14 +74,14 @@ int		main(void)
 		ft_printf("f- /%#04x/\n", 42);
 		printf("v- /%#-08x/\n", 42);
 		ft_printf("f- /%#-08x/\n", 42);
-*/		printf("v- /@moulitest: /%#.x/ /%#.0x//\n", 0, 0);
-		ft_printf("f- /@moulitest: /%#.x/ /%#.0x//\n", 0, 0);
-		printf("v- /@moulitest: /%.x/ /%.0x//\n", 0, 0);
-		ft_printf("f- /@moulitest: /%.x/ /%.0x//\n", 0, 0);
-		printf("v- /@moulitest: /%5.x/ /%5.0x//\n", 0, 0);
-		ft_printf("f- /@moulitest: /%5.x/ /%5.0x//\n", 0, 0);
-		printf("v- /@moulitest: %s/\n", NULL);
-		ft_printf("f- /@moulitest: %s/\n", NULL);
+		printf("v- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%.x/ /%.0x/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%.x/ /%.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%s/\n", NULL);
+		ft_printf("f- /@moulitest: /%s/\n", NULL);
 		printf("v- /%.2c/\n", NULL);
 		ft_printf("f- /%.2c/\n", NULL);
 		printf("v- /%s %s/\n", NULL, string);
@@ -96,18 +96,18 @@ int		main(void)
 		ft_printf("f- /% c/\n", 0);
 		printf("v- /%-05o/\n", 2500);
 		ft_printf("f- /%-05o/\n", 2500);
-		printf("v- /@moulitest: %.o %.0o/\n", 0, 0);
-		ft_printf("f- /@moulitest: %.o %.0o/\n", 0, 0);
-		printf("v- /@moulitest: %5.o %5.0o/\n", 0, 0);
-		ft_printf("f- /@moulitest: %5.o %5.0o/\n", 0, 0);
-		printf("v- /@moulitest: %#.o %#.0o/\n", 0, 0);
-		ft_printf("f- /@moulitest: %#.o %#.0o/\n", 0, 0);
-		printf("v- /@moulitest: %.x %.0x/\n", 0, 0);
-		ft_printf("f- /@moulitest: %.x %.0x/\n", 0, 0);
-		printf("v- /@moulitest: %5.x %5.0x/\n", 0, 0);
-		ft_printf("f- /@moulitest: %5.x %5.0x/\n", 0, 0);
-		printf("v- /@moulitest: %#.x %#.0x/\n", 0, 0);
-		ft_printf("f- /@moulitest: %#.x %#.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%.o/ /%.0o/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%.o/ /%.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%5.o/ /%5.0o/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%5.o/ /%5.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%#.o/ /%#.0o/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%#.o/ /%#.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%.x/ /%.0x/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%.x/ /%.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
 		printf("v- /% d/\n", -42);
 		ft_printf("f- /% d/\n", -42);
 		printf("v- /%05d/\n", -42);
@@ -130,10 +130,10 @@ int		main(void)
 		ft_printf("f- /%03.2d/\n", -1);
 		printf("v- /@moulitest: %.10d/\n", -42);
 		ft_printf("f- /@moulitest: %.10d/\n", -42);
-		printf("v- /@moulitest: /%.d/ /%.0d//\n", 0, 0);
-		ft_printf("f- /@moulitest: /%.d/ /%.0d//\n", 0, 0);
-		printf("v- /@moulitest: %5.d %5.0d/\n", 0, 0);
-		ft_printf("f- /@moulitest: %5.d %5.0d/\n", 0, 0);
+*/		printf("v- /@moulitest: /%.d/ /%.0d/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%.d/ /%.0d/\n", 0, 0);
+		printf("v- /@moulitest: /%5.d/ /%5.0d/\n", 0, 0);
+		ft_printf("f- /@moulitest: /%5.d/ /%5.0d/\n", 0, 0);
 		printf("v- /% u/\n", 4294967295);
 		ft_printf("f- /% u/\n", 4294967295);
 		printf("v- /%+u/\n", 4294967295);
@@ -158,7 +158,7 @@ int		main(void)
 		printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
 		printf(" --> [%d]\n", printf("{%05.c}", 0));
 		printf(" --> [%d]\n", ft_printf("{%05.c}", 0));
-
+/*
 		printf("v- %o, %ho, %hho\n", -42, -42, -42);
 		ft_printf("f- %o, %ho, %hho\n", -42, -42, -42);
 

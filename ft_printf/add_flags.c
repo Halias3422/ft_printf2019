@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 20:49:08 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 11:03:04 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,15 +16,9 @@
 char				*flag_zero(t_data data, char *arg)
 {
 	int				i;
-	char			*tmp_arg;
 
-	if (data.plus > 0)
-	{
-		tmp_arg = arg;
-		arg = ft_copy_part_str(arg, 1, 1);
-		free(tmp_arg);
-	}
 	i = 0;
+	arg = handle_plus_minus_with_zero(data, arg);
 	if (data.prec_dot == 0)
 	{
 		while (data.flag[i] && data.flag[i] != '-')
@@ -33,11 +27,13 @@ char				*flag_zero(t_data data, char *arg)
 	if (data.flag[i] == '\0' && ft_strlen(arg) < (size_t)data.width)
 	{
 		while (ft_strlen(arg) < ((size_t)data.width - (size_t)data.plus -
-				(size_t)data.space))
+				(size_t)data.space) - (size_t)data.minus)
 			arg = add_char_begin_string(arg, "0");
 	}
 	if (data.plus > 0)
 		arg = add_char_begin_string(arg, "+");
+	else if (data.minus > 0)
+		arg = add_char_begin_string(arg, "-");
 	return (arg);
 }
 
@@ -77,7 +73,7 @@ char			*flag_diez(t_data data, char *arg)
 		if (arg[i] == '\0')
 			arg = add_char_end_string(arg, ".", 0);
 	}
-	else if ((data.conv_type == 6 && data.tmp_prec[0] == '\0') ||
+	else if ((data.conv_type == 6 && data.tmp_prec[0] == '\0')||
 			data.conv_type == 8 || data.conv_type == 9)
 	{
 		if (data.conv_type == 6 && ft_strcmp(arg, "0") != 0)
@@ -108,12 +104,13 @@ char			*flag_space(t_data data, char *arg)
 		}
 	}
 	i = -1;
-	while (data.flag[++i])
+	while (data.flag[i])
 	{
 		if (data.flag[i] == '+')
 			return (arg);
 	}
-	arg = add_char_begin_string(arg, " ");
+	if (arg[0] != '-')
+		arg = add_char_begin_string(arg, " ");
 	return (arg);
 }
 
@@ -126,7 +123,7 @@ char			*add_flag_to_conv(t_data data, char *arg)
 	data.zero = 0;
 	i = -1;
 	arg = handle_prec(data, arg);
-	while (data.flag[++i])
+	while (data.flag[++i] && ft_strlen(arg) >= 1)
 	{
 		if (data.flag[i] == '0')
 			arg = flag_zero(data, arg);

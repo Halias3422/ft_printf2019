@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/21 11:35:24 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 20:48:45 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 11:37:57 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,9 +29,7 @@ char			*add_prec_to_pointer(t_data data, char *arg)
 		new_arg[i++] = arg[j++];
 	}
 	while ((i - 3 + ft_strlen(arg)) <= (size_t)data.prec)
-	{
 		new_arg[i++] = '0';
-	}
 	while (arg[j])
 		new_arg[i++] = arg[j++];
 	free(arg);
@@ -67,8 +65,11 @@ char			*handle_width(t_data data, char *arg)
 		if (data.flag[i++] == '-')
 			return (arg);
 	}
-	while (ft_strlen(arg) < data.width)
-		arg = add_char_begin_string(arg, " ");
+	if (arg != NULL)
+	{
+		while (ft_strlen(arg) < (size_t)data.width)
+			arg = add_char_begin_string(arg, " ");
+	}
 	return (arg);
 }
 
@@ -76,8 +77,11 @@ char			*handle_prec(t_data data, char *arg)
 {
 	if (data.prec_dot == 1 && (data.conv_type >= 4 && data.conv_type <= 9))
 	{
+		arg = handle_plus_minus_with_zero(data, arg);
 		while (ft_strlen(arg) < (size_t)data.prec)
 			arg = add_char_begin_string(arg, "0");
+		if (data.minus > 0 && arg[0] != '-')
+			arg = add_char_begin_string(arg, "-");
 	}
 	if (data.prec_dot == 1 && data.conv_type == 2)
 		arg = add_prec_to_pointer(data, arg);

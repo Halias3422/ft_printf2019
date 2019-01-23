@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 18:48:47 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 09:19:26 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -194,7 +194,7 @@ int			main(void)
 	ft_printf("ft_printf = Test0f /%0f/ /%010f/ /%-05f/\n", 458.36, 458.36, 458.36);
 
 	//	PREC TESTS
-*/
+
 	printf("expected =  Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n", 'a', 'v', '7', '^'), F;
 	ft_printf("ft_printf = Test.c /%.c/ /%.10c/ /%.0c/ /%5.12c/\n\n\n", 'a', 'v', '7', '^');
 
@@ -222,7 +222,7 @@ int			main(void)
 	printf("expected =  Test.X /%.X/ /%.10X/ /%.0X/ /%5.18X/\n", 7895, 789, -789521, 15547856), F;
 	ft_printf("ft_printf = Test.X /%.X/ /%.10X/ /%.0X/ /%5.18X/\n\n\n", 7895, 789, -789521, 15547856);
 	printf("FIN\n"), F;
-/*
+
 //		WIDTH TESTS
 
 //	printf("		TEST OF WIDTH\n\n"), F;
@@ -291,13 +291,13 @@ int			main(void)
 	ft_printf("ft_printf = TestX /% X/ /%   X/ /% +X/\n\n\n", 789456, -45721, 0);
 
 //		TESTS %%
-*/
+
 	printf("printf =  Test du %%%d %d %s\n", 10, "hello"), F;
 	ft_printf("ft_printf = Test du %%%+d %d %s\n\n\n", 10, "hello");
-/**/
+
 
 //		TESTS hh
-/*
+
 	printf("printf =    Test avec (hd) %hd test sans %d\n",457845, 457845);
 	ft_printf("ft_printf = Test avec (hd) %hd test sans %d\n\n\n", 457845, 457845);
 
@@ -360,9 +360,9 @@ int			main(void)
 
 	printf("printf =    Test avec (lf) %lf test sans %f\n",  4578453259999999999.45421, 4578453255.45421);
 	ft_printf("ft_printf = Test avec (lf) %lf test sans %f\n\n\n",  4578453259999999999.45421, 4578453255.45421);
-
+*/
 	printf("printf =    Test avec (llf) %Lf test sans %f\n",  4578453259999999999.45421, 4578453259.45421);
 	ft_printf("ft_printf = Test avec (llf) %Lf test sans %f\n\n\n",  4578453259999999999.45421, 4578453259.45421);
-*/
+
 	return (0);
 }
