@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 15:01:47 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 19:16:42 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,6 @@ void		init_data(t_data *data)
 	data->prec_dot = 0;
 	data->flag_minus = 0;
 	data->minus = 0;
-	data->backslash = 0;
 	data->tmp_prec = ft_strnew(0);
 	data->length = ft_strnew(0);
 }
@@ -95,7 +94,7 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 		data->tmp_width = add_char_end_string(data->tmp_width, format, i++);
 	if (data->tmp_width[0] != '\0')
 		data->width = ft_atoi(data->tmp_width);
-	if (format[i] == '.')
+	if (format[i] && format[i] == '.')
 	{
 		data->prec_dot = 1;
 		while (format[++i] >= '0' && format[i] <= '9')

@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 17:15:43 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 19:13:09 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,7 @@ char		*conversion_type(t_data *data, va_list va)
 	return (arg);
 }
 
-char		*backslash_strjoin(char *s1, char *s2, t_data data)
+/*char		*backslash_strjoin(char *s1, char *s2, t_data data)
 {
 	char	*dest;
 	size_t	i;
@@ -48,36 +48,51 @@ char		*backslash_strjoin(char *s1, char *s2, t_data data)
 	i = 0;
 	while (data.backslash > 0)
 	{
-		dest[i] = s1[i];
-		i++;
 		if (s1[i] == '\0')
 			data.backslash--;
+		dest[i] = s1[i];
+		i++;
 	}
 	while (s2[j])
 		dest[i++] = s2[j++];
 	dest[i++] = '\0';
 	dest[i] = '\0';
-	printf("dest = /%s/\n", dest);
 	return (dest);
-}
+}*/
 
 char		*add_conversion_output(t_data *data, char *output, va_list va)
 {
 	char	*arg;
 	char	*tmp;
 
+	data->args_nb = 0;
 	if (data->conv_type == 3)
 		arg = f_conv(va, *data);
 	else
 		arg = conversion_type(data, va);
 	if (arg[0] == '-')
 		data->minus++;
+	if (ft_strlen(arg) == 0 && (data->conv_type == 0 || data->conv_type == 1))
+	{
+		data->tab_arg_nb[data->backslash] = ft_strlen(output);
+		if (data->width > 0)
+			data->width--;
+		data->args_nb++;
+	}
 	arg = add_flag_to_conv(*data, arg);
 	tmp = output;
-	if (data->backslash > 0)
-//		output = backslash_strjoin(output, arg, *data);
-//	else
-		output = ft_strjoin(output, arg);
+	output = ft_strjoin(output, arg);
+	if (data->args_nb > 0)
+	{
+		data->tab_arg_nb[data->backslash] += (ft_strlen(output) - data->tab_arg_nb[data->backslash]);
+		data->backslash++;
+	}
+		/*	if (ft_strlen(arg) == 0)
+	{
+		printf("arg = {%s}\n", arg), fflush(stdout);
+		data->tab_arg_nb[data->backslash] = ft_strlen(output);
+		data->backslash++;
+	}*/
 	free(tmp);
 	free(arg);
 	return (output);

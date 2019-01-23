@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 17:09:34 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 18:52:48 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -125,6 +125,16 @@ int					ft_printf(const char * restrict format, ...)
 	int				output_len;
 	t_data			data;
 
+	data.backslash = 0;
+	data.args_nb = 0;
+	i = -1;
+	while (format[++i])
+	{
+		if (format[i] == '%')
+			data.args_nb++;
+	}
+	if (!(data.tab_arg_nb = (size_t*)malloc(sizeof(size_t) * data.args_nb)))
+		return (-1);
 	i = 0;
 	data.output = ft_strnew(0);
 	va_start(va, format);
@@ -137,7 +147,6 @@ int					ft_printf(const char * restrict format, ...)
 			i = crossing_pourcent((char*)format, &data, i, va);
 	}
 	va_end(va);
-	printf("backslash total = %d\n", data.backslash);
 //	ft_putstr(data.output);
 //	output_len = ft_strlen(data.output);
 //	free(data.output);

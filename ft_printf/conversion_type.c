@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 17:16:26 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 18:52:18 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,13 +24,6 @@ char				*c_conv(va_list va, t_data *data)
 	letter = ft_strnew(1);
 	letter[0] = va_arg(va, int);
 	letter[1] = '\0';
-	if (ft_strlen(letter) == 0 && data->width >= 1)
-		data->width -= 1;
-	if (ft_strlen(letter) == 0)
-	{
-		data->backslash++;
-		printf("backslash pemdamt = %d\n", data->backslash);
-	}
 	return (letter);
 }
 

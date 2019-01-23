@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 16:57:18 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/23 18:12:37 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,8 @@
 typedef struct		s_data
 {
 	char			*output;
+	int				args_nb;
+	size_t			*tab_arg_nb;
 	char			*flag;
 	int				plus;
 	int				flag_minus;
