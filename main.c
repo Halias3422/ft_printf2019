@@ -13,9 +13,12 @@ int		main(void)
 {
 
 	int	active_test = 0;
-	int	active_42_test = 1;
-	int	active_perso_test = 0;
+	int	active_42_test = 0;
+//	int	active_perso_test = 0;
 	int	bonus_test = 0;
+ft_putstr("poulet\n");
+ft_printf("f- /% d/\n", -42);
+ft_putstr("fin\n");
 
 	if (active_test == 1 || bonus_test == 1)
 	{
@@ -62,7 +65,7 @@ int		main(void)
 
 	if (active_test == 1 || active_42_test == 1)
 	{
-		char *string = NULL;
+//		char *string = NULL;
 /*		printf("v- /%5%/\n");
 		ft_printf("f- /%5%/\n");
 		printf("v- /%-5%/\n");
@@ -112,8 +115,8 @@ int		main(void)
 		printf("v- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0), F;
 		ft_printf("f- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
 		printf("v- /% d/\n", -42), F;
-		ft_printf("f- /% d/\n", -42);
-		printf("v- /%05d/\n", -42), F;
+*/		ft_printf("f- /% d/\n", -42);
+/*		printf("v- /%05d/\n", -42), F;
 		ft_printf("f- /%05d/\n", -42);
 		printf("v- /%0+5d/\n", -42), F;
 		ft_printf("f- /%0+5d/\n", -42);
@@ -180,15 +183,15 @@ int		main(void)
 
 		printf("v- %o, %ho, %hho\n", -42, -42, -42), F;
 		ft_printf("f- %o, %ho, %hho\n", -42, -42, -42);
-*/
-		//printf("v- /%4.s/\n", "42"), F;
-		//ft_printf("f- /%4.s/\n", "42");
+
+		printf("v- /%4.s/\n", "42"), F;
+		ft_printf("f- /%4.s/\n", "42");
 
 		printf("v- %+- Z0#10.50hhd\n", 42),fflush(stdout);
-		ft_printf("f- %+- K0#10.50hhd\n", 42);
+		ft_printf("f- %+- Z0#10.50hhd\n", 42);
 		//printf("/% +10.5hZhdoooo/\n", 42);fflush(stdout);
 		//ft_printf("/% +10.5hZhdoooo/\n", 42);
-/*
+
 		printf("valeur de retour = %d\n", printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0)), F;
 		ft_putstr("1er\n");
 		ft_printf("%.o", 0);
@@ -309,7 +312,7 @@ int		main(void)
 		ft_printf("f - long2 = %lo\n", (long)-35);
 //		ft_printf("long_max = %lo\n", long_max);
 //		ft_printf("long_min = %lo\n", long_min);
-/*
+
 		printf("\nTEST VALEUR LONG LONG SUR CONVERSION o\n");
 		printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
 		ft_printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);

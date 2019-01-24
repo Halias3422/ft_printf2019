@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 11:34:46 by dcoat       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/24 12:06:03 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,10 +22,11 @@ char		*conversion_type(t_data *data, va_list va)
 	char	*(*conv_pt[14])(va_list, t_data *);
 	char	*arg;
 	
-	printf("conv_type = %d\n", data->conv_type),fflush(stdout);
 	if (data->conv_type == 14)
+	{
+		arg = NULL;
 		return (arg);
-
+	}
 	conv_pt[0] = &(c_conv);
 	conv_pt[1] = &(s_conv);
 	conv_pt[2] = &(p_conv);
@@ -74,10 +75,8 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 	if (data->conv_type == 3)
 		arg = f_conv(va, *data);
 	else
-	{
 		arg = conversion_type(data, va);
-	}
-		if (arg[0] == '-')
+	if (arg[0] == '-')
 		data->minus++;
 	if (ft_strlen(arg) == 0 && (data->conv_type == 0 || data->conv_type == 1))
 	{
@@ -86,24 +85,14 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 			data->width--;
 		data->args_nb++;
 	}
-	if (arg != NULL)
-		arg = add_flag_to_conv(*data, arg);
+	arg = add_flag_to_conv(*data, arg);
 	tmp = output;
-	printf("arg join = %s\n",arg),fflush(stdout);
-	if (arg != NULL)
-		output = ft_strjoin(output, arg);
-	printf("\nenfin"),fflush(stdout);
+	output = ft_strjoin(output, arg);
 	if (data->args_nb > 0)
 	{
 		data->tab_arg_nb[data->backslash] += (ft_strlen(output) - data->tab_arg_nb[data->backslash]);
 		data->backslash++;
 	}
-		/*	if (ft_strlen(arg) == 0)
-	{
-		printf("arg = {%s}\n", arg), fflush(stdout);
-		data->tab_arg_nb[data->backslash] = ft_strlen(output);
-		data->backslash++;
-	}*/
 	free(tmp);
 	free(arg);
 	return (output);

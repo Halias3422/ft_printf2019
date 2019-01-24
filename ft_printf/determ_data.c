@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 10:31:21 by dcoat       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/24 12:10:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -82,15 +82,12 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 
 char		*determ_data(char *format, t_data *data, va_list va, int i)
 {
-
 	init_data(data);
 	while (format[i] && (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#'))
 	{
 		if(format[i] == '-')
 			data->flag_minus++;
 		data->flag = add_char_end_string(data->flag, format, i++);
-		printf("flag = |%s|\n", data->flag), fflush(stdout);
-		printf("flag_minus = %d\n", data->flag_minus), fflush(stdout);
 	}
 	while (format[i] && format[i] >= '0' && format[i] <= '9')
 		data->tmp_width = add_char_end_string(data->tmp_width, format, i++);
@@ -106,7 +103,8 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'))
 		data->length = add_char_end_string(data->length, format, i++);
 	data->conv = determ_conv(data, data->conv, format, i);
+	if (data->conv == 0 && data->conv_type == 14)
+		return (data->output);
 	data->output = add_conversion_output(data, data->output, va);
-	free_data(*data);
 	return (data->output);
 }

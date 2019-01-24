@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 18:12:37 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/24 12:02:17 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,8 @@
 /*
 ** STRUCTURE CONTAINING ALL THE POSSIBLE ARGUMENTS OF PRINTF
 */
+
+#define F fflush(stdout)
 
 typedef struct		s_data
 {

@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 18:52:48 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/24 12:12:42 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -125,6 +125,7 @@ int					ft_printf(const char * restrict format, ...)
 	int				output_len;
 	t_data			data;
 
+	ft_putstr("mique");
 	data.backslash = 0;
 	data.args_nb = 0;
 	i = -1;
@@ -147,9 +148,6 @@ int					ft_printf(const char * restrict format, ...)
 			i = crossing_pourcent((char*)format, &data, i, va);
 	}
 	va_end(va);
-//	ft_putstr(data.output);
-//	output_len = ft_strlen(data.output);
-//	free(data.output);
-//	printf("\n\n");
+	free_data(data);
 	return (print_printf(&data));
 }
