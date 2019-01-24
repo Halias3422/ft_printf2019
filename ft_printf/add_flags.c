@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 19:18:48 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/24 11:31:19 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -125,12 +125,14 @@ char			*add_flag_to_conv(t_data data, char *arg)
 	arg = handle_prec(data, arg);
 	while (data.flag[++i] && (ft_strlen(arg) >= 1 || data.args_nb > 0))
 	{
+		printf("nono\n"), fflush(stdout);
 		if (data.flag[i] == '0')
 			arg = flag_zero(data, arg);
 		if (data.flag[i] == '+' && data.plus++ == 0)
 		{
 			if (arg[0] != '-' && data.conv_type >= 3 && data.conv_type <= 5)
 				arg = add_char_begin_string(arg, "+");
+			printf("ok\n"), fflush(stdout);
 		}
 		else if (data.flag[i] == '-' && data.width != 0)
 			arg = flag_minus(data, arg);

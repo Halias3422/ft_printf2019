@@ -180,14 +180,14 @@ int		main(void)
 
 		printf("v- %o, %ho, %hho\n", -42, -42, -42), F;
 		ft_printf("f- %o, %ho, %hho\n", -42, -42, -42);
-
-		printf("v- /%4.s/\n", "42"), F;
-		ft_printf("f- /%4.s/\n", "42");
 */
-//		printf("v- %+- Z0#10.50hhd\n", 42);fflush(stdout);
-		ft_printf("f- %+- Z0#10.50hhd\n", 42);
-//		printf("/% +10.5hZhdoooo/\n", 42);fflush(stdout);
-		ft_printf("/% +10.5hZhdoooo/\n", 42);
+		//printf("v- /%4.s/\n", "42"), F;
+		//ft_printf("f- /%4.s/\n", "42");
+
+		printf("v- %+- Z0#10.50hhd\n", 42),fflush(stdout);
+		ft_printf("f- %+- K0#10.50hhd\n", 42);
+		//printf("/% +10.5hZhdoooo/\n", 42);fflush(stdout);
+		//ft_printf("/% +10.5hZhdoooo/\n", 42);
 /*
 		printf("valeur de retour = %d\n", printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0)), F;
 		ft_putstr("1er\n");

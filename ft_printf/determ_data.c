@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 19:16:42 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/24 10:31:21 by dcoat       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -89,6 +89,8 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 		if(format[i] == '-')
 			data->flag_minus++;
 		data->flag = add_char_end_string(data->flag, format, i++);
+		printf("flag = |%s|\n", data->flag), fflush(stdout);
+		printf("flag_minus = %d\n", data->flag_minus), fflush(stdout);
 	}
 	while (format[i] && format[i] >= '0' && format[i] <= '9')
 		data->tmp_width = add_char_end_string(data->tmp_width, format, i++);
