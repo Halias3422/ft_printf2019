@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/23 12:59:16 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 14:08:07 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -100,4 +100,14 @@ char			*f_conv(va_list va, t_data data)
 		nb = va_arg(va, long double);
 	num = handle_float(nb, data);
 	return (num);
+}
+
+char			*pourcent_conv(t_data *data)
+{
+	char		*pourcent;
+
+	pourcent = ft_strnew(1);
+	pourcent[0] = '%';
+	pourcent[1] = '\0';
+	return (pourcent);
 }

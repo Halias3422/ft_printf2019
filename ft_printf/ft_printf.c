@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 12:12:42 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 17:00:41 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,7 +72,7 @@ int					count_all_datas(char *format, int i)
 	length.flags = "0+- #";
 	length.nb = "0123456789";
 	length.length = "hlL";
-	length.conv = "cspfdiouxX";
+	length.conv = "cspfdiouxX%";
 	while (is_contained_in(format, length.flags, i) > 0)
 		i++;
 	while (is_contained_in(format, length.nb, i) > 0)
@@ -96,15 +96,7 @@ int				crossing_pourcent(char *format, t_data *data, int i, va_list va)
 {
 	char			*tmp;
 
-	if (format[i + 1] == '%')
-	{
-		i++;
-		tmp = data->output;
-		data->output = ft_strjoin(data->output, "%");
-		free(tmp);
-		i++;
-	}
-	else if (format[i + 1] != '\0')
+	if (format[i + 1] != '\0')
 	{
 		data->output = determ_data((char*)format, data, va, ++i);
 		i = count_all_datas((char*)format, i);
@@ -124,8 +116,8 @@ int					ft_printf(const char * restrict format, ...)
 	int				i;
 	int				output_len;
 	t_data			data;
+	int				final_len;
 
-	ft_putstr("mique");
 	data.backslash = 0;
 	data.args_nb = 0;
 	i = -1;
@@ -148,6 +140,8 @@ int					ft_printf(const char * restrict format, ...)
 			i = crossing_pourcent((char*)format, &data, i, va);
 	}
 	va_end(va);
-	free_data(data);
-	return (print_printf(&data));
+	final_len = print_printf(&data);
+	if (data.char_init == 1)
+		free_data(&data);
+	return (final_len);
 }

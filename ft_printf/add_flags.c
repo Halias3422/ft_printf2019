@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 12:04:53 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 17:06:38 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -104,7 +104,7 @@ char			*flag_space(t_data data, char *arg)
 		}
 	}
 	i = -1;
-	while (data.flag[i])
+	while (data.flag[++i])
 	{
 		if (data.flag[i] == '+')
 			return (arg);

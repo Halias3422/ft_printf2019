@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 12:06:03 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 16:51:41 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,51 +19,29 @@
 
 char		*conversion_type(t_data *data, va_list va)
 {
-	char	*(*conv_pt[14])(va_list, t_data *);
+	char	*(*conv_pt[10])(va_list, t_data *);
 	char	*arg;
-	
-	if (data->conv_type == 14)
-	{
-		arg = NULL;
+	char	*tmp;
+
+	if (data->conv_type == 10)
+		arg = pourcent_conv(data);
+	else if (data->conv_type == 11)
 		return (arg);
+	else
+	{
+		conv_pt[0] = &(c_conv);
+		conv_pt[1] = &(s_conv);
+		conv_pt[2] = &(p_conv);
+		conv_pt[4] = &(d_conv);
+		conv_pt[5] = &(d_conv);
+		conv_pt[6] = &(o_conv);
+		conv_pt[7] = &(u_conv);
+		conv_pt[8] = &(x_conv);
+		conv_pt[9] = &(X_conv);
+		arg = (*conv_pt[data->conv_type])(va, data);
 	}
-	conv_pt[0] = &(c_conv);
-	conv_pt[1] = &(s_conv);
-	conv_pt[2] = &(p_conv);
-	conv_pt[4] = &(d_conv);
-	conv_pt[5] = &(d_conv);
-	conv_pt[6] = &(o_conv);
-	conv_pt[7] = &(u_conv);
-	conv_pt[8] = &(x_conv);
-	conv_pt[9] = &(X_conv);
-	arg = (*conv_pt[data->conv_type])(va, data);
 	return (arg);
 }
-
-/*char		*backslash_strjoin(char *s1, char *s2, t_data data)
-{
-	char	*dest;
-	size_t	i;
-	int		j;
-
-	i = ft_strlen(s1) + ft_strlen(s2) + data.backslash;
-	j = 0;
-	if (!(dest = (char*)malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	i = 0;
-	while (data.backslash > 0)
-	{
-		if (s1[i] == '\0')
-			data.backslash--;
-		dest[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-		dest[i++] = s2[j++];
-	dest[i++] = '\0';
-	dest[i] = '\0';
-	return (dest);
-}*/
 
 char		*add_conversion_output(t_data *data, char *output, va_list va)
 {
@@ -76,6 +54,8 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 		arg = f_conv(va, *data);
 	else
 		arg = conversion_type(data, va);
+	if (arg != NULL)
+	{
 	if (arg[0] == '-')
 		data->minus++;
 	if (ft_strlen(arg) == 0 && (data->conv_type == 0 || data->conv_type == 1))
@@ -95,5 +75,6 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 	}
 	free(tmp);
 	free(arg);
+	}
 	return (output);
 }

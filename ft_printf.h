@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 12:02:17 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 16:37:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,6 +44,7 @@ typedef struct		s_data
 	char			*tmp_prec;
 	int				prec;
 	char			*length;
+	int				char_init;
 }					t_data;
 
 typedef struct		s_length
@@ -82,7 +83,7 @@ char				*determ_data(char *format, t_data *data, va_list va, int i);
 char				determ_conv(t_data *data, char conv, char *format, int i);
 char				*add_char_end_string(char *dest, char *lett, int i);
 char				*add_char_begin_string(char *dest, char *lett);
-void				init_data(t_data *data);
+t_data				init_data(t_data data);
 
 /*
 **		ADD_CONVERSION.C
@@ -105,6 +106,7 @@ char				*o_conv(va_list va, t_data *data);
 char				*u_conv(va_list va, t_data *data);
 char				*x_conv(va_list va, t_data *data);
 char				*X_conv(va_list va, t_data *data);
+char				*pourcent_conv(t_data *data);
 
 /*
 **		ADD_FLAGS.C
@@ -147,9 +149,10 @@ char				*handle_plus_minus_with_zero(t_data data, char *arg);
 int					print_printf(t_data *data);
 
 /*
-**		FREE.C
+**		OTHERS.C
 */
 
-void				free_data(t_data data);
+int					check_non_valid_conv(t_data *data);
+void				free_data(t_data *data);
 
 #endif

@@ -6,23 +6,27 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 12:10:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 16:56:51 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		init_data(t_data *data)
+t_data		init_data(t_data data)
 {
-	data->flag = ft_strnew(0);
-	data->tmp_width = ft_strnew(0);
-	data->width = 0;
-	data->prec_dot = 0;
-	data->flag_minus = 0;
-	data->minus = 0;
-	data->tmp_prec = ft_strnew(0);
-	data->length = ft_strnew(0);
+	data.conv = 0;
+	data.conv_type = 0;
+	data.flag = ft_strnew(0);
+	data.tmp_width = ft_strnew(0);
+	data.width = 0;
+	data.prec_dot = 0;
+	data.flag_minus = 0;
+	data.minus = 0;
+	data.tmp_prec = ft_strnew(0);
+	data.length = ft_strnew(0);
+	data.char_init = 1;
+	return (data);
 }
 
 char		*add_char_begin_string(char *dest, char *lett)
@@ -67,7 +71,7 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 	char	*conv_types;
 
 	data->conv_type = -1;
-	conv_types = "cspfdiouxXCSDU";
+	conv_types = "cspfdiouxX%";
 	while (conv_types[++data->conv_type] && conv_types[data->conv_type] != format[i])
 	{
 		if (format[i] == conv_types[data->conv_type])
@@ -82,7 +86,8 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 
 char		*determ_data(char *format, t_data *data, va_list va, int i)
 {
-	init_data(data);
+
+	*data = init_data(*data);
 	while (format[i] && (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#'))
 	{
 		if(format[i] == '-')
@@ -103,7 +108,7 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'))
 		data->length = add_char_end_string(data->length, format, i++);
 	data->conv = determ_conv(data, data->conv, format, i);
-	if (data->conv == 0 && data->conv_type == 14)
+	if (check_non_valid_conv(data) == 1)
 		return (data->output);
 	data->output = add_conversion_output(data, data->output, va);
 	return (data->output);
