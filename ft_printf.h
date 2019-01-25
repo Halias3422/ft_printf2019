@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 16:37:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 18:27:09 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -153,6 +153,6 @@ int					print_printf(t_data *data);
 */
 
 int					check_non_valid_conv(t_data *data);
-void				free_data(t_data *data);
+void				free_data(t_data *data, int usage);
 
 #endif

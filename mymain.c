@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 16:44:16 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 18:30:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -126,7 +126,7 @@ int			main(void)
 	ft_printf("ft_printf = Test+c /%+c/ /%+c/ /%++c/\n\n\n", 'a', 'B', 'c'), F;
 	
 	printf("expected =  Test+s /%+s/ /%+s/ /%++s/\n", "hello", "bouuuh", ""), F;
-	ft_printf("ft_printf = Test+s /%+s/ /%+s/ /%++5s/\n\n\n", "hello", "bouuuh", "");
+	ft_printf("ft_printf = Test+s /%+s/ /%+s/ /%++s/\n\n\n", "hello", "bouuuh", "");
 	
 	printf("expected =  Test+p /%+p/ /%+p/ /%++p/\n", p1, p2, p3), F;
 	ft_printf("ft_printf = Test+p /%+p/ /%+p/ /%++p/\n\n\n", p1, p2, p3);
@@ -292,8 +292,8 @@ int			main(void)
 
 //		TESTS %%
 
-//	printf("printf =  Test du %%%d %d %s\n", 10, "hello"), F;
-//	ft_printf("ft_printf = Test du %%%+d %d %s\n\n\n", 10, "hello");
+	printf("printf =  Test du %%%d %d %s\n", 10, "hello"), F;
+	ft_printf("ft_printf = Test du %%%+d %d %s\n\n\n", 10, "hello");
 
 
 //		TESTS hh

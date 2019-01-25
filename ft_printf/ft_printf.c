@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 17:00:41 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 18:34:30 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,8 +14,8 @@
 #include "ft_printf.h"
 
 /*
-**		FILL OUTPUT WITH STRING PART OF FT_PRINTF
-*/
+ **		FILL OUTPUT WITH STRING PART OF FT_PRINTF
+ */
 
 char				*fill_string_output(char *format, char *output, int i)
 {
@@ -42,8 +42,8 @@ char				*fill_string_output(char *format, char *output, int i)
 }
 
 /*
-**		COUNT LENGTH OF ONE SPECIFIC TYPE OF PARAM FOR EACH %
-*/
+ **		COUNT LENGTH OF ONE SPECIFIC TYPE OF PARAM FOR EACH %
+ */
 
 int					is_contained_in(char *format, char *compare, int i)
 {
@@ -62,8 +62,8 @@ int					is_contained_in(char *format, char *compare, int i)
 }
 
 /*
-**		COUNT LENGTH OF ALL PARAMS OF EACH %
-*/
+ **		COUNT LENGTH OF ALL PARAMS OF EACH %
+ */
 
 int					count_all_datas(char *format, int i)
 {
@@ -85,12 +85,12 @@ int					count_all_datas(char *format, int i)
 		i++;
 	if (is_contained_in(format, length.conv, i) > 0)
 		i++;
-		return (i);
+	return (i);
 }
 
 /*
-**		ADD '%' IN OUTPUT IN CASE THERE IS %%
-*/
+ **		ADD '%' IN OUTPUT IN CASE THERE IS %%
+ */
 
 int				crossing_pourcent(char *format, t_data *data, int i, va_list va)
 {
@@ -107,8 +107,8 @@ int				crossing_pourcent(char *format, t_data *data, int i, va_list va)
 }
 
 /*
-**		FILL OUTPUT STRING BIT BY BIT AND DISPLAY IT
-*/
+ **		FILL OUTPUT STRING BIT BY BIT AND DISPLAY IT
+ */
 
 int					ft_printf(const char * restrict format, ...)
 {
@@ -142,6 +142,6 @@ int					ft_printf(const char * restrict format, ...)
 	va_end(va);
 	final_len = print_printf(&data);
 	if (data.char_init == 1)
-		free_data(&data);
+		free_data(&data, 1);
 	return (final_len);
 }

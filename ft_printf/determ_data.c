@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 16:56:51 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 18:43:35 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -86,7 +86,6 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 
 char		*determ_data(char *format, t_data *data, va_list va, int i)
 {
-
 	*data = init_data(*data);
 	while (format[i] && (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#'))
 	{
@@ -111,5 +110,6 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 	if (check_non_valid_conv(data) == 1)
 		return (data->output);
 	data->output = add_conversion_output(data, data->output, va);
+	free_data(data, 0);
 	return (data->output);
 }
