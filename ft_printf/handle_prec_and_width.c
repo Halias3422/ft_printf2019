@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/21 11:35:24 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 16:20:41 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/28 16:43:15 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,8 +67,14 @@ char			*handle_width(t_data data, char *arg)
 	}
 	if (arg != NULL)
 	{
-		while (ft_strlen(arg) < (size_t)data.width)
-			arg = add_char_begin_string(arg, " ");
+		if (data.prec_dot == 1 && data.prec == 0 && (is_contained_in("0", data.flag, 0) == 1))
+			while (ft_strlen(arg) < (size_t)data.width)
+			arg = add_char_begin_string(arg, "0");
+		else
+		{
+			while (ft_strlen(arg) < (size_t)data.width)
+				arg = add_char_begin_string(arg, " ");
+		}
 	}
 	return (arg);
 }

@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 14:08:07 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/28 16:02:16 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -89,14 +89,14 @@ char			*X_conv(va_list va, t_data *data)
 	return (num);
 }
 
-char			*f_conv(va_list va, t_data data)
+char			*f_conv(va_list va, t_data *data)
 {
 	long double	nb;
 	char		*num;
 
-	if (data.length[0] == '\0' || ft_strcmp(data.length, "l") == 0)
+	if (data->length[0] == '\0' || ft_strcmp(data->length, "l") == 0)
 		nb = va_arg(va, double);
-	else if (ft_strcmp(data.length, "L") == 0)
+	else if (ft_strcmp(data->length, "L") == 0)
 		nb = va_arg(va, long double);
 	num = handle_float(nb, data);
 	return (num);

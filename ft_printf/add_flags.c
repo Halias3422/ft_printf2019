@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 17:06:38 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/28 16:20:24 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,12 @@ char				*flag_minus(t_data data, char *arg)
 	i = -1;
 	right_width = ft_strnew(data.width);
 	while (++i < (data.width - (int)ft_strlen(arg)))
+	{
+		if ((is_contained_in("+", data.flag, 0) == 1) && data.f_inf == 1 && 
+				i  == (data.width - (int)ft_strlen(arg) - 1))
+			break;
 		right_width[i] = ' ';
+	}
 	tmp = arg;
 	arg = ft_strjoin(arg, right_width);
 	free(tmp);
@@ -129,7 +134,7 @@ char			*add_flag_to_conv(t_data data, char *arg)
 			arg = flag_zero(data, arg);
 		if (data.flag[i] == '+' && data.plus++ == 0)
 		{
-			if (arg[0] != '-' && data.conv_type >= 3 && data.conv_type <= 5)
+			if (arg[0] != '-' && data.conv_type >= 3 && data.conv_type <= 5 && data.f_nan != 1)
 				arg = add_char_begin_string(arg, "+");
 		}
 		else if (data.flag[i] == '-' && data.width != 0)

@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 18:27:09 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/28 16:02:00 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,6 +45,8 @@ typedef struct		s_data
 	int				prec;
 	char			*length;
 	int				char_init;
+	int				f_inf;
+	int				f_nan;
 }					t_data;
 
 typedef struct		s_length
@@ -100,7 +102,7 @@ char				*backslash_strjoin(char *s1, char *s2, t_data data);
 char				*c_conv(va_list va, t_data *data);
 char				*s_conv(va_list va, t_data *data);
 char				*p_conv(va_list va, t_data *data);
-char				*f_conv(va_list va, t_data data);
+char				*f_conv(va_list va, t_data *data);
 char				*d_conv(va_list va, t_data *data);
 char				*o_conv(va_list va, t_data *data);
 char				*u_conv(va_list va, t_data *data);
@@ -121,10 +123,10 @@ char				*flag_zero(t_data data, char *arg);
 **		HANDLE_FLOAT.C
 */
 
-void				fill_num(t_float *flt);
+void				fill_num(t_float *flt, t_data *data);
 int					change_round_num(t_float *flt, int i);
 char				*round_num(t_float flt);
-char				*handle_float(long double nb, t_data data);
+char				*handle_float(long double nb, t_data *data);
 int					determ_prec(t_data data);
 
 /*

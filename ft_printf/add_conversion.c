@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 18:38:35 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/28 16:34:17 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,7 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 	arg = NULL;
 	data->args_nb = 0;
 	if (data->conv_type == 3)
-		arg = f_conv(va, *data);
+		arg = f_conv(va, data);
 	else
 		arg = conversion_type(data, va);
 	if (arg != NULL)
@@ -68,7 +68,7 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 	arg = add_flag_to_conv(*data, arg);
 	tmp = output;
 	output = ft_strjoin(output, arg);
-	if (data->args_nb > 0)
+	if (data->args_nb > 0 && (data->conv_type != 1 && ft_strcmp(arg, "(null)") != 0))
 	{
 		data->tab_arg_nb[data->backslash] += (ft_strlen(output) - data->tab_arg_nb[data->backslash]);
 		data->backslash++;
