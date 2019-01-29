@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/28 14:41:20 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 09:50:07 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -93,15 +93,17 @@ char		*d_conv(va_list va, t_data *data)
 char				*u_conv(va_list va, t_data *data)
 {
 	long long	nb;
+	char		*num;
+
 	if (data->length[0] == '\0')
-		nb = va_arg(va, unsigned int);
+		num = ft_itoa_base_uns(nb = va_arg(va, unsigned int), 10);
 	else if (ft_strcmp(data->length, "hh") == 0)
-		nb = (unsigned char)va_arg(va, unsigned int);
+		num = ft_itoa_base_uns(nb = (unsigned char)va_arg(va, unsigned int), 10);
 	else if (ft_strcmp(data->length, "h") == 0)
-		nb = (unsigned short)va_arg(va, unsigned int);
+		num = ft_itoa_base_uns(nb = (unsigned short)va_arg(va, unsigned int), 10);
 	else if (ft_strcmp(data->length, "l") == 0)
-		nb = va_arg(va, unsigned long);
+		num = ft_itoa_base_uns(nb = va_arg(va, unsigned long), 10);
 	else if (ft_strcmp(data->length, "ll") == 0)
-		nb = va_arg(va, unsigned long long);
-	return (ft_itoa(nb));
+		num = ft_itoa_base_uns(nb = va_arg(va, unsigned long long), 10);
+	return (num);
 }

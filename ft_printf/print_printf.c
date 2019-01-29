@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/23 14:54:19 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/28 14:14:52 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 13:11:17 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,9 +18,11 @@ int			print_printf(t_data *data)
 {
 	int		i;
 	int		printed_backslash;
+	int		backslash_last_pos;
 
 	printed_backslash = 0;
 	i = 0;
+	backslash_last_pos = 0;
 	while (data->output[i])
 	{
 		if (data->backslash > 0 && printed_backslash <= data->backslash && i == data->tab_arg_nb[printed_backslash])
@@ -30,5 +32,10 @@ int			print_printf(t_data *data)
 		}
 		ft_putchar(data->output[i++]);
 	}
-	return (i + printed_backslash);
+	if (data->tab_arg_nb[printed_backslash] == ft_strlen(data->output) && data->backslash > 0)
+	{
+		ft_putchar('\0');
+		backslash_last_pos++;
+	}
+	return (i + printed_backslash + backslash_last_pos);
 }

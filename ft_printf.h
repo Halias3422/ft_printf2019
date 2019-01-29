@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/28 16:02:00 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 11:17:29 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,7 @@ typedef struct		s_data
 	int				minus;
 	int				space;
 	int				zero;
+	int				diez_length;
 	int				backslash;
 	char			conv;
 	int				conv_type;
@@ -115,7 +116,7 @@ char				*pourcent_conv(t_data *data);
 */
 
 char				*add_flag_to_conv(t_data data, char *arg);
-char				*flag_diez(t_data data, char *arg);
+char				*flag_diez(t_data *data, char *arg);
 char				*flag_minus(t_data data, char *arg);
 char				*flag_zero(t_data data, char *arg);
 

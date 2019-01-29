@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/28 16:20:24 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 14:27:35 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,11 @@
 char				*flag_zero(t_data data, char *arg)
 {
 	int				i;
+	size_t			tmp_plus;
 
+	tmp_plus = 0;
+	if (is_contained_in("+", data.flag, 0) == 1 && arg[0] != '-')
+		tmp_plus++;
 	i = 0;
 	arg = handle_plus_minus_with_zero(data, arg);
 	if (data.prec_dot == 0 || data.conv_type == 0)
@@ -26,8 +30,8 @@ char				*flag_zero(t_data data, char *arg)
 	}
 	if (data.flag[i] == '\0' && ft_strlen(arg) < (size_t)data.width)
 	{
-		while (ft_strlen(arg) < ((size_t)data.width - (size_t)data.plus -
-				(size_t)data.space) - (size_t)data.minus)
+		while (ft_strlen(arg) < ((size_t)data.width - tmp_plus -
+				(size_t)data.space) - (size_t)data.minus - data.diez_length)
 			arg = add_char_begin_string(arg, "0");
 	}
 	if (data.plus > 0)
@@ -54,8 +58,7 @@ char				*flag_minus(t_data data, char *arg)
 	right_width = ft_strnew(data.width);
 	while (++i < (data.width - (int)ft_strlen(arg)))
 	{
-		if ((is_contained_in("+", data.flag, 0) == 1) && data.f_inf == 1 && 
-				i  == (data.width - (int)ft_strlen(arg) - 1))
+		if ((((is_contained_in("+", data.flag, 0) == 1) && /*(data.f_nan != 1 ||*/ data.f_inf == 1) || (is_contained_in("#", data.flag, 0) == 1 && data.conv_type == 6 && data.diez_length == 0))  && i  == (data.width - (int)ft_strlen(arg) - 1))
 			break;
 		right_width[i] = ' ';
 	}
@@ -66,28 +69,37 @@ char				*flag_minus(t_data data, char *arg)
 	return (arg);
 }
 
-char			*flag_diez(t_data data, char *arg)
+char			*flag_diez(t_data *data, char *arg)
 {
 	int			i;
 
 	i = 0;
-	if (data.conv_type == 3)
+	if (data->conv_type == 3)
 	{
 		while (arg[i] && arg[i] != '.')
 			i++;
 		if (arg[i] == '\0')
 			arg = add_char_end_string(arg, ".", 0);
 	}
-	else if ((data.conv_type == 6 && data.tmp_prec[0] == '\0')||
-			data.conv_type == 8 || data.conv_type == 9)
+	else if ((data->conv_type == 6 && data->tmp_prec[0] == '\0')||
+			data->conv_type == 8 || data->conv_type == 9)
 	{
-		if (data.conv_type == 6 && ft_strcmp(arg, "0") != 0)
+		if (is_contained_in("0", data->flag, 0) == 1)
+		{
+			data->zero++;
+			data->diez_length = 2;
+			if (data->conv_type == 6)
+				data->diez_length = 1;
+			arg = flag_zero(*data, arg);
+		}
+		if (data->conv_type == 6 && ft_strcmp(arg, "0") != 0)
 			arg = add_char_begin_string(arg, "0");
-		if (data.conv_type == 8  && ft_strcmp(arg, "0") != 0)
+		if (data->conv_type == 8  && ft_strcmp(arg, "0") != 0)
 			arg = add_char_begin_string(arg, "0x");
-		if (data.conv_type == 9 && ft_strcmp(arg, "0") != 0)
+		if (data->conv_type == 9 && ft_strcmp(arg, "0") != 0)
 			arg = add_char_begin_string(arg, "0X");
 	}
+	data->diez_length = 1;
 	return (arg);
 }
 
@@ -130,7 +142,7 @@ char			*add_flag_to_conv(t_data data, char *arg)
 	arg = handle_prec(data, arg);
 	while (data.flag[++i] && (ft_strlen(arg) >= 1 || data.args_nb > 0))
 	{
-		if (data.flag[i] == '0')
+		if (data.flag[i] == '0' && data.zero == 0)
 			arg = flag_zero(data, arg);
 		if (data.flag[i] == '+' && data.plus++ == 0)
 		{
@@ -140,7 +152,7 @@ char			*add_flag_to_conv(t_data data, char *arg)
 		else if (data.flag[i] == '-' && data.width != 0)
 			arg = flag_minus(data, arg);
 		else if (data.flag[i] == '#')
-			arg = flag_diez(data, arg);
+			arg = flag_diez(&data, arg);
 		if (data.flag[i] == ' '  && data.conv_type >= 3 && data.conv_type <= 5
 				&& data.space++ == 0)
 			arg = flag_space(data, arg);

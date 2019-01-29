@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/28 16:44:20 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 14:32:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@
 #define F fflush(stdout)
 
 int			main(void)
-{
+{	
 	char	*p1;
 	char	*p2;
 	char	*p3;
@@ -74,40 +74,46 @@ int			main(void)
 	p2 = "Testitude2";
 	p3 = "Testitude3";
 
-	// PROBLEMATIC TESTS
-	
-	/*
-		printf("\nTEST VALEUR LONG SUR CONVERSION o\n"), F;
-		printf("zerolong = %lo // long1 = %lo // long2 = %lo // long_max = %lo // long_min = %lo\n", zerolong, long1, long2, long_max, long_min), F;
-		ft_printf("zerolong = %lo // long1 = %lo // long2 = %lo // long_max = %lo // long_min = %lo\n", zerolong, long1, long2, long_max, long_min);
-		ft_printf("zerolong = %lo\n", zerolong);
-		ft_printf("long1 = %lo\n", long1);
-		printf("v - long2 = %lo\n", (long)-35), F;
-		ft_printf("f - long2 = %lo\n", (long)-35);
-		ft_printf("long_max = %lo\n", long_max);
-		ft_printf("long_min = %lo\n", long_min);
+	int		test_part1 = 0;
+	int		test_part2 = 0;
+	int		test_part3 = 0;
+	int		test_part4 = 0;
 
-		printf("\nTEST VALEUR LONG LONG SUR CONVERSION o\n"), F;
-		printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min), F;
-		ft_printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
+//		42FILECHECKER FAILED TESTS
+		
+		printf("/%-+10.5d/\n", 4242), F;
+		ft_printf("/%-+10.5d/\n\n", 4242); 
 
-		printf("\nTEST VALEUR LONG SUR CONVERSION x\n"), F;
-		printf("zerolong = %lx // long1 = %lx // long2 = %lx // long_max = %lx // long_min = %lx\n", zerolong, long1, long2, long_max, long_min), F;
-		ft_printf("zerolong = %lx // long1 = %lx // long2 = %lx // long_max = %lx // long_min = %lx\n", zerolong, long1, long2, long_max, long_min);
+		printf("v- /@moulitest: /%.o/ /%5.0o/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%.o/ /%5.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%5.o/ /%5.0o/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%5.o/ /%5.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%#.o/ /%#.0o/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%#.o/ /%#.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%.x/ /%.0x/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%.x/ /%.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0);
+		printf("v- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
 
-		printf("\nTEST VALEUR LONG LONG SUR CONVERSION x\n"), F;
-		printf("zerolonglong = %llx // longlong1 = %llx // longlong2 = %llx // longlong_max = %llx // longlong_min = %llx\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min), F;
-		ft_printf("zerolonglong = %llx // longlong1 = %llx // longlong2 = %llx // longlong_max = %llx // longlong_min = %llx\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
 
-		printf("\nTEST VALEUR LONG SUR CONVERSION u\n"), F;
-		printf("zerolong = %lu // long1 = %lu // long2 = %lu // long_max = %lu // long_min = %lu\n", zerolong, long1, long2, long_max, long_min), F;
-		ft_printf("zerolong = %lu // long1 = %lu // long2 = %lu // long_max = %lu // long_min = %lu\n", zerolong, long1, long2, long_max, long_min);
+		printf("\n\nTEST FLAG PLUS ZERO SPACE MINUS\n"), F;
+		printf("v- plus et minus seuls            /%+-d/\n", t_d), F;
+		ft_printf("f- plus et minus seuls            /%+-d/\n", t_d);
+		printf("v- plus et minus avec size        /%+-10d/\n", t_d), F;
+		ft_printf("f- plus et minus avec size        /%+-10d/\n", t_d);
+		printf("v- plus et minus avec accu        /%+-.5d/\n", t_d), F;
+		ft_printf("f- plus et minus avec accu        /%+-.5d/\n", t_d);
+		printf("v- plus et minus avec size > accu /%+-10.5d/\n", t_d), F;
+		ft_printf("f- plus et minus avec size > accu /%+-10.5d/\n", t_d);
+		printf("v- plus et minus avec size < accu /%+-5.10d/\n", t_d), F;
+		ft_printf("f- plus et minus avec size < accu /%+-5.10d/\n", t_d);
+		printf("v- plus et minus avec size = accu /%+-10.10d/\n", t_d), F;
+		ft_printf("f- plus et minus avec size = accu /%+-10.10d/\n", t_d);
 
-		printf("\nTEST VALEUR LONG LONG SUR CONVERSION u\n"), F;
-		printf("zerolonglong = %llu // longlong1 = %llu // longlong2 = %llu // longlong_max = %llu // longlong_min = %llu\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min), F;
-		ft_printf("zerolonglong = %llu // longlong1 = %llu // longlong2 = %llu // longlong_max = %llu // longlong_min = %llu\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
-*/
-
+		if (test_part1 == 1)
+	{
 	// D TESTS
 
 	printf("printf =    Test du %%%d, %s%%\n", 10, "hello"), F;
@@ -446,14 +452,13 @@ int			main(void)
 	printf("printf =    Test avec (lf) %lf test sans %f\n",  4578453259999999999.45421, 4578453255.45421), F;
 	ft_printf("ft_printf = Test avec (lf) %lf test sans %f\n\n\n",  4578453259999999999.45421, 4578453255.45421);
 
-	printf("printf =    Test avec (llf) %Lf test sans %f\n",  4578453259999999999.45421, 4578453259.45421), F;
-	ft_printf("ft_printf = Test avec (llf) %Lf test sans %f\n\n\n",  4578453259999999999.45421, 4578453259.45421);
-
+	}
 	// TEST FLAGS l ll h hh L
 
 	// sur les %d
 		//  ------------------------ ANCIENNE PARTIE 1 ------------------------------------
-
+	if (test_part2 == 1)
+	{
 		ft_printf("lalalalala %d\n", 10);
 		printf("v- /%5%/\n"), F;
 		ft_printf("f- /%5%/\n");
@@ -473,8 +478,6 @@ int			main(void)
 		ft_printf("f- /@moulitest: /%#.x/ /%#.0x/\n", 0, 0);
 		printf("v- /@moulitest: /%.x/ /%.0x/\n", 0, 0), F;
 		ft_printf("f- /@moulitest: /%.x/ /%.0x/\n", 0, 0);
-		printf("v- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0), F;
-		ft_printf("f- /@moulitest: /%5.x/ /%5.0x/\n", 0, 0);
 		printf("v- /@moulitest: /%s/\n", NULL), F;
 		ft_printf("f- /@moulitest: /%s/\n", NULL);
 		printf("v- /%.2c/\n", NULL), F;
@@ -491,8 +494,8 @@ int			main(void)
 		ft_printf("f- /% c/\n", 0);
 		printf("v- /%-05o/\n", 2500), F;
 		ft_printf("f- /%-05o/\n", 2500);
-		printf("v- /@moulitest: /%.o/ /%.0o/\n", 0, 0), F;
-		ft_printf("f- /@moulitest: /%.o/ /%.0o/\n", 0, 0);
+		printf("v- /@moulitest: /%.o/ /%5.0o/\n", 0, 0), F;
+		ft_printf("f- /@moulitest: /%.o/ /%5.0o/\n", 0, 0);
 		printf("v- /@moulitest: /%5.o/ /%5.0o/\n", 0, 0), F;
 		ft_printf("f- /@moulitest: /%5.o/ /%5.0o/\n", 0, 0);
 		printf("v- /@moulitest: /%#.o/ /%#.0o/\n", 0, 0), F;
@@ -626,10 +629,11 @@ int			main(void)
 
 		printf("@moulitest: /%.d/ /%.0d/\n", 0, 0), F;
 		ft_printf("@moulitest: /%.d/ /%.0d/\n", 0, 0);
-
+	}
 //	-------------------- ANCIENNE PARTIE 2 ------------------------------------
 
-
+	if (test_part3 == 1)
+	{
 		// test des limites 
 
 		printf("-v UCHAR_MAX = %d\n", UCHAR_MAX), F;
@@ -700,21 +704,15 @@ int			main(void)
 		printf("\nTEST VALEUR INT SUR CONVERSION o\n"), F;
 		printf("zeroint = %o // int1 = %o // int2 = %o // int_max = %o // int_min = %o\n", zeroint, int1, int2, int_max, int_min), F;
 		ft_printf("zeroint = %o // int1 = %o // int2 = %o // int_max = %o // int_min = %o\n", zeroint, int1, int2, int_max, int_min);
-/*
+
 		printf("\nTEST VALEUR LONG SUR CONVERSION o\n"), F;
 		printf("zerolong = %lo // long1 = %lo // long2 = %lo // long_max = %lo // long_min = %lo\n", zerolong, long1, long2, long_max, long_min), F;
 		ft_printf("zerolong = %lo // long1 = %lo // long2 = %lo // long_max = %lo // long_min = %lo\n", zerolong, long1, long2, long_max, long_min);
-		ft_printf("zerolong = %lo\n", zerolong);
-		ft_printf("long1 = %lo\n", long1);
-		printf("v - long2 = %lo\n", (long)-35), F;
-		ft_printf("f - long2 = %lo\n", (long)-35);
-		ft_printf("long_max = %lo\n", long_max);
-		ft_printf("long_min = %lo\n", long_min);
 
 		printf("\nTEST VALEUR LONG LONG SUR CONVERSION o\n"), F;
 		printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min), F;
 		ft_printf("zerolonglong = %llo // longlong1 = %llo // longlong2 = %llo // longlong_max = %llo // longlong_min = %llo\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
-*/
+
 		// sur les %x
 
 		printf("\n\nSUR LES x\n"), F;
@@ -725,7 +723,7 @@ int			main(void)
 		printf("\nTEST VALEUR INT	SUR CONVERSION x\n"), F;
 		printf("zeroint = %x // int1 = %x // int2 = %x // int_max = %x // int_min = %x\n", zeroint, int1, int2, int_max, int_min), F;
 		ft_printf("zeroint = %x // int1 = %x // int2 = %x // int_max = %x // int_min = %x\n", zeroint, int1, int2, int_max, int_min);
-/*
+
 		printf("\nTEST VALEUR LONG SUR CONVERSION x\n"), F;
 		printf("zerolong = %lx // long1 = %lx // long2 = %lx // long_max = %lx // long_min = %lx\n", zerolong, long1, long2, long_max, long_min), F;
 		ft_printf("zerolong = %lx // long1 = %lx // long2 = %lx // long_max = %lx // long_min = %lx\n", zerolong, long1, long2, long_max, long_min);
@@ -733,7 +731,7 @@ int			main(void)
 		printf("\nTEST VALEUR LONG LONG SUR CONVERSION x\n"), F;
 		printf("zerolonglong = %llx // longlong1 = %llx // longlong2 = %llx // longlong_max = %llx // longlong_min = %llx\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min), F;
 		ft_printf("zerolonglong = %llx // longlong1 = %llx // longlong2 = %llx // longlong_max = %llx // longlong_min = %llx\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
-*/
+
 		// sur les %u
 
 
@@ -749,11 +747,11 @@ int			main(void)
 		printf("\nTEST VALEUR LONG SUR CONVERSION u\n"), F;
 		printf("zerolong = %lu // long1 = %lu // long2 = %lu // long_max = %lu // long_min = %lu\n", zerolong, long1, long2, long_max, long_min), F;
 		ft_printf("zerolong = %lu // long1 = %lu // long2 = %lu // long_max = %lu // long_min = %lu\n", zerolong, long1, long2, long_max, long_min);
-/*
+
 		printf("\nTEST VALEUR LONG LONG SUR CONVERSION u\n"), F;
 		printf("zerolonglong = %llu // longlong1 = %llu // longlong2 = %llu // longlong_max = %llu // longlong_min = %llu\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min), F;
 		ft_printf("zerolonglong = %llu // longlong1 = %llu // longlong2 = %llu // longlong_max = %llu // longlong_min = %llu\n", zerolonglong, longlong1, longlong2, longlong_max, longlong_min);
-*/
+
 		// sur les %f
 
 		printf("\n\nSUR LES f\n"), F;
@@ -859,10 +857,11 @@ int			main(void)
 		ft_printf("f- size < accu /%#-5.10o/\n", t_o);
 
 		//	sur les %x
-
+	}
 		// ----------- TEST FLAG HASH -----------
 
-
+	if (test_part4 == 1)
+	{
 		printf("\n\n Test on %%x\nTESTS FLAG HASH\n"), F;
 		printf("v- rien /%x/\n", t_x), F;
 		ft_printf("f- rien /%x/\n", t_x);
@@ -1303,6 +1302,6 @@ int			main(void)
 		ft_printf("f- space et zero avec size < accu /% 05.10f/\n", t_fl);
 		printf("v- space et zero avec size = accu /% 010.10f/\n", t_fl), F;
 		ft_printf("f- space et zero avec size = accu /% 010.10f/\n", t_fl);
-
+	}
 	return (0);
 }
