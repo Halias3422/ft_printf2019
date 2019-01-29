@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 14:32:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 15:06:52 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,7 +80,10 @@ int			main(void)
 	int		test_part4 = 0;
 
 //		42FILECHECKER FAILED TESTS
-		
+	
+		printf("retour = [%d]\n", printf("v - @moulitest: %#.x %#.0x", 0, 0)), F;
+		printf("retour = [%d]\n\n", ft_printf("f - @moulitest: %#.x %#.0x", 0, 0)), F;
+	
 		printf("/%-+10.5d/\n", 4242), F;
 		ft_printf("/%-+10.5d/\n\n", 4242); 
 

@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 14:27:35 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 14:45:47 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,18 +47,18 @@ char				*flag_minus(t_data data, char *arg)
 	int				i;
 	char			*tmp;
 	int				find_space;
-
+	
 	find_space = -1;
 	while (data.flag[++find_space])
 	{
-		if (data.flag[find_space] == ' ')
+		if (data.flag[find_space] == ' ' || (data.flag[find_space] == '+' && data.f_nan != 1 && data.plus != 1))
 			data.width--;
 	}
 	i = -1;
 	right_width = ft_strnew(data.width);
 	while (++i < (data.width - (int)ft_strlen(arg)))
 	{
-		if ((((is_contained_in("+", data.flag, 0) == 1) && /*(data.f_nan != 1 ||*/ data.f_inf == 1) || (is_contained_in("#", data.flag, 0) == 1 && data.conv_type == 6 && data.diez_length == 0))  && i  == (data.width - (int)ft_strlen(arg) - 1))
+		if ((((is_contained_in("+", data.flag, 0) == 1) && data.f_inf == 1) || (is_contained_in("#", data.flag, 0) == 1 && data.conv_type == 6 && data.diez_length == 0))  && i  == (data.width - (int)ft_strlen(arg) - 1))
 			break;
 		right_width[i] = ' ';
 	}
