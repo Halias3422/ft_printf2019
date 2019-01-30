@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 11:00:39 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 13:50:46 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -96,7 +96,7 @@ char				*conversion_type(t_data *data, va_list va);
 char				*backslash_strjoin(char *s1, char *s2, t_data data);
 
 /*
-**		CONVERSION_TYPE.C 1 && 2
+**		CONVERSION_TYPE.C 1, 2 && 3
 */
 
 char				*c_conv(va_list va, t_data *data);
@@ -109,6 +109,7 @@ char				*u_conv(va_list va, t_data *data);
 char				*x_conv(va_list va, t_data *data);
 char				*X_conv(va_list va, t_data *data);
 char				*pourcent_conv(t_data *data);
+char				*b_conv(va_list va, t_data *data);
 
 /*
 **		ADD_FLAGS.C

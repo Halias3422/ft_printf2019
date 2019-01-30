@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 13:23:26 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 14:50:10 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,7 +70,7 @@ int					count_all_datas(char *format, int i)
 	length.flags = "0+- #";
 	length.nb = "0123456789";
 	length.length = "hlL";
-	length.conv = "cspfdiouxX%";
+	length.conv = "cspfdiouxXb%";
 	while (is_contained_in(format, length.flags, i) > 0)
 		i++;
 	while (is_contained_in(format, length.nb, i) > 0)

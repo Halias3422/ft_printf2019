@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 13:03:11 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 14:53:05 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,13 +19,13 @@
 
 char		*conversion_type(t_data *data, va_list va)
 {
-	char	*(*conv_pt[10])(va_list, t_data *);
+	char	*(*conv_pt[11])(va_list, t_data *);
 	char	*arg;
 	char	*tmp;
 
-	if (data->conv_type == 10)
+	if (data->conv_type == 11)
 		arg = pourcent_conv(data);
-	else if (data->conv_type == 11)
+	else if (data->conv_type == 12)
 		return (arg);
 	else
 	{
@@ -38,6 +38,7 @@ char		*conversion_type(t_data *data, va_list va)
 		conv_pt[7] = &(u_conv);
 		conv_pt[8] = &(x_conv);
 		conv_pt[9] = &(X_conv);
+		conv_pt[10] = &(b_conv);
 		arg = (*conv_pt[data->conv_type])(va, data);
 	}
 	return (arg);

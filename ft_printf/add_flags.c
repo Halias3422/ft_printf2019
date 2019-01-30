@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 13:03:17 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 15:00:38 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -142,18 +142,18 @@ char			*add_flag_to_conv(t_data data, char *arg)
 	arg = handle_prec(data, arg);
 	while (data.flag[++i] && (ft_strlen(arg) >= 1 || data.args_nb > 0))
 	{
-		if (data.flag[i] == '0' && data.zero == 0)
+		if (data.flag[i] == '0' && data.zero == 0 && data.conv_type != 10)
 			arg = flag_zero(data, arg);
-		if (data.flag[i] == '+' && data.plus++ == 0)
+		if (data.flag[i] == '+' && data.plus++ == 0 && data.conv_type != 10)
 		{
 			if (arg[0] != '-' && data.conv_type >= 3 && data.conv_type <= 5 && data.f_nan != 1)
 				arg = add_char_begin_string(arg, "+");
 		}
 		else if (data.flag[i] == '-' && data.width != 0)
 			arg = flag_minus(data, arg);
-		else if (data.flag[i] == '#')
+		else if (data.flag[i] == '#' && data.conv_type != 10)
 			arg = flag_diez(&data, arg);
-		if (data.flag[i] == ' '  && data.conv_type >= 3 && data.conv_type <= 5
+		if (data.flag[i] == ' '  && ((data.conv_type >= 3 && data.conv_type <= 5) || data.conv_type == 10)
 				&& data.space++ == 0)
 			arg = flag_space(data, arg);
 	}

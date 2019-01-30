@@ -1,12 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
+/*   mymain.c                                         .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/01/30 14:18:35 by vde-sain     #+#   ##    ##    #+#       */
+/*   Updated: 2019/01/30 14:58:09 by vde-sain    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
 /*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 13:07:19 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 14:17:04 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,6 +91,54 @@ int			main(void)
 	int		test_part2 = 1;
 	int		test_part3 = 1;
 	int		test_part4 = 1;
+
+	ft_printf("0 - /%cb/\n", 'd');
+	ft_printf("1 - /%b/\n", 42);
+	printf("d - /%- 10.5d/\n", 101010), F;
+	ft_printf("2 - /%- 10.5b/\n", 42);
+	/*
+	printf("retour = [%d]\n", printf("v - @moulitest: %#.x %#.0x", 0, 0)), F;
+	printf("retour = [%d]\n", ft_printf("f - @moulitest: %#.x %#.0x", 0, 0)), F;
+
+	printf("v - c = /%c/\n", 'z'), F;
+	ft_printf("f - c = /%c/\n", 'z');
+
+	printf("v - s = /%s/\n", "salut"), F;
+	ft_printf("f - s = /%s/\n", "salut");
+
+	printf("v - p = /%p/\n", p1), F;
+	ft_printf("f - p = /%p/\n", p1);
+
+	printf("v - f = /%f/\n", 42.55), F;
+	ft_printf("f - f = /%f/\n", 42.55);
+
+	printf("v - d = /%d/\n", 42), F;
+	ft_printf("f - d = /%d/\n", 42);
+
+	printf("v - i = /%i/\n", 42), F;
+	ft_printf("f - i = /%i/\n", 42);
+
+	printf("v - o = /%o/\n", 42), F;
+	ft_printf("f - o = /%o/\n", 42);
+	
+	printf("v - u = /%u/\n", 42), F;
+	ft_printf("f - u = /%u/\n", 42);
+
+	printf("v - x = /%x/\n", 42), F;
+	ft_printf("f - x = /%x/\n", 42);
+
+	printf("v - X = /%X/\n", 42), F;
+	ft_printf("f - X = /%X/\n", 42);
+
+	printf("v - b = /%b/\n", 42), F;
+	ft_printf("f - b = /%b/\n", 42);
+
+	printf("v - % = /%%/\n", 42), F;
+	ft_printf("f - % = /%%/\n", 42);
+
+	printf("v - z = %Z\n", 42), F;
+	ft_printf("f - z = %Z\n", 42);
+
 	
 	printf("valeur ==>[%d] -- \n", printf("/%-+10f/", crash_float)), F;
 		printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float)), F;
@@ -1298,6 +1359,6 @@ int			main(void)
 		ft_printf("f- space et zero avec size < accu /% 05.10f/\n", t_fl);
 		printf("v- space et zero avec size = accu /% 010.10f/\n", t_fl), F;
 		ft_printf("f- space et zero avec size = accu /% 010.10f/\n", t_fl);
-	}
+	}*/
 	return (0);
 }
