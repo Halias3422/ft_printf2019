@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 08:22:19 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 09:44:32 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -139,7 +139,6 @@ int					ft_printf(const char * restrict format, ...)
 	}
 	va_end(va);
 	final_len = print_printf(&data);
-	if (data.char_init == 1)
-		free_data(&data, 1);
+	free_data(&data, 1);
 	return (final_len);
 }

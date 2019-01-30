@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 08:07:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 10:58:30 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,7 +45,6 @@ typedef struct		s_data
 	char			*tmp_prec;
 	int				prec;
 	char			*length;
-	int				char_init;
 	int				f_inf;
 	int				f_nan;
 }					t_data;
@@ -86,7 +85,7 @@ char				*determ_data(char *format, t_data *data, va_list va, int i);
 char				determ_conv(t_data *data, char conv, char *format, int i);
 char				*add_char_end_string(char *dest, char *lett, int i);
 char				*add_char_begin_string(char *dest, char *lett);
-t_data				init_data(t_data data);
+t_data				*init_data(t_data *data);
 
 /*
 **		ADD_CONVERSION.C
