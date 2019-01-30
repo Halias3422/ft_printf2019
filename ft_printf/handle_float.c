@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/18 11:13:53 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 13:50:39 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 08:11:02 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,17 +38,15 @@ void		fill_num(t_float *flt, t_data *data)
 		flt->nb_float = flt->nb_float - flt->nb_int;
 		flt->nb_float = flt->nb_float * 10;
 		if (ft_strlen(flt->num) == flt->left_length)
+			flt->num = free_strjoin(flt->num, ".");
+		tmp2 = ft_itoa(flt->nb_int);
+		flt->num = free_strjoin(flt->num, tmp2);
+		if (flt->num[0] == '-')
 		{
 			tmp = flt->num;
-			flt->num = ft_strjoin(flt->num, ".");
+			flt->num = ft_copy_part_str(flt->num, 1, 1);
 			free(tmp);
 		}
-		tmp = flt->num;
-		tmp2 = ft_itoa(flt->nb_int);
-		flt->num = ft_strjoin(flt->num, tmp2);
-		if (flt->num[0] == '-')
-			flt->num = ft_copy_part_str(flt->num, 1, 1);
-		free(tmp);
 		free(tmp2);
 	}
 }

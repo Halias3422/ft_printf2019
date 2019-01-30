@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 11:17:29 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 08:07:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -155,6 +155,7 @@ int					print_printf(t_data *data);
 **		OTHERS.C
 */
 
+char				*free_strjoin(char *str1, char *str2);
 int					check_non_valid_conv(t_data *data);
 void				free_data(t_data *data, int usage);
 

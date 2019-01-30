@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 14:56:11 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 18:38:29 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 08:07:55 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,17 @@
 ** FREE DATA ELEMS MALLOCED IN DETERM DATA
 */
 
-int		check_non_valid_conv(t_data *data)
+char		*free_strjoin(char *str1, char *str2)
+{
+	char	*tmp;
+
+	tmp = str1;
+	str1 = ft_strjoin(str1, str2);
+	free(tmp);
+	return (str1);
+}
+
+int			check_non_valid_conv(t_data *data)
 {
 	if (data->conv == 0 && data->conv_type == 11)
 	{
@@ -29,7 +39,7 @@ int		check_non_valid_conv(t_data *data)
 		return (0);
 }
 
-void	free_data(t_data *data, int usage)
+void		free_data(t_data *data, int usage)
 {
 	if (usage == 0)
 	{
