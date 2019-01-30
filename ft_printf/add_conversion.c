@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 13:51:22 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 13:03:11 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,9 +47,10 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 {
 	char	*arg;
 	char	*tmp;
+	int		tmp_args_nb;
 
 	arg = NULL;
-	data->args_nb = 0;
+	tmp_args_nb = 0;
 	if (data->conv_type == 3)
 		arg = f_conv(va, data);
 	else
@@ -63,12 +64,12 @@ char		*add_conversion_output(t_data *data, char *output, va_list va)
 		data->tab_arg_nb[data->backslash] = ft_strlen(output);
 		if (data->width > 0)
 			data->width--;
-		data->args_nb++;
+		tmp_args_nb++;
 	}
 	arg = add_flag_to_conv(*data, arg);
 	tmp = output;
 	output = ft_strjoin(output, arg);
-	if (data->args_nb > 0 && (data->conv_type != 1 && ft_strcmp(arg, "(null)") != 0))
+	if (tmp_args_nb > 0 && (data->conv_type != 1 && ft_strcmp(arg, "(null)") != 0))
 	{
 		data->tab_arg_nb[data->backslash] += (ft_strlen(output) - data->tab_arg_nb[data->backslash]);
 		data->backslash++;

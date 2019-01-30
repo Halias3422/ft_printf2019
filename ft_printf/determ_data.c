@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 11:00:04 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 12:45:31 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,6 @@ t_data		*init_data(t_data *data)
 	data->f_inf = 0;
 	data->f_nan = 0;
 	data->diez_length = 0;
-	data->backslash = 0;
 	return (data);
 }
 

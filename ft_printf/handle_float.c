@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/18 11:13:53 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 08:11:02 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 11:35:31 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,7 +83,7 @@ char			*handle_float(long double nb, t_data *data)
 {
 	t_float		flt;
 
-	flt.num = ft_strnew(0);
+	flt.num = ft_strnew(3);
 	flt.left_length = check_num_length((long long)nb);
 	flt.prec = determ_prec(*data);
 	flt.nb_int = 0;

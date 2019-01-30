@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 09:52:20 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 13:07:19 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,8 +78,8 @@ int			main(void)
 	int		test_part2 = 1;
 	int		test_part3 = 1;
 	int		test_part4 = 1;
-
-		printf("valeur ==>[%d] -- \n", printf("/%-+10f/", crash_float)), F;
+	
+	printf("valeur ==>[%d] -- \n", printf("/%-+10f/", crash_float)), F;
 		printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float)), F;
 		printf("valeur ==>[%d] -- \n", printf("/%-+10f/", crash_float2)), F;
 		printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float2)), F;

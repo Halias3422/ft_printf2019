@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 08:34:29 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 13:12:15 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,10 +22,10 @@ int			main(void)
 	char	*p1;
 	char	*p2;
 	char	*p3;
-	char **tab;
-	int i = -1;
-	int j;
-	char c = 33;
+//	char **tab;
+//	int i = -1;
+//	int j;
+//	char c = 33;
 	char *string = NULL;
 	short	zeroshort = 0;
 	short	short1 = 15;
@@ -556,21 +556,21 @@ int			main(void)
 //	printf("v - bonjour /%c/ ca va /%c/ ?\n", 0, 0), F;
 	ft_printf("f - bonjour /%c/ ca va /%c/ ?\n", 0, 0);
 
-/*		printf(" --> [%d]\n", printf("v - {%c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f - {%c}", 0));
-		printf(" --> [%d]\n", printf("v- {%3c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {%3c}", 0));
-		printf(" --> [%d]\n", printf("v- {%03c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {%03c}", 0));
-		printf(" --> [%d]\n", printf("v- {%+c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {%+c}", 0));
-		printf(" --> [%d]\n", printf("v- {% c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
-		printf(" --> [%d]\n", printf("v - {%05.c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f - {%05.c}", 0));
+//		printf(" --> [%d]\n", printf("v - {%c}", 0)), F;
+//		printf(" --> [%d]\n", ft_printf("f - {%c}", 0));
+//		printf(" --> [%d]\n", printf("v- {%3c}", 0)), F;
+//		printf(" --> [%d]\n", ft_printf("f- {%3c}", 0));
+//		printf(" --> [%d]\n", printf("v- {%03c}", 0)), F;
+//		printf(" --> [%d]\n", ft_printf("f- {%03c}", 0));
+//		printf(" --> [%d]\n", printf("v- {%+c}", 0)), F;
+//		printf(" --> [%d]\n", ft_printf("f- {%+c}", 0));
+//		printf(" --> [%d]\n", printf("v- {% c}", 0)), F;
+//		printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
+//		printf(" --> [%d]\n", printf("v - {%05.c}", 0)), F;
+//		printf(" --> [%d]\n", ft_printf("f - {%05.c}", 0));
 		
-		printf("v - {%s}\n", 0), F;
-*/		ft_printf("f - {%s}\n", 0);
+//		printf("v - {%s}\n", 0), F;
+		ft_printf("f - {%s}\n", 0);
 //		printf("v- {%3s}\n", 0), F;
 		ft_printf("f- {%3s}\n", 0);
 //		printf("v- {%03s}\n", 0), F;

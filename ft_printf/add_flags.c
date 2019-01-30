@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 13:57:58 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 15:18:56 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 13:03:17 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -94,9 +94,9 @@ char			*flag_diez(t_data *data, char *arg)
 		}
 		if (data->conv_type == 6 && ft_strcmp(arg, "0") != 0)
 			arg = add_char_begin_string(arg, "0");
-		if (data->conv_type == 8  && ft_strcmp(arg, "0") != 0)
+		if (data->conv_type == 8 && ft_strcmp(arg, "0") != 0 && ft_strcmp(arg, "") != 0)
 			arg = add_char_begin_string(arg, "0x");
-		if (data->conv_type == 9 && ft_strcmp(arg, "0") != 0)
+		if (data->conv_type == 9 && ft_strcmp(arg, "0") != 0 && ft_strcmp(arg, "") != 0)
 			arg = add_char_begin_string(arg, "0X");
 	}
 	data->diez_length = 1;

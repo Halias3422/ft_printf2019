@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 09:50:05 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 13:05:51 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,6 +85,11 @@ char			*X_conv(va_list va, t_data *data)
 	{
 		if (num[i] >= 'a' && num[i] <= 'f')
 			num[i] = num[i] - 32;
+	}
+	if (ft_strcmp(num, "0") == 0 && data->prec_dot == 1)
+	{
+		free(num);
+		num = ft_strnew(0);
 	}
 	return (num);
 }
