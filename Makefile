@@ -6,16 +6,16 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/29 10:52:01 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/30 13:52:39 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/02/01 07:21:16 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME    = libftprintf.a
 
-LIBFT_SRC = libft/check_num_length.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_copy_part_str.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isblank.c libft/ft_isdigit.c libft/ft_islower.c libft/ft_isprint.c libft/ft_isupper.c libft/ft_itoa.c libft/ft_itoa_base_uns.c libft/ft_itoh.c libft/ft_itooct.c libft/ft_list_last.c libft/ft_lstadd.c libft/ft_lstdel.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstmap.c libft/ft_lstnew.c libft/ft_memalloc.c libft/ft_memccpy.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memdel.c libft/ft_memmove.c libft/ft_memset.c libft/ft_putchar.c libft/ft_putchar_fd.c libft/ft_putendl.c libft/ft_putendl_fd.c libft/ft_putnbr.c libft/ft_putnbr_fd.c libft/ft_putnstrn.c libft/ft_putstr.c libft/ft_putstr_fd.c libft/ft_range.c libft/ft_strcat.c libft/ft_strchr.c libft/ft_strclr.c libft/ft_strcmp.c libft/ft_strcpy.c libft/ft_strdel.c libft/ft_strdup.c libft/ft_strequ.c libft/ft_striter.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlen.c libft/ft_strmap.c libft/ft_strmapi.c libft/ft_strncat.c libft/ft_strncmp.c libft/ft_strncpy.c libft/ft_strndup.c libft/ft_strnequ.c libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strrev.c libft/ft_strsplit.c libft/ft_strstr.c libft/ft_strsub.c libft/ft_strtrim.c libft/ft_swap_let_string.c libft/ft_tolower.c libft/ft_toupper.c libft/get_next_line.c 
+LIBFT_SRC = libft/check_num_length.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_copy_part_str.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isblank.c libft/ft_isdigit.c libft/ft_islower.c libft/ft_isprint.c libft/ft_isupper.c libft/ft_itoa.c libft/ft_itoa_base_uns.c libft/ft_list_last.c libft/ft_lstadd.c libft/ft_lstdel.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstmap.c libft/ft_lstnew.c libft/ft_memalloc.c libft/ft_memccpy.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memdel.c libft/ft_memmove.c libft/ft_memset.c libft/ft_putchar.c libft/ft_putchar_fd.c libft/ft_putendl.c libft/ft_putendl_fd.c libft/ft_putnbr.c libft/ft_putnbr_fd.c libft/ft_putnstrn.c libft/ft_putstr.c libft/ft_putstr_fd.c libft/ft_range.c libft/ft_strcat.c libft/ft_strchr.c libft/ft_strclr.c libft/ft_strcmp.c libft/ft_strcpy.c libft/ft_strdel.c libft/ft_strdup.c libft/ft_strequ.c libft/ft_striter.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlen.c libft/ft_strmap.c libft/ft_strmapi.c libft/ft_strncat.c libft/ft_strncmp.c libft/ft_strncpy.c libft/ft_strndup.c libft/ft_strnequ.c libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strrev.c libft/ft_strsplit.c libft/ft_strstr.c libft/ft_strsub.c libft/ft_strtrim.c libft/ft_swap_let_string.c libft/ft_tolower.c libft/ft_toupper.c libft/get_next_line.c libft/ft_strcapitalizer.c
 
-PRINTF_SRC = ft_printf/add_conversion.c ft_printf/add_flags.c ft_printf/conversion_type.c ft_printf/conversion_type2.c ft_printf/determ_data.c ft_printf/ft_printf.c ft_printf/handle_flags_order.c ft_printf/handle_float.c ft_printf/handle_prec_and_width.c ft_printf/others.c ft_printf/print_printf.c ft_printf/conversion_type3.c
+PRINTF_SRC = ft_printf/add_conversion.c ft_printf/add_flags.c ft_printf/add_flag2.c ft_printf/conversion_type.c ft_printf/conversion_type2.c ft_printf/determ_data.c ft_printf/ft_printf.c ft_printf/handle_flags_order.c ft_printf/handle_float.c ft_printf/handle_prec_and_width.c ft_printf/others.c ft_printf/print_printf.c ft_printf/bonus_conversion_type_1.c ft_printf/bonus_conversion_type_2.c
 
 LIBFT_OBJ  = $(LIBFT_SRC:.c=.o)
 PRINTF_OBJ = $(PRINTF_SRC:.c=.o)
@@ -46,7 +46,7 @@ clean:
 	@rm -rf $(LIBFT_OBJ)
 	@rm -rf $(PRINTF_OBJ)
 	@rm -rf *.gch
-	@rm -rf *.dsYM
+	@rm -rf *.dSYM
 	@rm -f .DS_Store
 	@echo "\033[1;31mCLEAN LIBFT									OK\033[0m"
 	@echo "\033[1;31mCLEAN FT_PRINTF									OK\033[0m"

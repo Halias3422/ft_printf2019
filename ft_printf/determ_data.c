@@ -6,30 +6,12 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 14:22:29 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/01 07:35:54 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-t_data		*init_data(t_data *data)
-{
-	data->conv = 0;
-	data->conv_type = 0;
-	data->flag = ft_strnew(0);
-	data->tmp_width = ft_strnew(0);
-	data->width = 0;
-	data->prec_dot = 0;
-	data->flag_minus = 0;
-	data->minus = 0;
-	data->tmp_prec = ft_strnew(0);
-	data->length = ft_strnew(0);
-	data->f_inf = 0;
-	data->f_nan = 0;
-	data->diez_length = 0;
-	return (data);
-}
 
 char		*add_char_begin_string(char *dest, char *lett)
 {
@@ -51,7 +33,7 @@ char		*add_char_end_string(char *dest, char *lett, int i)
 
 	j = -1;
 	if (!(tmp = (char*)malloc(sizeof(char) * ft_strlen(dest) + 2)))
-		exit (-1);
+		exit(-1);
 	while (dest[++j])
 		tmp[j] = dest[j];
 	tmp[j] = lett[i];
@@ -60,7 +42,7 @@ char		*add_char_end_string(char *dest, char *lett, int i)
 	free(dest);
 	dest = ft_strnew(ft_strlen(tmp));
 	dest = ft_strcpy(dest, tmp);
-	free (tmp);
+	free(tmp);
 	return (dest);
 }
 
@@ -73,8 +55,9 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 	char	*conv_types;
 
 	data->conv_type = -1;
-	conv_types = "cspfdiouxXb%";
-	while (conv_types[++data->conv_type] && conv_types[data->conv_type] != format[i])
+	conv_types = "cspfdiouxXbTt%";
+	while (conv_types[++data->conv_type] && conv_types[data->conv_type] !=
+			format[i])
 	{
 		if (format[i] == conv_types[data->conv_type])
 			conv = conv_types[data->conv_type];
@@ -86,14 +69,14 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 **	INIT DATA STRUCT ELEMENTS & FILLING THEM
 */
 
-char		*determ_data(char *format, t_data *data, va_list va, int i)
+int			determ_flag_and_width(t_data *data, char *format, int i)
 {
-	init_data(data);
-	while (format[i] && (format[i] == '0' || format[i] == '+' || format[i] == '-' || format[i] == ' ' || format[i] == '#'))
+	while (format[i] && (format[i] == '0' || format[i] == '+' ||
+				format[i] == '-' || format[i] == ' ' || format[i] == '#'))
 	{
-		if(format[i] == '-')
+		if (format[i] == '-')
 			data->flag_minus++;
-	data->flag = add_char_end_string(data->flag, format, i++);
+		data->flag = add_char_end_string(data->flag, format, i++);
 	}
 	while (format[i] && format[i] >= '0' && format[i] <= '9')
 		data->tmp_width = add_char_end_string(data->tmp_width, format, i++);
@@ -106,7 +89,15 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 			data->tmp_prec = add_char_end_string(data->tmp_prec, format, i);
 		data->prec = ft_atoi(data->tmp_prec);
 	}
-	while (format[i] && (format[i] == 'h' || format[i] == 'l' || format[i] == 'L'))
+	return (i);
+}
+
+char		*determ_data(char *format, t_data *data, va_list va, int i)
+{
+	init_data(data);
+	i = determ_flag_and_width(data, format, i);
+	while (format[i] && (format[i] == 'h' || format[i] == 'l' ||
+			format[i] == 'L'))
 	{
 		data->length = add_char_end_string(data->length, format, i++);
 	}
@@ -116,7 +107,7 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 		free_data(data, 0);
 		return (data->output);
 	}
-	data->output = add_conversion_output(data, data->output, va);
+	data->output = add_conversion_output(data, data->output, va, 0);
 	free_data(data, 0);
 	return (data->output);
 }

@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/22 18:04:42 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/22 18:34:20 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/31 10:14:59 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,7 +40,7 @@ char			*copy_end_string(char *str, int i)
 		return (NULL);
 	while (str[i])
 		dest[j++] = str[i++];
-	dest[j] ='\0';
+	dest[j] = '\0';
 	return (dest);
 }
 

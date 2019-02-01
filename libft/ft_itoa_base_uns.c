@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/29 09:47:43 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 15:12:38 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/31 10:36:09 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,22 +24,12 @@ char			*ft_itoa_base_uns(unsigned long long nb, int base)
 		return (ft_strdup("0"));
 	if (!(ans = (char*)malloc(sizeof(char) * 65)))
 		return (NULL);
-/*
-	if (nb < 0)
-		ioojeoifjrf
-*/
 	while (nb != 0)
 	{
 		rest = nb % base;
 		ans[i++] = rest > 9 ? rest - 10 + 'a' : rest + '0';
 		nb /= base;
 	}
-/*
-	if (neg == 1)
-		ans[i--] = '-';
-*/
 	ans[i] = '\0';
 	return (ft_strrev(ans));
 }
-
-

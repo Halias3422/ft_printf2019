@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 14:53:05 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/01 07:34:30 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,13 +19,13 @@
 
 char		*conversion_type(t_data *data, va_list va)
 {
-	char	*(*conv_pt[11])(va_list, t_data *);
+	char	*(*conv_pt[13])(va_list, t_data *);
 	char	*arg;
 	char	*tmp;
 
-	if (data->conv_type == 11)
+	if (data->conv_type == 13)
 		arg = pourcent_conv(data);
-	else if (data->conv_type == 12)
+	else if (data->conv_type == 14)
 		return (arg);
 	else
 	{
@@ -37,46 +37,58 @@ char		*conversion_type(t_data *data, va_list va)
 		conv_pt[6] = &(o_conv);
 		conv_pt[7] = &(u_conv);
 		conv_pt[8] = &(x_conv);
-		conv_pt[9] = &(X_conv);
+		conv_pt[9] = &(upper_x_conv);
 		conv_pt[10] = &(b_conv);
+		conv_pt[11] = &(upper_t_conv);
+		conv_pt[12] = &(t_conv);
 		arg = (*conv_pt[data->conv_type])(va, data);
 	}
 	return (arg);
 }
 
-char		*add_conversion_output(t_data *data, char *output, va_list va)
+int			add_conv_2(t_data *data, char **arg, char *tmp, char *output)
 {
-	char	*arg;
-	char	*tmp;
 	int		tmp_args_nb;
 
-	arg = NULL;
 	tmp_args_nb = 0;
-	if (data->conv_type == 3)
-		arg = f_conv(va, data);
-	else
-		arg = conversion_type(data, va);
-	if (arg != NULL)
-	{
-	if (arg[0] == '-')
+	if (*arg[0] == '-')
 		data->minus++;
-	if (ft_strlen(arg) == 0 && (data->conv_type == 0 || data->conv_type == 1))
+	if (ft_strlen(*arg) == 0 && (data->conv_type == 0 || data->conv_type == 1))
 	{
 		data->tab_arg_nb[data->backslash] = ft_strlen(output);
 		if (data->width > 0)
 			data->width--;
 		tmp_args_nb++;
 	}
-	arg = add_flag_to_conv(*data, arg);
-	tmp = output;
-	output = ft_strjoin(output, arg);
-	if (tmp_args_nb > 0 && (data->conv_type != 1 && ft_strcmp(arg, "(null)") != 0))
+	return (tmp_args_nb);
+}
+
+char		*add_conversion_output(t_data *data, char *output, va_list va,
+			int tmp_args_nb)
+{
+	char	*arg;
+	char	*tmp;
+
+	arg = NULL;
+	if (data->conv_type == 3)
+		arg = f_conv(va, data);
+	else
+		arg = conversion_type(data, va);
+	if (arg != NULL)
 	{
-		data->tab_arg_nb[data->backslash] += (ft_strlen(output) - data->tab_arg_nb[data->backslash]);
-		data->backslash++;
-	}
-	free(tmp);
-	free(arg);
+		tmp_args_nb = add_conv_2(data, &arg, tmp, output);
+		arg = add_flag_to_conv(*data, arg, -1);
+		tmp = output;
+		output = ft_strjoin(output, arg);
+		if (tmp_args_nb > 0 && (data->conv_type != 1 &&
+				ft_strcmp(arg, "(null)") != 0))
+		{
+			data->tab_arg_nb[data->backslash] += (ft_strlen(output) -
+					data->tab_arg_nb[data->backslash]);
+			data->backslash++;
+		}
+		free(tmp);
+		free(arg);
 	}
 	return (output);
 }

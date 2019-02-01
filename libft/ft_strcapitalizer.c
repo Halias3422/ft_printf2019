@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   conversion_type3.c                               .::    .:/ .      .::   */
+/*   ft_strcapitalizer.c                              .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/01/30 13:49:55 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 14:47:59 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/01/31 11:29:10 by vde-sain     #+#   ##    ##    #+#       */
+/*   Updated: 2019/01/31 12:15:33 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char		*b_conv(va_list va, t_data *data)
+char		*ft_strcapitalizer(char *str)
 {
-	unsigned long long	nb;
-	char				*num;
+	int		i;
 
-	nb = va_arg(va, unsigned long long);
-	num = ft_itoa_base_uns(nb, 2);
-	return (num);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		i++;
+	}
+	return (str);
 }

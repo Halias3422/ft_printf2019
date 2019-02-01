@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/03 17:40:26 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 14:36:45 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/31 10:17:35 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,10 +15,10 @@
 
 size_t		ft_strlen(const char *s)
 {
-	unsigned long	a;
+	size_t	a;
 
 	a = 0;
 	while (s[a])
 		a++;
-return (a);
+	return (a);
 }

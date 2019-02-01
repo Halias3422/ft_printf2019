@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 14:56:11 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 14:22:26 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/01 10:16:19 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,38 @@
 /*
 ** FREE DATA ELEMS MALLOCED IN DETERM DATA
 */
+
+t_data		*init_data(t_data *data)
+{
+	data->conv = 0;
+	data->conv_type = 0;
+	data->flag = ft_strnew(0);
+	data->tmp_width = ft_strnew(0);
+	data->width = 0;
+	data->prec_dot = 0;
+	data->flag_minus = 0;
+	data->minus = 0;
+	data->tmp_prec = ft_strnew(0);
+	data->length = ft_strnew(0);
+	data->f_inf = 0;
+	data->f_nan = 0;
+	data->diez_length = 0;
+	return (data);
+}
+
+void		init_tab_arg_nb(t_data *data)
+{
+	int		i;
+
+	i = 0;
+	if (!(data->tab_arg_nb = (long*)malloc(sizeof(long) * data->args_nb)))
+		exit(-1);
+	while (i < data->args_nb)
+	{
+		data->tab_arg_nb[i] = -1;
+		i++;
+	}
+}
 
 char		*free_strjoin(char *str1, char *str2)
 {
@@ -29,7 +61,7 @@ char		*free_strjoin(char *str1, char *str2)
 
 int			check_non_valid_conv(t_data *data)
 {
-	if (data->conv == 0 && data->conv_type == 12)
+	if (data->conv == 0 && data->conv_type == 14)
 	{
 		while (--data->width > 0)
 			data->output = add_char_end_string(data->output, " ", 0);
