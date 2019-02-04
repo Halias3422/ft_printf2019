@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/02/01 07:16:02 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 14:30:27 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 09:16:52 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,6 @@ void		t_conv_3(t_tab *tab, t_data *data)
 		tab->res = free_strjoin(tab->res, " ");
 	free(tmp);
 }
-
 
 char		*t_conv_2(t_tab tab, t_data *data)
 {
@@ -76,7 +75,7 @@ char		*t_conv(va_list va, t_data *data)
 			tab.diff = check_num_length(tab.int_tab[tab.j][tab.i]);
 			if (tab.int_tab[tab.j][tab.i] < 0)
 				tab.diff++;
-		if (tab.diff > tab.biggest)
+			if (tab.diff > tab.biggest)
 				tab.biggest = tab.diff;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/30 13:49:55 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 07:14:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 09:17:14 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,6 +40,19 @@ char		*split_binary(char *num, int i)
 	return (res);
 }
 
+char		*flag_binary(t_data *data, char *num, int i, unsigned long long nb)
+{
+	if (data->flag[i] == '\0' && nb == 0 && data->prec_dot == 1
+			&& data->prec == 0)
+	{
+		num[0] = '\0';
+		data->backslash++;
+	}
+	if (is_contained_in("#", data->flag, 0) == 1)
+		num = split_binary(num, 0);
+	return (num);
+}
+
 char		*b_conv(va_list va, t_data *data)
 {
 	unsigned long long	nb;
@@ -60,15 +73,7 @@ char		*b_conv(va_list va, t_data *data)
 	while (data->flag[i] && data->flag[i] != '#')
 		i++;
 	num = ft_itoa_base_uns((unsigned long long)nb, 2);
-	if (data->flag[i] == '\0' && nb == 0 && data->prec_dot == 1
-			&& data->prec == 0)
-	{
-		num[0] = '\0';
-		data->backslash++;
-	}
-	if (is_contained_in("#", data->flag, 0) == 1)
-		num = split_binary(num, 0);
-	return (num);
+	return (flag_binary(data, num, i, nb));
 }
 
 char		*upper_t_conv_2(t_tab tab, t_data *data)
@@ -91,7 +96,7 @@ char		*upper_t_conv_2(t_tab tab, t_data *data)
 			{
 				tab.flag_space = data->prec + 1;
 				while (--tab.flag_space >= 0)
-					tab.res[tab.k++] ='\n';
+					tab.res[tab.k++] = '\n';
 			}
 			else
 				tab.res[tab.k++] = '\n';
@@ -109,7 +114,7 @@ char		*upper_t_conv(va_list va, t_data *data)
 	tab.len = 0;
 	while (tab.init_tab[++tab.i])
 		tab.len += (data->width + 1) * ft_strlen(tab.init_tab[tab.i]) + 1;
-	tab.len --;
+	tab.len--;
 	if (data->prec_dot == 1)
 		tab.len += data->prec * (tab.i - 1);
 	tab.res = ft_strnew(tab.len);

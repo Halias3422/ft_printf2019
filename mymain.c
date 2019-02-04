@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 07:53:12 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 08:07:39 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -1292,7 +1292,7 @@ int			main(void)
 	}
 	if (test_bonus == 1)
 	{
-/*		ft_printf("f - b = /%b/\n", 42);
+		ft_printf("f - b = /%b/\n", 42);
 
 		ft_printf("/%#llb/\n", 2147483647);
 		ft_printf("/%#hhb/\n", 2147483647);
@@ -1344,7 +1344,7 @@ int			main(void)
 		while (++fill_tab < 10)
 			free(int_tab[fill_tab]);
 		free(int_tab);
-*/
+
 		tab2 = malloc(sizeof(char *) * 10), fflush(stdout);
 		while (++i2 < 9)
 			tab2[i2] = malloc(sizeof(char) * 10), fflush(stdout);
