@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 15:14:10 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 07:22:36 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,6 +46,7 @@ typedef struct				s_data
 	int						f_inf;
 	int						f_nan;
 	char					*code;
+	char					*last_color;
 }							t_data;
 
 typedef struct				s_length

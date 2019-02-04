@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/23 14:54:19 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 15:32:13 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 07:53:14 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,6 +44,10 @@ int			add_color_to_output(t_data *data, t_color col, int i)
 	j = ft_strlen(data->code);
 	data->code[j - 1] = 'm';
 	ft_putstr(data->code);
+	if (data->last_color != NULL)
+		free(data->last_color);
+	data->last_color = ft_strnew(ft_strlen(data->code));
+	data->last_color = ft_strcpy(data->last_color, data->code);
 	free(data->code);
 	return (i);
 }
@@ -72,11 +76,13 @@ int			search_color(int i, char *output, int usage)
 	return (tmp);
 }
 
-int			handle_colors(t_data *data, int i)
+int			handle_colors(t_data *d, int i)
 {
 	int		tmp;
 	t_color	col;
+	int		check;
 
+	check = 0;
 	col.bold = 0;
 	col.underlined = 0;
 	col.italic = 0;
@@ -84,60 +90,40 @@ int			handle_colors(t_data *data, int i)
 	col.back = 0;
 	col.blinking = 0;
 	tmp = i;
-	while (data->output[i] && data->output[i] != '}')
+	while (d->output[i] && d->output[i] != '}')
 	{
-		if (data->output[i] == 'B' && data->output[i + 1] == '.')
-		{
+		check = 0;
+		if (d->output[i] == 'B' && d->output[i + 1] == '.' && check++ >= 0)
 			col.bold = 1;
-			i += 2;
-		}
-		else if (data->output[i] == 'U' && data->output[i + 1] == '.')
-		{
+		else if (d->output[i] == 'U' && d->output[i + 1] == '.' && check++ >= 0)
 			col.underlined = 1;
-			i += 2;
-		}
-		else if (data->output[i] == 'I' && data->output[i + 1] == '.')
-		{
+		else if (d->output[i] == 'I' && d->output[i + 1] == '.' && check++ >= 0)
 			col.italic = 1;
-			i += 2;
-		}
-		else if (data->output[i] == 'B' && data->output[i + 1] == 'l' && data->output[i + 2] == '.')
-		{
+		else if (d->output[i] == 'F' && d->output[i + 1] == '.' && check++ >= 0)
 			col.blinking = 1;
-			i += 3;
-		}
-		else if (data->output[i] == 'T' && data->output[i + 1] == '.')
-		{
-			col.text = search_color(i + 2, data->output, 1);
-			i += 2;
-			if (col.text != -1)
-			{
-				while ((data->output[i] < 'A' || data->output[i] > 'Z') && data->output[i] != '}')
-					i++;
-			}
-		}
-		else if (data->output[i] == 'S' && data->output[i + 1] == '.')
-		{
-			col.back = search_color(i + 2, data->output, 0);
-			i += 2;
-			if (col.back != -1)
-			{
-				while ((data->output[i] < 'A' || data->output[i] > 'Z') && data->output[i] != '}')
-					i++;
-			}
-		}
-		else if (ft_strncmp(data->output + i, "eoc}", 4) == 0)
+		else if (d->output[i] == 'T' && d->output[i + 1] == '.' && check++ >= 0)
+			col.text = search_color(i + 2, d->output, 1);
+		else if (d->output[i] == 'S' && d->output[i + 1] == '.' && check++ >= 0)
+			col.back = search_color(i + 2, d->output, 0);
+		else if (ft_strncmp(d->output + i, "eoc}", 4) == 0)
 		{
 			ft_putstr("\033[0m");
-			data->code = NULL;
+			d->code = NULL;
 			return (i + 4);
 		}
 		else
 			return (tmp - 1);
+		if (check > 0)
+			i += 2;
+		if (col.back != -1 || col.text != -1)
+		{
+			while ((d->output[i] < 'A' || d->output[i] > 'Z') && d->output[i] != '}')
+				i++;
+		}
 	}
-	if (!data->output[i])
+	if (!d->output[i] || check == 0)
 		return (tmp -1);
-	i = add_color_to_output(data, col, i + 1);
+	i = add_color_to_output(d, col, i + 1);
 	return (i);
 }
 
@@ -149,6 +135,7 @@ int			print_printf(t_data *data, int i)
 	printed_backslash = 0;
 	backslash_last_pos = 0;
 	data->code = NULL;
+	data->last_color = NULL;
 	while (data->output[i])
 	{
 		if (data->output[i] && data->output[i] == '{')
@@ -160,10 +147,10 @@ int			print_printf(t_data *data, int i)
 			printed_backslash++;
 			ft_putchar('\0');
 		}
-		if (data->output[i] && data->output[i] == '\n')
+		if (data->output[i] && data->output[i] == '\n' && data->last_color != NULL)
 		{
 			ft_putstr("\033[0m\n");
-			ft_putstr(data->code);
+			ft_putstr(data->last_color);
 			i++;
 		}
 		else
@@ -176,6 +163,10 @@ int			print_printf(t_data *data, int i)
 		ft_putchar('\0');
 		backslash_last_pos++;
 	}
-	ft_putstr("\033[0m");
+	if (data->last_color != NULL)
+	{
+		ft_putstr("\033[0m");
+		free(data->last_color);
+	}
 	return (i + printed_backslash + backslash_last_pos);
 }

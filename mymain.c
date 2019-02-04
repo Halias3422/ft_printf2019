@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 15:32:46 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 07:53:12 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -82,10 +82,10 @@ int			main(void)
 	int j2;
 	char c2 = 33;
 
-	int		test_part1 = 0;
-	int		test_part2 = 0;
-	int		test_part3 = 0;
-	int		test_part4 = 0;
+	int		test_part1 = 1;
+	int		test_part2 = 1;
+	int		test_part3 = 1;
+	int		test_part4 = 1;
 	int		test_bonus = 1;
 
 
@@ -1292,7 +1292,7 @@ int			main(void)
 	}
 	if (test_bonus == 1)
 	{
-		ft_printf("f - b = /%b/\n", 42);
+/*		ft_printf("f - b = /%b/\n", 42);
 
 		ft_printf("/%#llb/\n", 2147483647);
 		ft_printf("/%#hhb/\n", 2147483647);
@@ -1310,71 +1310,70 @@ int			main(void)
 		ft_printf("/%b/\n", -1);
 		ft_printf("/%b/\n", 42);
 
-	fill_tab = -1;
-	int_tab = (int**)malloc(sizeof(int*) * 11);
-	while (++fill_tab < 10)
-		int_tab[fill_tab] = (int*)malloc(sizeof(int) * 10);
-	fill_tab = -1;
-	while (++fill_tab < 10)
-	{
-		fill_case = -1;
-		while (++fill_case < 10)
+		fill_tab = -1;
+		int_tab = (int**)malloc(sizeof(int*) * 11);
+		while (++fill_tab < 10)
+			int_tab[fill_tab] = (int*)malloc(sizeof(int) * 10);
+		fill_tab = -1;
+		while (++fill_tab < 10)
 		{
-			int_tab[fill_tab][fill_case] = put_int;
-			put_int *= 5;
+			fill_case = -1;
+			while (++fill_case < 10)
+			{
+				int_tab[fill_tab][fill_case] = put_int;
+				put_int *= 5;
+			}
 		}
-	}
-	int_tab[10] = NULL;
-	fill_tab = -1;
-	ft_printf("=========\n"), fflush(stdout);
-	while (++fill_tab < 10)
-	{
-		fill_case = -1;
-		while (++fill_case < 10)
+		int_tab[10] = NULL;
+		fill_tab = -1;
+		ft_printf("=========\n"), fflush(stdout);
+		while (++fill_tab < 10)
 		{
-			printf("%d", int_tab[fill_tab][fill_case]), fflush(stdout);
-			ft_putchar(' ');
+			fill_case = -1;
+			while (++fill_case < 10)
+			{
+				printf("%d", int_tab[fill_tab][fill_case]), fflush(stdout);
+				ft_putchar(' ');
+			}
+			ft_putchar('\n');
 		}
-		ft_putchar('\n');
-	}
-	ft_printf("=========\n"), fflush(stdout);
-	ft_printf("{B.T.white.S.blue.}%3.1t{eoc}\n", int_tab, 10, 10);
-	ft_printf("=========\n"), fflush(stdout);
-	fill_tab = -1;
-	while (++fill_tab < 10)
-		free(int_tab[fill_tab]);
-	free(int_tab);
-
-	}
-
-	tab2 = malloc(sizeof(char *) * 10), fflush(stdout);
-	while (++i2 < 9)
-		tab2[i2] = malloc(sizeof(char) * 10), fflush(stdout);
-	i2 = -1;
-	while (++i2 < 9)
-	{
-		j2 = -1;
-		while (++j2 < 9)
+		ft_printf("=========\n"), fflush(stdout);
+		ft_printf("{B.T.white.S.blue.}%3.1t{eoc}\n", int_tab, 10, 10);
+		ft_printf("=========\n"), fflush(stdout);
+		fill_tab = -1;
+		while (++fill_tab < 10)
+			free(int_tab[fill_tab]);
+		free(int_tab);
+*/
+		tab2 = malloc(sizeof(char *) * 10), fflush(stdout);
+		while (++i2 < 9)
+			tab2[i2] = malloc(sizeof(char) * 10), fflush(stdout);
+		i2 = -1;
+		while (++i2 < 9)
 		{
-			tab2[i2][j2] = c2;
-			c2++;
+			j2 = -1;
+			while (++j2 < 9)
+			{
+				tab2[i2][j2] = c2;
+				c2++;
+			}
+			tab2[i2][j2] = '\0';
 		}
-		tab2[i2][j2] = '\0';
-	}
-	tab2[i2] = NULL;
-	i2 = -1;
-	ft_printf("=========\n"), fflush(stdout);
-	while (tab2[++i2])
-		ft_putendl(tab2[i2]), fflush(stdout);
-	ft_printf("=========\n"), fflush(stdout);
-	ft_printf("=========\n"), fflush(stdout);
-	ft_printf("{B.Bl.T.white.S.blue.}%3.1T{eoc}\n", tab2), fflush(stdout);
-	ft_printf("=========\n"), fflush(stdout);
-	i2 = -1;
-	while (tab2[++i2])
-		free(tab2[i2]), fflush(stdout);
-	free(tab2), fflush(stdout);
+		tab2[i2] = NULL;
+		i2 = -1;
+		ft_printf("=========\n"), fflush(stdout);
+		while (tab2[++i2])
+			ft_putendl(tab2[i2]), fflush(stdout);
+		ft_printf("=========\n"), fflush(stdout);
+		ft_printf("=========\n"), fflush(stdout);
+		ft_printf("{B.F.T.white.S.blue.}%3.1T{eoc}\n", tab2), fflush(stdout);
+		ft_printf("=========\n"), fflush(stdout);
+		i2 = -1;
+		while (tab2[++i2])
+			free(tab2[i2]), fflush(stdout);
+		free(tab2), fflush(stdout);
 
-	ft_putstr("\033[32;41;5m		caca qui clignote !!!		\033[0m\n");
+		ft_putstr("\033[32;41;5m		texte qui clignote !!!			\033[0m\n");
+	}
 	return (0);
 }
