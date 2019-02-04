@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 09:46:18 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 07:35:54 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 15:28:09 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,10 +21,6 @@ char		*add_char_begin_string(char *dest, char *lett)
 	free(dest);
 	return (str);
 }
-
-/*
-**	FT ALLOWS TO ADD CHAR AT THE END OF STRING
-*/
 
 char		*add_char_end_string(char *dest, char *lett, int i)
 {
@@ -46,16 +42,12 @@ char		*add_char_end_string(char *dest, char *lett, int i)
 	return (dest);
 }
 
-/*
-**	FILLING CONV & CONV_TYPE ELEM OF DATA STRUCT
-*/
-
 char		determ_conv(t_data *data, char conv, char *format, int i)
 {
 	char	*conv_types;
 
 	data->conv_type = -1;
-	conv_types = "cspfdiouxXbTt%";
+	conv_types = "cspfdiouxXbTtW%";
 	while (conv_types[++data->conv_type] && conv_types[data->conv_type] !=
 			format[i])
 	{
@@ -64,10 +56,6 @@ char		determ_conv(t_data *data, char conv, char *format, int i)
 	}
 	return (conv);
 }
-
-/*
-**	INIT DATA STRUCT ELEMENTS & FILLING THEM
-*/
 
 int			determ_flag_and_width(t_data *data, char *format, int i)
 {
@@ -97,10 +85,8 @@ char		*determ_data(char *format, t_data *data, va_list va, int i)
 	init_data(data);
 	i = determ_flag_and_width(data, format, i);
 	while (format[i] && (format[i] == 'h' || format[i] == 'l' ||
-			format[i] == 'L'))
-	{
+				format[i] == 'L'))
 		data->length = add_char_end_string(data->length, format, i++);
-	}
 	data->conv = determ_conv(data, data->conv, format, i);
 	if (check_non_valid_conv(data) == 1)
 	{

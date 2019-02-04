@@ -6,12 +6,34 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/23 14:54:19 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 09:17:56 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 16:03:58 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		check_if_color(t_data *d, int i)
+{
+	t_color col;
+
+	init_color(&col);
+	while (d->output[i] && d->output[i] != '}')
+	{
+		if (check_color_code(d, &col, i, 0) > 0)
+		{
+			i += 2;
+			while (((d->output[i] < 'A' || d->output[i] > 'Z') &&
+				d->output[i] != '}' && (col.back != -1 || col.text != -1)))
+				i++;
+		}
+		else if (ft_strncmp(d->output + i, "eoc}", 4) == 0)
+			return (1);
+		else
+			return (0);
+	}
+	return (1);
+}
 
 int		iterating_through_output(t_data *data, int *printed_backslash, int i)
 {
@@ -30,7 +52,7 @@ int		iterating_through_output(t_data *data, int *printed_backslash, int i)
 		ft_putstr(data->last_color);
 		i++;
 	}
-	else
+	else if (data->output[i]/* && !(data->output[i] != '{' && check_if_color(data, i) == 1)*/)
 		ft_putchar(data->output[i++]);
 	return (i);
 }

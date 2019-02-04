@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 09:16:35 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 16:00:12 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,6 +70,7 @@ typedef struct				s_float
 typedef struct				s_tab
 {
 	char					**init_tab;
+	char					***tab;
 	int						**int_tab;
 	char					*res;
 	int						i;
@@ -152,7 +153,8 @@ char						*upper_t_conv_2(t_tab tab, t_data *data);
 char						*t_conv(va_list va, t_data *data);
 char						*t_conv_2(t_tab tab, t_data *data);
 void						t_conv_3(t_tab *tab, t_data *data);
-
+char						*upper_w_conv(va_list va, t_data *data);
+char						*upper_w_conv_2(t_tab *t, t_data *data);
 /*
 **		ADD_FLAGS.C
 */
@@ -209,6 +211,8 @@ int							handle_colors(t_data *data, int i, int tmp);
 int							search_color(int i, char *output, int usage);
 int							add_color_to_output(t_data *data, t_color col,
 							int i);
+int							check_color_code(t_data *d, t_color *col, int i,
+							int check);
 /*
 **		OTHERS.C 1 && 2
 */

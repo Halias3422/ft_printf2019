@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 14:56:11 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 10:16:19 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 15:28:39 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -61,7 +61,7 @@ char		*free_strjoin(char *str1, char *str2)
 
 int			check_non_valid_conv(t_data *data)
 {
-	if (data->conv == 0 && data->conv_type == 14)
+	if (data->conv == 0 && data->conv_type == 15)
 	{
 		while (--data->width > 0)
 			data->output = add_char_end_string(data->output, " ", 0);

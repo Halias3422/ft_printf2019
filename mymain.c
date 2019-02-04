@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 13:07:56 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 16:00:35 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,11 +80,11 @@ int			main(void)
 	int j2;
 	char c2 = 33;
 
-	int		test_part1 = 0;
-	int		test_part2 = 0;
-	int		test_part3 = 0;
-	int		test_part4 = 0;
-	int		test_bonus = 0;
+	int		test_part1 = 1;
+	int		test_part2 = 1;
+	int		test_part3 = 1;
+	int		test_part4 = 1;
+	int		test_bonus = 1;
 
 
 	int		**int_tab;
@@ -97,41 +97,6 @@ int			main(void)
 	int		m = -1;
 	int		n;
 	int		o;
-
-	example_triple = (char***)malloc(sizeof(char**) * 7);
-	example_triple[0] = ft_strsplit("voici la premiere ligne a imprimer", ' ');
-	example_triple[1] = ft_strsplit("la deuxieme ligne est un peu plus longue a ecrire", ' ');
-	example_triple[2] = ft_strsplit("la troisieme beauuuucoup moins", ' ');
-	example_triple[3] = ft_strsplit("4 eme plus de cases que les 3 d'avant mais ca marche un peu quand meme", ' ');
-	example_triple[4] = ft_strsplit("fin . . . . . . . . . . .", ' ');
-	example_triple[5] = ft_strsplit("-", ' ');
-	example_triple[6] = NULL;
-
-	printf("============== TRIPLE TAB =============\n");
-	while (example_triple[++m])
-	{
-		n = -1;
-		while (example_triple[m][++n])
-		{
-			o = -1;
-			while (example_triple[m][n][++o])
-				ft_putchar(example_triple[m][n][o]);
-			ft_putchar(' ');
-		}
-		ft_putchar('\n');
-	}
-	printf("=======================================\n");
-
-	m = -1;
-	while (example_triple[++m])
-	{
-		n = -1;
-		while (example_triple[m][++n])
-			free(example_triple[m][n]);
-		free(example_triple[m]);
-	}
-	free(example_triple);
-
 
 	if (test_part1 == 1)
 	{
@@ -1408,6 +1373,42 @@ int			main(void)
 		free(tab2), fflush(stdout);
 
 		ft_putstr("\033[32;41;5m		texte qui clignote !!!			\033[0m\n");
+
+	example_triple = (char***)malloc(sizeof(char**) * 7);
+	example_triple[0] = ft_strsplit("voici la premiere ligne a imprimer", ' ');
+	example_triple[1] = ft_strsplit("la deuxieme ligne est un peu plus longue a ecrire", ' ');
+	example_triple[2] = ft_strsplit("la troisieme beauuuucoup moins", ' ');
+	example_triple[3] = ft_strsplit("4 eme plus de cases que les 3 d'avant mais ca marche un peu quand meme", ' ');
+	example_triple[4] = ft_strsplit("fin . . . . . . . . . . .", ' ');
+	example_triple[5] = ft_strsplit("-", ' ');
+	example_triple[6] = NULL;
+
+	printf("============== TRIPLE TAB =============\n"), F;
+	while (example_triple[++m])
+	{
+		n = -1;
+		while (example_triple[m][++n])
+		{
+			o = -1;
+			while (example_triple[m][n][++o])
+				ft_putchar(example_triple[m][n][o]);
+			ft_putchar(' ');
+		}
+		ft_putchar('\n');
+	}
+	printf("=======================================\n"), F;
+	ft_printf("{F.I.B.U.T.grey.S.red.}%3.1W{eoc}{B.T.I.F.T.green.S.blue.}caca{eoc}", example_triple);
+	m = -1;
+	while (example_triple[++m])
+	{
+		n = -1;
+		while (example_triple[m][++n])
+			free(example_triple[m][n]);
+		free(example_triple[m]);
+	}
+	free(example_triple);
+
+
 	}
 	return (0);
 }
