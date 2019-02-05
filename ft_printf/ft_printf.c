@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 15:27:21 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 17:31:52 by rlegendr    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,6 @@ char				*fill_string_output(char *format, char *output, int i)
 	int				k;
 	int				initial_i;
 	char			*tmp;
-	char			*tmp2;
 
 	j = -1;
 	initial_i = i;
@@ -77,8 +76,6 @@ int					count_all_datas(char *format, int i)
 int					crossing_pourcent(char *format, t_data *data, int i,
 					va_list va)
 {
-	char			*tmp;
-
 	data->output = fill_string_output((char*)format, data->output, i);
 	while (format[i] && format[i] != '%')
 		i++;
@@ -99,7 +96,6 @@ int					ft_printf(const char *format, ...)
 {
 	va_list			va;
 	int				i;
-	int				output_len;
 	t_data			data;
 	int				final_len;
 

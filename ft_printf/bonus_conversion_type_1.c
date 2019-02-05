@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/30 13:49:55 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 09:17:14 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 17:28:14 by rlegendr    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,6 @@
 char		*split_binary(char *num, int i)
 {
 	int		j;
-	int		diff;
 	char	*res;
 	int		nb_bits;
 

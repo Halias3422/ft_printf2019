@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 16:00:12 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/05 13:45:19 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -93,6 +93,7 @@ typedef struct				s_color
 	int						blinking;
 	int						text;
 	int						back;
+	int						check;
 }							t_color;
 /*
 **		FT_PRINTF.C
@@ -123,8 +124,7 @@ char						*add_char_begin_string(char *dest, char *lett);
 **		ADD_CONVERSION.C
 */
 
-int							add_conv_2(t_data *data, char **arg, char *tmp,
-							char *output);
+int							add_conv_2(t_data *data, char **arg, char *output);
 char						*add_conversion_output(t_data *data, char *output,
 							va_list va, int tmp_args_nb);
 char						*conversion_type(t_data *data, va_list va);

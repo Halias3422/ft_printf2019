@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/29 10:52:01 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/02/04 13:29:32 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/02/05 14:06:14 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,9 +24,11 @@ PRINTF_OBJ = $(PRINTF_SRC:.c=.o)
 
 CC = @gcc
 
+MAIN = main_without_printf.c
+
 FLAGS = -Wall -Werror -Wextra
 
-CFLAGS = -I. -c
+CFLAGS = $(FLAGS) -I. -c
 
 OBJ_DIR = objects/
 
@@ -45,7 +47,7 @@ $(OBJ_DIR)%.o: %.c
 	$(CC) $(CFLAGS) $^
 
 exe : $(NAME)
-	@gcc -o $(EXE) -I. mymain.c $(NAME)
+	@gcc -o $(EXE) -I. $(MAIN) $(NAME)
 
 clean:
 	@rm -rf $(LIBFT_OBJ)

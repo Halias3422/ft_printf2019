@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:52:33 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/31 11:15:02 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/05 14:07:47 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,7 @@ char					*c_conv(va_list va, t_data *data)
 {
 	char				*letter;
 
+	data->code = NULL;
 	letter = ft_strnew(1);
 	letter[0] = va_arg(va, int);
 	letter[1] = '\0';
@@ -73,6 +74,7 @@ char					*d_conv(va_list va, t_data *data)
 	long long			nb;
 	char				*num;
 
+	nb = 0;
 	if (data->length[0] == '\0')
 		nb = va_arg(va, int);
 	else if (ft_strcmp(data->length, "h") == 0)
@@ -97,6 +99,7 @@ char					*u_conv(va_list va, t_data *data)
 	unsigned long long	nb;
 	char				*num;
 
+	nb = 0;
 	if (data->length[0] == '\0')
 		nb = va_arg(va, unsigned int);
 	else if (ft_strcmp(data->length, "hh") == 0)

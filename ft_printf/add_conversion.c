@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 13:14:09 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 13:47:20 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/05 14:08:18 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,13 +20,11 @@
 char		*conversion_type(t_data *data, va_list va)
 {
 	char	*(*conv_pt[14])(va_list, t_data *);
-	char	*arg;
-	char	*tmp;
 
 	if (data->conv_type == 14)
-		arg = pourcent_conv(data);
+		return (pourcent_conv(data));
 	else if (data->conv_type == 15)
-		return (arg);
+		return (NULL);
 	else
 	{
 		conv_pt[0] = &(c_conv);
@@ -42,12 +40,12 @@ char		*conversion_type(t_data *data, va_list va)
 		conv_pt[11] = &(upper_t_conv);
 		conv_pt[12] = &(t_conv);
 		conv_pt[13] = &(upper_w_conv);
-		arg = (*conv_pt[data->conv_type])(va, data);
+		return ((*conv_pt[data->conv_type])(va, data));
 	}
-	return (arg);
+	return (NULL);
 }
 
-int			add_conv_2(t_data *data, char **arg, char *tmp, char *output)
+int			add_conv_2(t_data *data, char **arg, char *output)
 {
 	int		tmp_args_nb;
 
@@ -65,7 +63,7 @@ int			add_conv_2(t_data *data, char **arg, char *tmp, char *output)
 }
 
 char		*add_conversion_output(t_data *data, char *output, va_list va,
-			int tmp_args_nb)
+		int tmp_args_nb)
 {
 	char	*arg;
 	char	*tmp;
@@ -77,12 +75,12 @@ char		*add_conversion_output(t_data *data, char *output, va_list va,
 		arg = conversion_type(data, va);
 	if (arg != NULL)
 	{
-		tmp_args_nb = add_conv_2(data, &arg, tmp, output);
+		tmp_args_nb = add_conv_2(data, &arg, output);
 		arg = add_flag_to_conv(*data, arg, -1);
 		tmp = output;
 		output = ft_strjoin(output, arg);
 		if (tmp_args_nb > 0 && (data->conv_type != 1 &&
-				ft_strcmp(arg, "(null)") != 0))
+					ft_strcmp(arg, "(null)") != 0))
 		{
 			data->tab_arg_nb[data->backslash] += (ft_strlen(output) -
 					data->tab_arg_nb[data->backslash]);

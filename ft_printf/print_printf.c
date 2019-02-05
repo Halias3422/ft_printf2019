@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/23 14:54:19 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 16:03:58 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/04 17:32:35 by rlegendr    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,8 +37,13 @@ int		check_if_color(t_data *d, int i)
 
 int		iterating_through_output(t_data *data, int *printed_backslash, int i)
 {
-	if (data->output[i] && data->output[i] == '{')
+	if (data->output[i] && data->output[i] == '{' &&
+		check_if_color(data, i + 1))
+	{
 		i = handle_colors(data, i + 1, i + 1);
+		if (data->output[i] == '}')
+			return (i + 1);
+	}
 	if (data->backslash > 0 && *printed_backslash <= data->backslash &&
 			*printed_backslash < data->args_nb &&
 			i == data->tab_arg_nb[*printed_backslash])
@@ -52,7 +57,7 @@ int		iterating_through_output(t_data *data, int *printed_backslash, int i)
 		ft_putstr(data->last_color);
 		i++;
 	}
-	else if (data->output[i]/* && !(data->output[i] != '{' && check_if_color(data, i) == 1)*/)
+	else if (data->output[i])
 		ft_putchar(data->output[i++]);
 	return (i);
 }
@@ -69,8 +74,8 @@ int		print_printf(t_data *data, int i)
 	while (data->output[i])
 		i = iterating_through_output(data, &printed_backslash, i);
 	if (printed_backslash < data->args_nb &&
-			data->tab_arg_nb[printed_backslash] == ft_strlen(data->output) &&
-			data->backslash > 0)
+		data->tab_arg_nb[printed_backslash] == (int)ft_strlen(data->output) &&
+		data->backslash > 0)
 	{
 		ft_putchar('\0');
 		backslash_last_pos++;

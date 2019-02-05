@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/02/04 07:54:54 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 16:00:17 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/05 13:45:52 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,7 +44,6 @@ void		add_color_code(t_data *data, t_color *col)
 
 int			add_color_to_output(t_data *data, t_color col, int i)
 {
-	char	*num;
 	int		j;
 
 	data->code = ft_strdup("\033[");
@@ -104,28 +103,27 @@ int			check_color_code(t_data *d, t_color *col, int i, int check)
 int			handle_colors(t_data *d, int i, int tmp)
 {
 	t_color	col;
-	int		check;
 
 	init_color(&col);
 	while (d->output[i] && d->output[i] != '}')
 	{
-		check = check_color_code(d, &col, i, 0);
+		col.check = check_color_code(d, &col, i, 0);
 		if (ft_strncmp(d->output + i, "eoc}", 4) == 0)
 		{
 			ft_putstr("\033[0m");
 			d->code = NULL;
-			return (i + 4);
+			return (i + 3);
 		}
-		else if (check == 0)
+		else if (col.check == 0)
 			return (tmp - 1);
-		if (check > 0)
+		if (col.check > 0)
 			i += 2;
 		while (((d->output[i] < 'A' || d->output[i] > 'Z') &&
 					d->output[i] != '}' && (col.back != -1 || col.text != -1)))
 			i++;
 	}
-	if (!d->output[i] || check == 0)
+	if (!d->output[i] || col.check == 0)
 		return (tmp - 1);
-	i = add_color_to_output(d, col, i + 1);
+	i = add_color_to_output(d, col, i);
 	return (i);
 }
