@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/06 08:22:18 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/06 09:02:01 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -217,11 +217,11 @@ int							check_color_code(t_data *d, t_color *col, int i,
 */
 
 t_data						*init_data(t_data *data);
-void						init_tab_arg_nb(t_data *data);
+long						*init_tab_arg_nb(t_data data);
 char						*free_strjoin(char *str1, char *str2);
 int							check_non_valid_conv(t_data *data);
 void						free_data(t_data *data, int usage);
 void						init_color(t_color *col);
-void						print_usage();
+void						print_usage_ft_printf();
 
 #endif

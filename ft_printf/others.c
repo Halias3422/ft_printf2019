@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 14:56:11 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/05 13:31:09 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/06 08:54:15 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,18 +35,19 @@ t_data		*init_data(t_data *data)
 	return (data);
 }
 
-void		init_tab_arg_nb(t_data *data)
+long		*init_tab_arg_nb(t_data data)
 {
 	int		i;
 
 	i = 0;
-	if (!(data->tab_arg_nb = (long*)malloc(sizeof(long) * data->args_nb)))
-		exit(-1);
-	while (i < data->args_nb)
+	if (!(data.tab_arg_nb = (long*)malloc(sizeof(long) * data.args_nb)))
+		return (NULL);
+	while (i < data.args_nb)
 	{
-		data->tab_arg_nb[i] = -1;
+		data.tab_arg_nb[i] = -1;
 		i++;
 	}
+	return (data.tab_arg_nb);
 }
 
 char		*free_strjoin(char *str1, char *str2)

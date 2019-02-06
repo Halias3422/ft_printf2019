@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/09 07:45:36 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/06 08:24:24 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/06 08:54:14 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -107,7 +107,7 @@ int					ft_printf(const char *format, ...)
 		if (format[i] == '%')
 			data.args_nb++;
 	}
-	init_tab_arg_nb(&data);
+	data.tab_arg_nb = init_tab_arg_nb(data);
 	i = 0;
 	data.output = ft_strnew(0);
 	va_start(va, format);
