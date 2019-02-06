@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/11 10:51:52 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 17:39:11 by rlegendr    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/06 09:23:24 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,9 +69,7 @@ char					*upper_x_conv(va_list va, t_data *data)
 {
 	unsigned long long	nb;
 	char				*num;
-	int					i;
 
-	i = -1;
 	nb = 0;
 	if (data->length[0] == '\0')
 		nb = va_arg(va, unsigned int);
