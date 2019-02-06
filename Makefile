@@ -6,7 +6,7 @@
 #    By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/01/29 10:52:01 by vde-sain     #+#   ##    ##    #+#        #
-#    Updated: 2019/02/05 14:06:14 by vde-sain    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/02/05 14:26:51 by vde-sain    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,7 +24,7 @@ PRINTF_OBJ = $(PRINTF_SRC:.c=.o)
 
 CC = @gcc
 
-MAIN = main_without_printf.c
+MAIN = mymain.c
 
 FLAGS = -Wall -Werror -Wextra
 

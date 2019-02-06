@@ -6,7 +6,7 @@
 /*   By: dcoat <marvin@le-101.fr>                   +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 19:51:31 by dcoat        #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/05 13:45:19 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/06 08:22:18 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
 # include "libft.h"
 
 /*
@@ -223,5 +222,6 @@ char						*free_strjoin(char *str1, char *str2);
 int							check_non_valid_conv(t_data *data);
 void						free_data(t_data *data, int usage);
 void						init_color(t_color *col);
+void						print_usage();
 
 #endif

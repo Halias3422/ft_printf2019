@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/04 17:21:23 by rlegendr    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/06 08:24:39 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,6 +14,7 @@
 #include "ft_printf.h"
 #include <math.h>
 #include <limits.h>
+#include <stdio.h>
 
 #define F fflush(stdout)
 
@@ -98,7 +99,6 @@ int			main(void)
 	int		n;
 	int		o;
 
-ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}caca{eoc}{B.T.yellow.}on retest{eoc}\n");
 
 	if (test_part1 == 1)
 	{
@@ -604,11 +604,6 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		ft_printf("f - /% +10.5hZhdoooo/\n", 42);
 
 		printf("valeur de retour = %d\n", printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0)), F;
-		ft_putstr("1er\n");
-		ft_printf("%.o", 0);
-		ft_putstr("\n2 eme \n");
-		ft_printf("%.0o",0);
-		ft_putstr("\nfin\n");
 		ft_printf("valeur de retour = %d\n", ft_printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0));
 
 		printf("v- /%f/ -- /%f/ -- /%f/ -- /%f/ -- /%f/ -- \n/%lf/\n", 0.0, 2147483647.1234567891011, -2147483648.1234567891011, -1.0, 50.0, -9223372036854775807.0), F;
@@ -1112,8 +1107,6 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		printf("v- moins et size < accu /%-20.30s/\n", t_s), F;
 		ft_printf("f- moins et size < accu /%-20.30s/\n", t_s);
 
-		ft_printf("123456789abcdefghijklmnopqrstuvwxyz");
-
 		// RETURNED INT
 
 
@@ -1133,7 +1126,7 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		printf("check des hexa plus dur : %x /-/ %x /-/ %lx /-/ %x\n", 2147483647, -2147483647, 2147483656, -1), F;
 
 
-		printf("\n\n Test on %f\nTESTS FLAG HASH\n"), F;
+		printf("\n\n Test on %%f\nTESTS FLAG HASH\n"), F;
 		printf("v- rien /%f/\n", t_fl), F;
 		ft_printf("f- rien /%f/\n", t_fl);
 		printf("v- seul /%#f/\n", t_fl), F;
@@ -1289,7 +1282,11 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		printf("v- space et zero avec size < accu /% 05.10f/\n", t_fl), F;
 		ft_printf("f- space et zero avec size < accu /% 05.10f/\n", t_fl);
 		printf("v- space et zero avec size = accu /% 010.10f/\n", t_fl), F;
-		ft_printf("f- space et zero avec size = accu /% 010.10f/\n", t_fl);
+		ft_printf("f- space et zero avec size = accu /% 010.10f/\n\n", t_fl);
+
+		printf("%%%%%%%\n"), F;
+		ft_printf("%%%%%%%");
+		printf("\n\n");
 	}
 	if (test_bonus == 1)
 	{
@@ -1307,7 +1304,6 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		ft_printf("/%hhb/\n", 2147483647);
 		ft_printf("/%hb/\n", 2147483647);
 		ft_printf("/%lb/\n", 2147483647);
-		ft_printf("/%b/\n", 2147483647);
 		ft_printf("/%b/\n", -1);
 		ft_printf("/%b/\n", 42);
 
@@ -1399,7 +1395,7 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		ft_putchar('\n');
 	}
 	printf("=======================================\n"), F;
-	ft_printf("{F.I.B.U.T.grey.S.red.}%3.1W{eoc}{B.T.I.F.T.green.S.blue.}caca{eoc}{B.T.yellow.}on retest", example_triple);
+	ft_printf("{F.I.B.U.T.grey.S.red.}%3.1W{eoc}{B.T.I.F.T.green.S.blue.}test{eoc}{B.T.yellow.}on retest", example_triple);
 	m = -1;
 	while (example_triple[++m])
 	{
@@ -1409,7 +1405,6 @@ ft_printf("{B.T.cyan.}{U.}{eoc}{I.T.green.}bonjour{eoc}{B.T.I.F.T.green.S.blue.}
 		free(example_triple[m]);
 	}
 	free(example_triple);
-
 
 	}
 	return (0);

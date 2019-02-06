@@ -6,7 +6,7 @@
 /*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/02/04 07:54:54 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/05 13:45:52 by vde-sain    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/05 14:26:11 by vde-sain    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,21 +64,21 @@ int			search_color(int i, char *output, int usage)
 	int		tmp;
 
 	tmp = -1;
-	if (strncmp(output + i, "grey.", 5) == 0)
+	if (ft_strncmp(output + i, "grey.", 5) == 0)
 		tmp = usage == 0 ? 40 : 30;
-	if (strncmp(output + i, "red.", 4) == 0)
+	if (ft_strncmp(output + i, "red.", 4) == 0)
 		tmp = usage == 0 ? 41 : 31;
-	if (strncmp(output + i, "green.", 6) == 0)
+	if (ft_strncmp(output + i, "green.", 6) == 0)
 		tmp = usage == 0 ? 42 : 32;
-	if (strncmp(output + i, "yellow.", 7) == 0)
+	if (ft_strncmp(output + i, "yellow.", 7) == 0)
 		tmp = usage == 0 ? 43 : 33;
-	if (strncmp(output + i, "blue.", 5) == 0)
+	if (ft_strncmp(output + i, "blue.", 5) == 0)
 		tmp = usage == 0 ? 44 : 34;
-	if (strncmp(output + i, "purple.", 7) == 0)
+	if (ft_strncmp(output + i, "purple.", 7) == 0)
 		tmp = usage == 0 ? 45 : 35;
-	if (strncmp(output + i, "cyan.", 5) == 0)
+	if (ft_strncmp(output + i, "cyan.", 5) == 0)
 		tmp = usage == 0 ? 46 : 36;
-	if (strncmp(output + i, "white.", 6) == 0)
+	if (ft_strncmp(output + i, "white.", 6) == 0)
 		tmp = usage == 0 ? 47 : 37;
 	return (tmp);
 }
