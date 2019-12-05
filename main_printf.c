@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: vde-sain <marvin@le-101.fr>                +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/01/07 20:12:08 by vde-sain     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/06 09:05:16 by vde-sain    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 #include <math.h>
 #include <limits.h>
@@ -104,8 +91,8 @@ int			main(void)
 	{
 		// D TESTS
 
-		printf("printf =    Test du %%%d, %s%%\n", 10, "hello"), F;
-		ft_printf("ft_printf = Test du %%%d, %s%%\n\n\n", 10, "hello");
+		printf("ft_printf =    Test du %%%d, %s%%\n", 10, "hello"), F;
+		printf("ft_printf = Test du %%%d, %s%%\n\n\n", 10, "hello");
 
 
 		printf("		TEST OF d\n\n"), F;
@@ -377,20 +364,20 @@ int			main(void)
 
 		//		TESTS hh
 
-		printf("printf =    Test avec (hd) %hd test sans %d\n",457845, 457845), F;
+		printf("printf    =    Test avec (hd) %hd test sans %d\n",457845, 457845), F;
 		ft_printf("ft_printf = Test avec (hd) %hd test sans %d\n\n\n", 457845, 457845);
 
-		printf("printf =    Test avec (hhd) %hhd test sans %d\n", 457845, 457845), F;
+		printf("printf    =    Test avec (hhd) %hhd test sans %d\n", 457845, 457845), F;
 		ft_printf("ft_printf = Test avec (hhd) %hhd test sans %d\n\n\n", 457845, 457845);
 
-		printf("printf =    Test avec (ld) %ld test sans %d\n",  4578453259999999999, 4578453259), F;
+		printf("printf    =    Test avec (ld) %ld test sans %d\n",  4578453259999999999, 4578453259), F;
 		ft_printf("ft_printf = Test avec (ld) %ld test sans %d\n\n\n",  4578453259999999999, 4578453259);
 
-		printf("printf =    Test avec (lld) %lld test sans %d\n",  4578453259999999999, 4578453259), F;
+		printf("printf    =    Test avec (lld) %lld test sans %d\n",  4578453259999999999, 4578453259), F;
 		ft_printf("ft_printf = Test avec (lld) %lld test sans %d\n\n\n",  4578453259999999999, 4578453259);
 
 		printf("printf =    Test avec (ho) %ho test sans %o\n",457845, 457845), F;
-		ft_printf("ft_printf = Test avec (hd) %ho test sans %o\n\n\n", 457845, 457845);
+		printf("ft_printf = Test avec (hd) %ho test sans %o\n\n\n", 457845, 457845);
 
 		printf("printf =    Test avec (hhd) %hho test sans %o\n", 457845, 457845), F;
 		ft_printf("ft_printf = Test avec (hhd) %hho test sans %o\n\n\n", 457845, 457845);
@@ -447,7 +434,7 @@ int			main(void)
 	//  ------------------------ ANCIENNE PARTIE 1 ------------------------------------
 	if (test_part2 == 1)
 	{
-		ft_printf("lalalalala %d\n", 10);
+		printf("lalalalala %d\n", 10);
 		printf("v- /%5%/\n"), F;
 		ft_printf("f- /%5%/\n");
 		printf("v- /%-5%/\n"), F;
@@ -526,7 +513,7 @@ int			main(void)
 		ft_printf("f- /%+u/\n", 4294967295);
 
 		printf("-->"), F;
-		printf(" ==> [%d] ", printf("%")), F;
+		printf(" ==> [%d] ", ft_printf("%")), F;
 		printf("<--\n"), F;
 		printf("-->"), F;
 		printf(" ==> [%d] ", ft_printf("%")), F;
@@ -548,18 +535,18 @@ int			main(void)
 		printf("v - bonjour /%c/ ca va /%c/ ?\n", 0, 0), F;
 		ft_printf("f - bonjour /%c/ ca va /%c/ ?\n", 0, 0);
 
-		printf(" --> [%d]\n", printf("v - {%c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f - {%c}", 0));
-		printf(" --> [%d]\n", printf("v- {%3c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {%3c}", 0));
-		printf(" --> [%d]\n", printf("v- {%03c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {%03c}", 0));
-		printf(" --> [%d]\n", printf("v- {%+c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {%+c}", 0));
-		printf(" --> [%d]\n", printf("v- {% c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
-		printf(" --> [%d]\n", printf("v - {%05.c}", 0)), F;
-		printf(" --> [%d]\n", ft_printf("f - {%05.c}", 0));
+		printf(" --> [%d]\n", ft_printf("v - {%c}", 0)), F;
+		ft_printf(" --> [%d]\n", ft_printf("f - {%c}", 0));
+		printf(" --> [%d]\n", ft_printf("v- {%3c}", 0)), F;
+		ft_printf(" --> [%d]\n", ft_printf("f- {%3c}", 0));
+		printf(" --> [%d]\n", ft_printf("v- {%03c}", 0)), F;
+		ft_printf(" --> [%d]\n", ft_printf("f- {%03c}", 0));
+		printf(" --> [%d]\n", ft_printf("v- {%+c}", 0)), F;
+		ft_printf(" --> [%d]\n", ft_printf("f- {%+c}", 0));
+		printf(" --> [%d]\n", ft_printf("v- {% c}", 0)), F;
+		ft_printf(" --> [%d]\n", ft_printf("f- {% c}", 0));
+		printf(" --> [%d]\n", ft_printf("v - {%05.c}", 0)), F;
+		ft_printf(" --> [%d]\n", ft_printf("f - {%05.c}", 0));
 
 		printf("v - {%s}\n", 0), F;
 		ft_printf("f - {%s}\n", 0);
@@ -603,7 +590,7 @@ int			main(void)
 		printf("v - /% +10.5hZhdoooo/\n", 42), fflush(stdout);
 		ft_printf("f - /% +10.5hZhdoooo/\n", 42);
 
-		printf("valeur de retour = %d\n", printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0)), F;
+		printf("valeur de retour = %d\n", ft_printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0)), F;
 		ft_printf("valeur de retour = %d\n", ft_printf("@moulitest: ->%.o<- ->%.0o<-/\n", 0, 0));
 
 		printf("v- /%f/ -- /%f/ -- /%f/ -- /%f/ -- /%f/ -- \n/%lf/\n", 0.0, 2147483647.1234567891011, -2147483648.1234567891011, -1.0, 50.0, -9223372036854775807.0), F;
@@ -699,7 +686,7 @@ int			main(void)
 		// sur les %x
 
 		printf("\n\nSUR LES x\n"), F;
-		printf("\nTEST VALEUR SHORT SUR CONVERSION x\n"), F;
+		ft_printf("\nTEST VALEUR SHORT SUR CONVERSION x\n"), F;
 		printf("zeroshort = %hx // short1 = %hx // short2 = %hx // short_max = %hx // short_min = %hx\n", zeroshort, short1, short2, short_max, short_min), F;
 		ft_printf("zeroshort = %hx // short1 = %hx // short2 = %hx // short_max = %hx // short_min = %hx\n", zeroshort, short1, short2, short_max, short_min);
 
@@ -740,10 +727,10 @@ int			main(void)
 		printf("\n\nSUR LES f\n"), F;
 
 
-		printf("valeur ==>[%d] -- \n", printf("/%-+10f/", crash_float)), F;
 		printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float)), F;
-		printf("valeur ==>[%d] -- \n", printf("/%-+10f/", crash_float2)), F;
+		ft_printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float)), F;
 		printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float2)), F;
+		ft_printf("valeur ==>[%d] -- \n", ft_printf("/%-+10f/", crash_float2)), F;
 
 		printf("/%-+10f/\n", crash_float), F;
 		ft_printf("/%-+10f/\n\n", crash_float);
@@ -809,7 +796,7 @@ int			main(void)
 		ft_printf("f- seul /%#o/\n", t_o);
 		printf("v- avec size /%#10o/\n", t_o), F;
 		ft_printf("f- avec size /%#10o/\n", t_o);
-		printf("v- size > accu /%#10.5o/\n", t_o), F;
+		_printf("v- size > accu /%#10.5o/\n", t_o), F;
 		ft_printf("f- size > accu /%#10.5o/\n", t_o);
 		printf("v- size < accu /%#5.10o/\n", t_o), F;
 		ft_printf("f- size < accu /%#5.10o/\n", t_o);
@@ -1113,7 +1100,7 @@ int			main(void)
 		pointer_test = "bonjour";
 
 		ft_printf("nombre rendu = |%d|\n", ft_printf("\n\nbonjour je rends un nombre %+d %+-d %10.5d hahahah\n", 42, 43, 44));
-		printf("nombre rendu = |%d|\n", printf("\n\nbonjour je rends un nombre %+d %+-d %10.5d hahahah\n", 42, 43, 44)), F;
+		printf("nombre rendu = |%d|\n", ft_printf("\n\nbonjour je rends un nombre %+d %+-d %10.5d hahahah\n", 42, 43, 44)), F;
 
 
 		ft_printf("%x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x / %x \n", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
@@ -1286,7 +1273,7 @@ int			main(void)
 
 		printf("%%%%%%%\n"), F;
 		ft_printf("%%%%%%%");
-		printf("\n\n");
+		ft_printf("\n\n");
 	}
 	if (test_bonus == 1)
 	{
@@ -1329,7 +1316,7 @@ int			main(void)
 			fill_case = -1;
 			while (++fill_case < 10)
 			{
-				printf("%d", int_tab[fill_tab][fill_case]), fflush(stdout);
+				ft_printf("%d", int_tab[fill_tab][fill_case]), fflush(stdout);
 				ft_putchar(' ');
 			}
 			ft_putchar('\n');
@@ -1381,7 +1368,7 @@ int			main(void)
 	example_triple[5] = ft_strsplit("-", ' ');
 	example_triple[6] = NULL;
 
-	printf("============== TRIPLE TAB =============\n"), F;
+	ft_printf("============== TRIPLE TAB =============\n"), F;
 	while (example_triple[++m])
 	{
 		n = -1;
@@ -1394,8 +1381,9 @@ int			main(void)
 		}
 		ft_putchar('\n');
 	}
-	printf("=======================================\n"), F;
+	ft_printf("=======================================\n"), F;
 	ft_printf("{F.I.B.U.T.grey.S.red.}%3.1W{eoc}{B.T.I.F.T.green.S.blue.}test{eoc}{B.T.yellow.}on retest", example_triple);
+	ft_printf("test du {T.blue.}bleu\n");
 	m = -1;
 	while (example_triple[++m])
 	{
@@ -1407,7 +1395,8 @@ int			main(void)
 	free(example_triple);
 	
 	print_usage_ft_printf();
-
 	}
+	ft_printf("TEST --> %-5.3Zonjour\n");
+	ft_printf("TEST --> %-5.3Zonjour\n");
 	return (0);
 }
